@@ -1,5 +1,11 @@
 # DPI–AI Governance Artifacts
 
+![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
+![Version](https://img.shields.io/badge/version-v0.1.0-green)
+![Governance-Artifacts](https://img.shields.io/badge/type-governance--artifacts-orange)
+
+
+
 A lightweight, evolving repository of governance-ready artifacts (risk matrices, scoring models, control surfaces, templates) for DPI + AI systems. Designed to be periodically extended as new analyses and reusable building blocks are produced.
 
 
@@ -20,3 +26,11 @@ Contact: sankarshan@qbfconsulting.digital
 ## License
 
 All materials in this repository are licensed under **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** unless noted otherwise. See `LICENSE.md`.
+
+## Repository Structure
+
+- `/artifacts` – Published governance artifacts
+- `/templates` – Reusable governance templates
+- `/schemas` – Machine-readable control and conformance models
+- `CITATION.cff` – Citation metadata
+- `CHANGELOG.md` – Versioned change tracking
