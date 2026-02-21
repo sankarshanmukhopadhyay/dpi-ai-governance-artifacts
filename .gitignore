@@ -1,0 +1,11 @@
+# OS / editor
+.DS_Store
+*.swp
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+
+# Archives
+*.zip
