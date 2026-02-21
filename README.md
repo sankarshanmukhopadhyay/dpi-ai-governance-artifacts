@@ -2,6 +2,10 @@
 
 A lightweight, evolving repository of governance-ready artifacts (risk matrices, scoring models, control surfaces, templates) for DPI + AI systems. Designed to be periodically extended as new analyses and reusable building blocks are produced.
 
+
+## Version
+
+Current release: **v0.1.0** (Baseline governance artifact set)
 ## What's inside
 
 - `artifacts/dpi-ai-risk-scoring-matrix.md` — DPI–AI Risk Scoring Matrix and tier-to-governance binding model.
