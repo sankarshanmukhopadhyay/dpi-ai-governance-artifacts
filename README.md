@@ -1,7 +1,7 @@
 # DPI–AI Governance Artifacts
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Version](https://img.shields.io/badge/version-v0.3.0-green)
+![Version](https://img.shields.io/badge/version-v0.4.0-green)
 ![Type](https://img.shields.io/badge/type-governance--artifacts-orange)
 
 A lightweight, evolving repository of governance-ready artifacts for DPI + AI systems.
@@ -23,7 +23,7 @@ This repository is **not** affiliated with or endorsed by the author/publisher o
 
 ## Version
 
-Current release: **v0.3.0** (Minimum Digital Kernel + Meta-Governance Operational Pack)
+Current release: **v0.4.0** (Minimum Digital Kernel + Meta-Governance Operational Pack)
 
 ## What is inside
 
@@ -69,6 +69,18 @@ Current release: **v0.3.0** (Minimum Digital Kernel + Meta-Governance Operationa
 2. Adopt `schemas/decision-receipt.schema.json` as a procurement and implementation requirement for consequential decisions.
 3. Use `conformance/mdk-tier-profile.md` to map risk tiers to mandatory kernel primitives.
 4. Plug in the templates under `templates/` to standardize audits, registry corrections, and appeals.
+
+
+## Validation (schemas + examples)
+
+This repository ships with **examples** and **test vectors** that are validated in CI.
+
+Run locally:
+
+```bash
+python -m pip install jsonschema
+python tools/validate_schemas.py
+```
 
 ## Repository structure
 - `/artifacts` 

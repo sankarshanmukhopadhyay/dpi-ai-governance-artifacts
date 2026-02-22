@@ -1,0 +1,50 @@
+{
+  "review_id": "OVR-2026-00011",
+  "reviewed_body": "AUTH-AUD-01",
+  "reviewing_body": "AUTH-OVS-01",
+  "scope": [
+    "process_quality",
+    "independence",
+    "sla_compliance"
+  ],
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-01-31"
+  },
+  "independence": {
+    "funding_source": "Public budget allocation",
+    "conflict_of_interest_declared": false,
+    "independence_assessment": "No material conflicts identified; reviewer is structurally separate from implementer and registry operator.",
+    "independence_score": 0.9
+  },
+  "methods": {
+    "standard": "Internal oversight protocol v1",
+    "sampling": "Stratified sampling of tier2/tier3 cases",
+    "evidence_types": [
+      "receipts",
+      "appeal_records",
+      "audit_findings"
+    ]
+  },
+  "outcomes": {
+    "findings": [
+      "Appeal denials lacked rationale in 2 sampled cases.",
+      "Tier 2 receipts missing subject were observed pre-fix."
+    ],
+    "recommendations": [
+      "Enforce rationale requirement at schema and process level.",
+      "Adopt CI schema validation and example suite."
+    ],
+    "actions": [
+      "Publish corrective action plan within 30 days."
+    ]
+  },
+  "status": "issued",
+  "signatures": [
+    {
+      "signer": "AUTH-OVS-01",
+      "signature": "BASE64URLSIG",
+      "timestamp": "2026-02-22T12:00:00Z"
+    }
+  ]
+}

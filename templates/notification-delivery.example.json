@@ -1,0 +1,19 @@
+{
+  "notification_id": "NTF-2026-00022",
+  "trigger_ref": "GTR-2026-00004",
+  "incident_ref": "INC-2026-00001",
+  "channel": "email",
+  "recipient": {
+    "subject_ref": "SUB-12345",
+    "endpoint": "mailto:applicant@example.org"
+  },
+  "attempted_at": "2026-02-22T12:00:00Z",
+  "delivery_status": "sent",
+  "provider": "example-mailer",
+  "provider_message_id": "msg-778899",
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "did:example:ops#key-1",
+    "value": "BASE64URLSIG"
+  }
+}

@@ -5,30 +5,100 @@
   "description": "Response to a registry correction request, including acceptance, denial, or need for more information.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["request_id", "responded_at", "status"],
+  "required": [
+    "request_id",
+    "responded_at",
+    "status"
+  ],
   "properties": {
-    "request_id": { "type": "string" },
-    "responded_at": { "type": "string", "format": "date-time" },
-    "status": { "type": "string", "enum": ["accepted", "denied", "needs_more_info", "in_progress"] },
+    "request_id": {
+      "type": "string"
+    },
+    "responded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "denied",
+        "needs_more_info",
+        "in_progress"
+      ]
+    },
     "decision": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "decision_reason": { "type": "string" },
-        "reason_codes": { "type": "array", "items": { "type": "string" } }
+        "decision_reason": {
+          "type": "string"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-    "updated_record_ref": { "type": "string" },
-    "effective_at": { "type": "string", "format": "date-time" },
+    "updated_record_ref": {
+      "type": "string"
+    },
+    "effective_at": {
+      "type": "string",
+      "format": "date-time"
+    },
     "signature": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["alg", "kid", "value"],
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
       "properties": {
-        "alg": { "type": "string" },
-        "kid": { "type": "string" },
-        "value": { "type": "string" }
+        "alg": {
+          "type": "string"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "denied"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "decision"
+        ],
+        "properties": {
+          "decision": {
+            "required": [
+              "reason_codes"
+            ],
+            "properties": {
+              "reason_codes": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -172,9 +172,30 @@
           "description": "Oversight role (e.g., review_appeals, approve_changes, audit_auditors)."
         },
         "endpoints": {
-          "type": "object",
-          "additionalProperties": true,
-          "description": "Optional discovery endpoints for the oversight body."
+          "type": "array",
+          "description": "Optional discovery endpoints for the oversight body.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "url"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Endpoint type, for example oversight_reviews, audits, transparency, public_keys."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "signed_responses": {
+                "type": "boolean",
+                "description": "Whether responses from this endpoint are expected to be signed."
+              }
+            }
+          }
         }
       }
     },

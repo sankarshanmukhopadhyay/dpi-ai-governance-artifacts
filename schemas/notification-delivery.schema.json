@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/notification-delivery.schema.json",
+  "title": "Notification Delivery Record",
+  "description": "Delivery record for governance notifications (appeal updates, correction responses, incident notices, recompute advisories).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "notification_id",
+    "trigger_ref",
+    "channel",
+    "delivery_status",
+    "attempted_at"
+  ],
+  "properties": {
+    "notification_id": {
+      "type": "string"
+    },
+    "trigger_ref": {
+      "type": "string",
+      "description": "Reference to the trigger/event that caused this notification."
+    },
+    "incident_ref": {
+      "type": "string"
+    },
+    "receipt_ref": {
+      "type": "string"
+    },
+    "request_ref": {
+      "type": "string",
+      "description": "Correction request id or appeal filing id."
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "email",
+        "sms",
+        "in_app",
+        "letter",
+        "webhook",
+        "other"
+      ]
+    },
+    "recipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject_ref": {
+          "type": "string"
+        },
+        "contact_ref": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "attempted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "delivered_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "delivery_status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "sent",
+        "delivered",
+        "failed",
+        "bounced",
+        "unknown"
+      ]
+    },
+    "provider": {
+      "type": "string"
+    },
+    "provider_message_id": {
+      "type": "string"
+    },
+    "ack_ref": {
+      "type": "string",
+      "description": "Optional reference to an acknowledgement artifact."
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
+      "properties": {
+        "alg": {
+          "type": "string"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

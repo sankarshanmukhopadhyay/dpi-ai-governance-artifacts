@@ -1,10 +1,21 @@
-# Rulebook test vectors
+# Rulebook Test Vectors
 
-This folder is a scaffold for publishing test vectors for rulebooks.
+This directory contains **validation test vectors** for the schemas in this repository.
 
-Recommended layout per rulebook version:
+## Current coverage
 
-- `vectors/<rulebook_id>/<version>/inputs.json`
-- `vectors/<rulebook_id>/<version>/expected.json`
+- `decision-receipt/valid/*` — known-good receipts (including tier-conditioned requirements)
+- `decision-receipt/invalid/*` — negative tests intended to fail schema validation
 
-A rulebook manifest should reference the vector set and expected results.
+## How to run
+
+Use the repository validator:
+
+```bash
+python tools/validate_schemas.py
+```
+
+The validator checks:
+- `templates/*.example.json` against `schemas/*.schema.json`
+- `rulebook-test-vectors/**.json` against the relevant schema(s)
+

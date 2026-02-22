@@ -1,0 +1,25 @@
+{
+  "trigger_id": "GTR-2026-00004",
+  "name": "Data quality incident escalation",
+  "signal": {
+    "type": "incident",
+    "source": "ops-monitoring",
+    "metric": "stale_registry_feed"
+  },
+  "threshold": {
+    "operator": ">=",
+    "value": 1,
+    "window": "7d"
+  },
+  "action": {
+    "type": "recompute",
+    "target": "svc-benefits",
+    "playbook_ref": "docs/playbooks/recompute-after-incident.md"
+  },
+  "severity": "high",
+  "owner": "AUTH-OVS-01",
+  "status": "active",
+  "metadata": {
+    "incident_ref": "INC-2026-00001"
+  }
+}

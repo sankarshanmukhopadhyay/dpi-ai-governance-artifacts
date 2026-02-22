@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "codes": {
     "RC_ELIGIBLE": {
       "label": "Eligible",
@@ -7,11 +7,65 @@
       "severity": "info",
       "remedy_hint": "None"
     },
+    "RC_INELIGIBLE_POLICY": {
+      "label": "Ineligible (policy)",
+      "description": "Rulebook evaluation determined the subject does not meet policy eligibility criteria.",
+      "severity": "blocking",
+      "remedy_hint": "Review eligibility criteria; if criteria were misapplied, file an appeal with supporting evidence."
+    },
+    "RC_DATA_MISSING": {
+      "label": "Missing required data",
+      "description": "A mandatory input fact was missing or unavailable at decision time.",
+      "severity": "blocking",
+      "remedy_hint": "Provide the missing documentation or request registry correction if the source record is incomplete."
+    },
+    "RC_DATA_STALE": {
+      "label": "Stale data used",
+      "description": "Input facts were older than the rulebook freshness window.",
+      "severity": "warning",
+      "remedy_hint": "Trigger recompute after registry refresh; notify subject if outcome may change."
+    },
+    "RC_IDENTITY_UNVERIFIED": {
+      "label": "Identity not verified",
+      "description": "Identity proofing level was insufficient for the requested action.",
+      "severity": "blocking",
+      "remedy_hint": "Complete the required identity verification step and resubmit."
+    },
+    "RC_FRAUD_SIGNAL": {
+      "label": "Fraud signal detected",
+      "description": "A fraud or anomaly signal exceeded the configured threshold for review.",
+      "severity": "warning",
+      "remedy_hint": "Escalate to manual review; provide subject an appeal channel if adverse action is taken."
+    },
+    "RC_MODEL_LIMITATION": {
+      "label": "Model limitation",
+      "description": "A known model limitation or fairness constraint prevented automated determination.",
+      "severity": "warning",
+      "remedy_hint": "Route to human review or apply alternative rulebook path."
+    },
+    "RC_MANUAL_OVERRIDE": {
+      "label": "Manual override applied",
+      "description": "Outcome was produced via authorized human override under governance controls.",
+      "severity": "info",
+      "remedy_hint": "Ensure override justification is recorded and auditable."
+    },
+    "RC_RATE_LIMITED": {
+      "label": "Rate limited",
+      "description": "Service declined request due to rate limiting or abuse protection.",
+      "severity": "error",
+      "remedy_hint": "Retry after backoff; contact service desk if persistent."
+    },
     "RC_ADDRESS_MISMATCH": {
       "label": "Address mismatch",
       "description": "The address facts evaluated did not match the service requirement.",
       "severity": "blocking",
       "remedy_hint": "Verify the address registry entry and submit a correction request if needed."
+    },
+    "RC_EVIDENCE_INSUFFICIENT": {
+      "label": "Insufficient evidence",
+      "description": "Submitted evidence was insufficient to approve the requested correction or appeal.",
+      "severity": "blocking",
+      "remedy_hint": "Submit additional evidence or request an independent review if available."
     },
     "RC_PRIORITY_ASSIGNED": {
       "label": "Priority assigned",

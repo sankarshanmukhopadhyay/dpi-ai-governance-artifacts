@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/tier0-log-entry.schema.json",
+  "title": "Tier 0 Log Entry",
+  "description": "Minimum portable logging record for Tier 0 decisions (non-consequential) to support audit sampling and operational monitoring.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "timestamp",
+    "service_id",
+    "rulebook",
+    "outcome_code",
+    "trace_id"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "rulebook": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rulebook_id",
+        "version"
+      ],
+      "properties": {
+        "rulebook_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "inputs_hash": {
+      "type": "string",
+      "description": "Hash of canonicalized input references, if available."
+    },
+    "outcome_code": {
+      "type": "string",
+      "description": "Compact code indicating the outcome class."
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "receipt_ref": {
+      "type": "string",
+      "description": "Optional reference to a decision receipt when one is produced."
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
+      "properties": {
+        "alg": {
+          "type": "string"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

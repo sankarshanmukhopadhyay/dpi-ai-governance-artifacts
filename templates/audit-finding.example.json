@@ -1,0 +1,38 @@
+{
+  "finding_id": "AUD-2026-00007",
+  "issued_at": "2026-02-22T12:00:00Z",
+  "auditor": {
+    "authority_id": "AUTH-AUD-01",
+    "directory_ref": "AUTH-DIR-01"
+  },
+  "scope": {
+    "service_id": "svc-benefits",
+    "rulebook_refs": [
+      "rb-benefits@2.3.0"
+    ],
+    "time_window": "2026-01"
+  },
+  "severity": "high",
+  "finding": {
+    "summary": "Tier 2 receipts were issued without subject references in 3/120 samples.",
+    "evidence_refs": [
+      "SAMPLESET-2026-01"
+    ],
+    "affected_receipt_refs": [
+      "RCP-2026-00042"
+    ],
+    "root_cause": "Receipt issuance pipeline did not enforce tier-conditioned requirements."
+  },
+  "remediation": [
+    {
+      "action": "Enforce subject requirement for tier2/tier3 receipts at schema + issuance layer.",
+      "due_by": "2026-03-15",
+      "verification_method": "CI validation + audit resampling"
+    }
+  ],
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "did:example:auditor#key-1",
+    "value": "BASE64URLSIG"
+  }
+}

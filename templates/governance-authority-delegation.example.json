@@ -1,0 +1,39 @@
+{
+  "delegation_id": "DEL-2026-00002",
+  "authority_id": "AUTH-AGY-99",
+  "delegated_by": "AUTH-MIN-01",
+  "delegation_basis": {
+    "type": "policy",
+    "reference": "https://example.org/policies/delegation/2026-01"
+  },
+  "scope": {
+    "domains": [
+      "benefits"
+    ],
+    "actions": [
+      "issue_receipts",
+      "process_appeals",
+      "process_corrections"
+    ],
+    "geography": [
+      "IN-WB"
+    ]
+  },
+  "effective_date": "2026-02-01",
+  "review_interval": {
+    "unit": "months",
+    "value": 6
+  },
+  "oversight_body": {
+    "body_id": "AUTH-OVS-01",
+    "role": "review_appeals",
+    "endpoints": [
+      {
+        "type": "oversight_reviews",
+        "url": "https://oversight.example.org/reviews",
+        "signed_responses": true
+      }
+    ]
+  },
+  "status": "active"
+}

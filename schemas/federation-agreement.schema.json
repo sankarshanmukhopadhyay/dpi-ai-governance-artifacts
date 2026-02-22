@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/federation-agreement.schema.json",
+  "title": "Federation Agreement",
+  "description": "Agreement describing how multiple authority directories and/or rulebook registries federate for ecosystem-level interoperability.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agreement_id",
+    "version",
+    "parties",
+    "scope",
+    "trust_anchors",
+    "dispute"
+  ],
+  "properties": {
+    "agreement_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "description": "Agreement version tag (SemVer or equivalent)."
+    },
+    "effective_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "effective_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "parties": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "party_id",
+          "name",
+          "role"
+        ],
+        "properties": {
+          "party_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "authority_directory_operator",
+              "rulebook_registry_operator",
+              "oversight_body",
+              "implementer",
+              "other"
+            ]
+          },
+          "endpoint": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recognition"
+      ],
+      "properties": {
+        "recognition": {
+          "type": "string",
+          "enum": [
+            "mutual",
+            "one_way",
+            "limited"
+          ]
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "jurisdictions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "trust_anchors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "value"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "x509",
+              "did",
+              "jwk",
+              "other"
+            ]
+          },
+          "value": {
+            "type": "string"
+          },
+          "kid": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "revocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mechanism": {
+          "type": "string",
+          "enum": [
+            "crl",
+            "status_list",
+            "api",
+            "other"
+          ]
+        },
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "refresh_seconds": {
+          "type": "integer",
+          "minimum": 60
+        }
+      }
+    },
+    "dispute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "process_ref"
+      ],
+      "properties": {
+        "process_ref": {
+          "type": "string",
+          "description": "Reference to a dispute process artifact, policy or URL."
+        },
+        "contact": {
+          "type": "string"
+        },
+        "sla_days": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
+      "properties": {
+        "alg": {
+          "type": "string"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

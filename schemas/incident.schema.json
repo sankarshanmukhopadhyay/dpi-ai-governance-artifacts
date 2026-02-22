@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/incident.schema.json",
+  "title": "Incident Record",
+  "description": "Record of an operational or governance incident that may trigger notifications, recompute, audits, or corrective actions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "incident_id",
+    "detected_at",
+    "classification",
+    "severity",
+    "status"
+  ],
+  "properties": {
+    "incident_id": {
+      "type": "string"
+    },
+    "detected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "description": "Detection source, e.g., monitoring, complaint, audit, internal review."
+    },
+    "classification": {
+      "type": "string",
+      "enum": [
+        "data_quality",
+        "model_error",
+        "policy_change",
+        "security",
+        "availability",
+        "fraud",
+        "process",
+        "other"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "triaged",
+        "mitigating",
+        "resolved",
+        "closed"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "affected": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "service_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "receipt_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rulebook_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "rulebook_id",
+              "version"
+            ],
+            "properties": {
+              "rulebook_id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rel",
+          "href"
+        ],
+        "properties": {
+          "rel": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
+      "properties": {
+        "alg": {
+          "type": "string"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

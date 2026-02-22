@@ -9,7 +9,7 @@
   },
   "decision": {
     "decision_type": "eligibility",
-    "risk_tier": "tier2",
+    "risk_tier": "tier0",
     "service": {
       "service_id": "benefitA",
       "service_name": "Benefit A",
@@ -22,13 +22,23 @@
     "manifest_ref": "rulebook:manifest:benefitA-eligibility:1.4.2"
   },
   "input_refs": [
-    { "name": "identity", "ref": "registry:national-id:hash:abc123", "hash": "sha256:..." },
-    { "name": "address", "ref": "registry:address:record:987", "hash": "sha256:..." }
+    {
+      "name": "identity",
+      "ref": "registry:national-id:hash:abc123",
+      "hash": "sha256:..."
+    },
+    {
+      "name": "address",
+      "ref": "registry:address:record:987",
+      "hash": "sha256:..."
+    }
   ],
   "outcome": {
     "status": "denied"
   },
-  "reason_codes": ["RC_ADDRESS_MISMATCH"],
+  "reason_codes": [
+    "RC_ADDRESS_MISMATCH"
+  ],
   "signature": {
     "alg": "EdDSA",
     "kid": "kid-001",

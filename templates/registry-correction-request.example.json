@@ -1,0 +1,24 @@
+{
+  "request_id": "CRQ-2026-00009",
+  "submitted_at": "2026-02-22T12:00:00Z",
+  "registry": {
+    "registry_id": "reg-address",
+    "authority_ref": "AUTH-REG-01"
+  },
+  "record_ref": "ADDR-REC-7788",
+  "requested_change": {
+    "field": "address.line1",
+    "old_value": "Old Street 1",
+    "new_value": "New Street 1"
+  },
+  "requestor": {
+    "requestor_ref": "SUB-12345",
+    "requestor_type": "subject"
+  },
+  "evidence_refs": [
+    "DOC-ADDR-2026-02-10"
+  ],
+  "related_receipt_refs": [
+    "RCP-2026-00042"
+  ]
+}

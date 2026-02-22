@@ -1,0 +1,27 @@
+{
+  "incident_id": "INC-2026-00001",
+  "detected_at": "2026-02-22T12:00:00Z",
+  "classification": "data_quality",
+  "severity": "high",
+  "status": "triaged",
+  "summary": "Address registry feed lag caused evaluation against stale records.",
+  "affected": {
+    "service_ids": [
+      "svc-benefits"
+    ],
+    "receipt_refs": [
+      "RCP-2026-00042"
+    ],
+    "rulebook_refs": [
+      {
+        "rulebook_id": "rb-benefits",
+        "version": "2.3.0"
+      }
+    ]
+  },
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "did:example:ops#key-1",
+    "value": "BASE64URLSIG"
+  }
+}

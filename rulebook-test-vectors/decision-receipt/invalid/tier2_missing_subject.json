@@ -1,0 +1,53 @@
+{
+  "receipt_id": "RCP-2026-TV-0001",
+  "issued_at": "2026-02-22T12:00:00Z",
+  "authority": {
+    "authority_id": "AUTH-ISS-01",
+    "jurisdiction": "IN-WB",
+    "role": "issuer",
+    "directory_ref": "AUTH-DIR-01"
+  },
+  "decision": {
+    "decision_type": "eligibility",
+    "risk_tier": "tier2",
+    "service": {
+      "service_id": "svc-benefits",
+      "channel": "api"
+    }
+  },
+  "rulebook": {
+    "rulebook_id": "rb-benefits",
+    "version": "2.3.0",
+    "manifest": {
+      "rulebook_id": "rb-benefits",
+      "version": "2.3.0",
+      "uri": "https://example.org/rulebooks/rb-benefits/2.3.0/manifest.json"
+    }
+  },
+  "outcome": {
+    "status": "denied",
+    "valid_from": "2026-02-22",
+    "valid_to": "2026-08-22"
+  },
+  "reason_codes": [
+    "RC_INELIGIBLE_POLICY"
+  ],
+  "input_refs": [
+    {
+      "name": "address_registry_record",
+      "ref": "ADDR-REC-1",
+      "hash": "sha256:abc",
+      "source": "reg-address"
+    }
+  ],
+  "appeal": {
+    "appeal_available": true,
+    "appeal_channel": "https://example.org/appeals",
+    "appeal_by": "2026-03-23"
+  },
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "did:example:issuer#key-1",
+    "value": "BASE64URLSIG"
+  }
+}

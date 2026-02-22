@@ -6,12 +6,21 @@ The intent is procurement-ready clarity: what must exist at each tier to make ou
 
 ## Tier 0 (Minimal)
 
+Tier 0 covers **non-consequential** decisions where a full signed receipt is not required, but **portable logging** is mandatory for audit sampling, monitoring, and incident response.
+
 Required
-- Logging for decision execution and system errors
-- Internal traceability from request to outcome
+- Log entry per decision execution and system error
+- Internal traceability from request to outcome (trace_id / correlation id)
+- Retain logs for a policy-defined period (implementation-specific)
+
+**Tier 0 log entry format**
+- Use `schemas/tier0-log-entry.schema.json` as the minimum portable record:
+  - `event_id`, `timestamp`, `service_id`, `rulebook.rulebook_id`, `rulebook.version`, `outcome_code`, `trace_id`
+  - Optional: `inputs_hash`, `receipt_ref` (when a receipt is produced)
 
 Recommended
-- Decision receipts for denials and revocations
+- Decision receipts for denials and revocations (upgrade path into Tier 1+)
+
 
 ## Tier 1 (Moderate)
 

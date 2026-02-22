@@ -31,27 +31,56 @@
       "description": "The subject of the decision (for example a citizen or business). Use pseudonymous identifiers or references where appropriate.",
       "additionalProperties": false,
       "properties": {
-        "subject_ref": { "type": "string", "description": "A reference to the subject identifier used by the service." },
-        "subject_type": { "type": "string", "enum": ["person", "organization", "household", "unknown"] }
+        "subject_ref": {
+          "type": "string",
+          "description": "A reference to the subject identifier used by the service."
+        },
+        "subject_type": {
+          "type": "string",
+          "enum": [
+            "person",
+            "organization",
+            "household",
+            "unknown"
+          ]
+        }
       }
     },
     "authority": {
       "type": "object",
       "description": "The accountable authority for the decision, suitable for binding to an authority directory entry.",
       "additionalProperties": false,
-      "required": ["authority_id", "jurisdiction", "role"],
+      "required": [
+        "authority_id",
+        "jurisdiction",
+        "role"
+      ],
       "properties": {
-        "authority_id": { "type": "string", "description": "Stable identifier for the authority." },
-        "jurisdiction": { "type": "string", "description": "Jurisdiction or legal domain under which the decision was made." },
-        "role": { "type": "string", "description": "Role of the authority in the workflow, for example issuer, controller, decisioning service." },
-        "directory_ref": { "type": "string", "description": "Optional pointer to an authority directory entry." }
+        "authority_id": {
+          "type": "string",
+          "description": "Stable identifier for the authority."
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Jurisdiction or legal domain under which the decision was made."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the authority in the workflow, for example issuer, controller, decisioning service."
+        },
+        "directory_ref": {
+          "type": "string",
+          "description": "Optional pointer to an authority directory entry."
+        }
       }
     },
     "decision": {
       "type": "object",
       "description": "Decision context metadata.",
       "additionalProperties": false,
-      "required": ["decision_type"],
+      "required": [
+        "decision_type"
+      ],
       "properties": {
         "decision_type": {
           "type": "string",
@@ -61,14 +90,32 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "service_id": { "type": "string" },
-            "service_name": { "type": "string" },
-            "channel": { "type": "string", "enum": ["api", "web", "in_person", "batch", "other"] }
+            "service_id": {
+              "type": "string"
+            },
+            "service_name": {
+              "type": "string"
+            },
+            "channel": {
+              "type": "string",
+              "enum": [
+                "api",
+                "web",
+                "in_person",
+                "batch",
+                "other"
+              ]
+            }
           }
         },
         "risk_tier": {
           "type": "string",
-          "enum": ["tier0", "tier1", "tier2", "tier3"],
+          "enum": [
+            "tier0",
+            "tier1",
+            "tier2",
+            "tier3"
+          ],
           "description": "Optional risk tier classification used for governance escalation."
         }
       }
@@ -77,13 +124,52 @@
       "type": "object",
       "description": "The rulebook version and identifiers used to compute the outcome.",
       "additionalProperties": false,
-      "required": ["rulebook_id", "version"],
+      "required": [
+        "rulebook_id",
+        "version"
+      ],
       "properties": {
-        "rulebook_id": { "type": "string" },
-        "version": { "type": "string", "description": "Semantic version or comparable version tag." },
-        "effective_from": { "type": "string", "format": "date" },
-        "effective_to": { "type": "string", "format": "date" },
-        "manifest_ref": { "type": "string", "description": "Optional pointer to a rulebook manifest." }
+        "rulebook_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "description": "Semantic version or comparable version tag."
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date"
+        },
+        "manifest_ref": {
+          "type": "string",
+          "description": "Optional pointer to a rulebook manifest. (DEPRECATED: use rulebook.manifest)"
+        },
+        "manifest": {
+          "type": "object",
+          "description": "Structured reference to a rulebook manifest (machine-traversable). SHOULD match rulebook_id and version in this receipt.",
+          "additionalProperties": false,
+          "required": [
+            "rulebook_id",
+            "version"
+          ],
+          "properties": {
+            "rulebook_id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "uri": {
+              "type": "string",
+              "format": "uri",
+              "description": "Optional dereferenceable URI to the manifest resource."
+            }
+          }
+        }
       }
     },
     "input_refs": {
@@ -92,12 +178,26 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["name", "ref"],
+        "required": [
+          "name",
+          "ref"
+        ],
         "properties": {
-          "name": { "type": "string" },
-          "ref": { "type": "string", "description": "Reference to the input record, document, or registry entry." },
-          "hash": { "type": "string", "description": "Optional hash of the input, for immutability checks." },
-          "source": { "type": "string", "description": "Optional source system or registry." }
+          "name": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string",
+            "description": "Reference to the input record, document, or registry entry."
+          },
+          "hash": {
+            "type": "string",
+            "description": "Optional hash of the input, for immutability checks."
+          },
+          "source": {
+            "type": "string",
+            "description": "Optional source system or registry."
+          }
         }
       },
       "minItems": 1
@@ -108,12 +208,29 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["check_id", "result"],
+        "required": [
+          "check_id",
+          "result"
+        ],
         "properties": {
-          "check_id": { "type": "string" },
-          "description": { "type": "string" },
-          "result": { "type": "string", "enum": ["pass", "fail", "not_applicable", "unknown"] },
-          "evidence_ref": { "type": "string" }
+          "check_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "fail",
+              "not_applicable",
+              "unknown"
+            ]
+          },
+          "evidence_ref": {
+            "type": "string"
+          }
         }
       }
     },
@@ -121,18 +238,46 @@
       "type": "object",
       "description": "Outcome payload. Keep this minimal and machine-consumable.",
       "additionalProperties": false,
-      "required": ["status"],
+      "required": [
+        "status"
+      ],
       "properties": {
-        "status": { "type": "string", "enum": ["approved", "denied", "deferred", "needs_review", "revoked", "partially_approved"] },
-        "value": { "type": ["string", "number", "object", "null"], "description": "Optional outcome value, for example amount, category, or resulting entitlement identifier." },
-        "valid_from": { "type": "string", "format": "date" },
-        "valid_to": { "type": "string", "format": "date" }
+        "status": {
+          "type": "string",
+          "enum": [
+            "approved",
+            "denied",
+            "deferred",
+            "needs_review",
+            "revoked",
+            "partially_approved"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "object",
+            "null"
+          ],
+          "description": "Optional outcome value, for example amount, category, or resulting entitlement identifier."
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date"
+        },
+        "valid_to": {
+          "type": "string",
+          "format": "date"
+        }
       }
     },
     "reason_codes": {
       "type": "array",
       "description": "One or more reason codes explaining the outcome, mapped to a controlled vocabulary.",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "minItems": 1
     },
     "evidence_pointers": {
@@ -141,11 +286,21 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["kind", "ref"],
+        "required": [
+          "kind",
+          "ref"
+        ],
         "properties": {
-          "kind": { "type": "string", "description": "Artifact kind, for example evidence_bundle, audit_log, policy_test_vector." },
-          "ref": { "type": "string" },
-          "hash": { "type": "string" }
+          "kind": {
+            "type": "string",
+            "description": "Artifact kind, for example evidence_bundle, audit_log, policy_test_vector."
+          },
+          "ref": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          }
         }
       }
     },
@@ -154,22 +309,103 @@
       "description": "Optional contestability hooks.",
       "additionalProperties": false,
       "properties": {
-        "appeal_available": { "type": "boolean" },
-        "appeal_channel": { "type": "string", "description": "Pointer to the appeals endpoint, office, or process." },
-        "appeal_by": { "type": "string", "format": "date" }
+        "appeal_available": {
+          "type": "boolean"
+        },
+        "appeal_channel": {
+          "type": "string",
+          "description": "Pointer to the appeals endpoint, office, or process."
+        },
+        "appeal_by": {
+          "type": "string",
+          "format": "date"
+        }
       }
     },
     "signature": {
       "type": "object",
       "description": "Signature envelope for the receipt. The exact signing format is deployment-specific (for example JWS, COSE, X.509).",
       "additionalProperties": false,
-      "required": ["alg", "kid", "value"],
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
       "properties": {
-        "alg": { "type": "string", "description": "Signature algorithm identifier." },
-        "kid": { "type": "string", "description": "Key identifier." },
-        "value": { "type": "string", "description": "Signature value or JWS compact serialization." },
-        "cert_ref": { "type": "string", "description": "Optional certificate reference." }
+        "alg": {
+          "type": "string",
+          "description": "Signature algorithm identifier."
+        },
+        "kid": {
+          "type": "string",
+          "description": "Key identifier."
+        },
+        "value": {
+          "type": "string",
+          "description": "Signature value or JWS compact serialization."
+        },
+        "cert_ref": {
+          "type": "string",
+          "description": "Optional certificate reference."
+        }
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "risk_tier": {
+                "enum": [
+                  "tier2",
+                  "tier3"
+                ]
+              }
+            },
+            "required": [
+              "risk_tier"
+            ]
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "required": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "risk_tier": {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ]
+              }
+            },
+            "required": [
+              "risk_tier"
+            ]
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "required": [
+          "appeal"
+        ]
+      }
+    }
+  ]
 }

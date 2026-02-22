@@ -1,0 +1,11 @@
+{
+  "event_id": "LOG-2026-00001",
+  "timestamp": "2026-02-22T12:00:00Z",
+  "service_id": "svc-inquiry",
+  "rulebook": {
+    "rulebook_id": "rb-inquiry",
+    "version": "1.0.2"
+  },
+  "outcome_code": "ALLOW",
+  "trace_id": "trace-abc-123"
+}

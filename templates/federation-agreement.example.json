@@ -1,0 +1,42 @@
+{
+  "agreement_id": "FED-2026-00001",
+  "version": "0.1.0",
+  "effective_from": "2026-03-01",
+  "parties": [
+    {
+      "party_id": "AUTH-DIR-01",
+      "name": "National Authority Directory",
+      "role": "authority_directory_operator",
+      "endpoint": "https://dir.example.org"
+    },
+    {
+      "party_id": "AUTH-DIR-02",
+      "name": "Provincial Authority Directory",
+      "role": "authority_directory_operator",
+      "endpoint": "https://dir2.example.org"
+    }
+  ],
+  "scope": {
+    "recognition": "mutual",
+    "jurisdictions": [
+      "IN-WB",
+      "IN-DL"
+    ]
+  },
+  "trust_anchors": [
+    {
+      "type": "did",
+      "value": "did:example:root"
+    }
+  ],
+  "dispute": {
+    "process_ref": "https://example.org/policies/disputes",
+    "contact": "mailto:disputes@example.org",
+    "sla_days": 30
+  },
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "did:example:root#key-1",
+    "value": "BASE64URLSIG"
+  }
+}

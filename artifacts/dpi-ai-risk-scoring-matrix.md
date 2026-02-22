@@ -8,9 +8,12 @@ License: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0
 
 ### Step 1: Risk priority thresholds
 
+- Priority 0–11: Tier 0 (Non-consequential; log-only baseline)
 - Priority 12–15: Tier 1 (Advisory with human oversight)
 - Priority 16–19: Tier 2 (Conditional automation)
 - Priority 20 or higher: Tier 3 (High impact determination)
+
+**Boundary rule (Priority = 12):** treat as **Tier 1** by default. If *any* of the scoring inputs that produced 12 are disputed, unstable, or sourced from incomplete data, escalate to **Tier 2 until resolved** (conservative tiebreak).
 
 ### Step 2: Tier-driven governance requirements
 
