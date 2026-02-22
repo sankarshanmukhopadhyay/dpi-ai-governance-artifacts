@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vendor Capability Attestation",
+  "type": "object",
+  "required": ["vendor_id", "capability_classification", "assurance_level"],
+  "properties": {
+    "vendor_id": { "type": "string" },
+    "capability_classification": { "type": "string" },
+    "security_certifications": { "type": "array", "items": { "type": "string" } },
+    "assurance_level": { "type": "string" },
+    "model_governance_controls": { "type": "array", "items": { "type": "string" } },
+    "data_residency_claims": { "type": "string" },
+    "signature": { "type": "string" }
+  },
+  "additionalProperties": false
+}

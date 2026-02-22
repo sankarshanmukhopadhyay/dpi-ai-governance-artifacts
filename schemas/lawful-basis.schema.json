@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lawful Basis",
+  "type": "object",
+  "required": ["basis_type", "jurisdiction", "valid_from"],
+  "properties": {
+    "basis_type": {
+      "type": "string",
+      "enum": ["consent", "contract", "legal_obligation", "vital_interest", "public_task", "legitimate_interest"]
+    },
+    "jurisdiction": { "type": "string" },
+    "authority_reference": { "type": "string" },
+    "consent_ref": { "type": "string" },
+    "valid_from": { "type": "string", "format": "date-time" },
+    "valid_until": { "type": "string", "format": "date-time" },
+    "revocation_endpoint": { "type": "string", "format": "uri" },
+    "evidence_hash": { "type": "string" }
+  },
+  "additionalProperties": false
+}
