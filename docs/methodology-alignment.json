@@ -1,0 +1,41 @@
+{
+  "aligned_lab_repo": "https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-lab",
+  "aligned_lab_version": "0.4.1",
+  "policy": {
+    "minor_doc_changes_tolerated": true,
+    "schema_or_output_changes_breaking": true
+  },
+  "traceability": [
+    {
+      "lab_schema": "schemas/reviews/paper-review-report.schema.json",
+      "purpose": "canonical review report",
+      "artifact_paths": [
+        "artifacts/",
+        "templates/"
+      ]
+    },
+    {
+      "lab_schema": "schemas/reviews/paper-review-scorecard.schema.json",
+      "purpose": "scoring model output",
+      "artifact_paths": [
+        "templates/",
+        "playbooks/"
+      ]
+    },
+    {
+      "lab_schema": "schemas/reviews/paper-analysis.schema.json",
+      "purpose": "extracted abstractions + claims",
+      "artifact_paths": [
+        "playbooks/"
+      ]
+    },
+    {
+      "lab_schema": "schemas/reviews/semantic-validation.schema.json",
+      "purpose": "validation tier results",
+      "artifact_paths": [
+        "tools/",
+        "rulebook-test-vectors/"
+      ]
+    }
+  ]
+}

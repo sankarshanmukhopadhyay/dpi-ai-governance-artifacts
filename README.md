@@ -1,14 +1,22 @@
 # DPI–AI Governance Artifacts
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Version](https://img.shields.io/badge/version-v0.4.0-green)
+![Version](https://img.shields.io/badge/version-v0.4.1-green)
 ![Type](https://img.shields.io/badge/type-governance--artifacts-orange)
+![Methodology](https://img.shields.io/badge/methodology-dpi--ai--governance--lab%20v0.4.1-purple)
 
 A lightweight, evolving repository of governance-ready artifacts for DPI + AI systems.
 
 This release adds an **operational pack** that translates the "Minimum Digital Kernel" idea into **portable interface contracts**: schemas, templates, and conformance profiles that teams can adopt in procurement, implementation, and audit workflows.
 
 
+
+## Methodology alignment
+
+These artifacts are designed to operationalize the **DPI AI Governance Lab** methodology.
+
+- Alignment contract: `docs/methodology-alignment.md`
+- Upstream methodology repo: https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-lab
 ## Acknowledgements
 
 This operational pack is inspired by the essay **“The Minimum Digital Kernel of an Effective State”** (Digital Statecraft / Substack).

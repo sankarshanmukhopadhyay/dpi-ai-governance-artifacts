@@ -87,3 +87,12 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
 - CITATION.cff metadata
 - VERSION file
 - Baseline repository structure
+## [0.4.1] - 2026-02-22
+
+### Added
+- Methodology alignment contract (`docs/methodology-alignment.md`) binding operational packs to the Lab.
+- Machine-readable alignment map (`docs/methodology-alignment.json`).
+
+### Changed
+- README now declares alignment to DPI AI Governance Lab v0.4.1.
+- Updated citation metadata to match repository version.
