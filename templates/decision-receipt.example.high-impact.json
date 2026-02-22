@@ -1,0 +1,60 @@
+{
+  "receipt_id": "dr-2026-000099",
+  "issued_at": "2026-02-22T10:00:00Z",
+  "subject": {
+    "subject_ref": "subject:pseudonymous:xyz",
+    "subject_type": "person"
+  },
+  "authority": {
+    "authority_id": "agency.example.gov/allocations",
+    "jurisdiction": "IN",
+    "role": "decision_service",
+    "directory_ref": "authdir:entry:allocations"
+  },
+  "decision": {
+    "decision_type": "prioritization",
+    "risk_tier": "tier3",
+    "service": {
+      "service_id": "resource-allocation",
+      "service_name": "Resource Allocation",
+      "channel": "api"
+    }
+  },
+  "rulebook": {
+    "rulebook_id": "allocation-policy",
+    "version": "2.0.0",
+    "effective_from": "2026-02-01",
+    "manifest_ref": "rulebook:manifest:allocation-policy:2.0.0"
+  },
+  "input_refs": [
+    {
+      "name": "eligibility_fact_set",
+      "ref": "evidence:bundle:bf-3321",
+      "hash": "sha256:...",
+      "source": "evidence_store"
+    }
+  ],
+  "checks_performed": [
+    { "check_id": "CHK-ELIG-01", "description": "Base eligibility", "result": "pass", "evidence_ref": "evidence:bf-3321#elig" },
+    { "check_id": "CHK-PRIO-04", "description": "Priority category", "result": "pass", "evidence_ref": "evidence:bf-3321#prio" }
+  ],
+  "outcome": {
+    "status": "approved",
+    "value": { "priority_rank": 7 }
+  },
+  "reason_codes": ["RC_ELIGIBLE", "RC_PRIORITY_ASSIGNED"],
+  "evidence_pointers": [
+    { "kind": "evidence_bundle", "ref": "evidence:bundle:bf-3321", "hash": "sha256:..." }
+  ],
+  "appeal": {
+    "appeal_available": true,
+    "appeal_channel": "appeals:https://appeals.example.gov",
+    "appeal_by": "2026-03-15"
+  },
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "kid-alloc-2026",
+    "value": "<signature-or-jws>",
+    "cert_ref": "certs:allocations:2026"
+  }
+}

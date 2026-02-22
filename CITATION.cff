@@ -1,14 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it as below."
 title: "DPI–AI Governance Artifacts"
-version: "v0.1.0"
+version: "v0.2.0"
 authors:
   - family-names: "Mukhopadhyay"
     given-names: "Sankarshan"
     email: "sankarshan@qbfconsulting.digital"
 license: "CC-BY-SA-4.0"
 abstract: >
-  A reusable and evolving library of governance-ready artifacts for
-  DPI and AI systems, including risk matrices, tier bindings,
-  and control-surface mappings.
-repository-code: "https://github.com/your-org/dpi-ai-governance-artifacts"
+  A reusable and evolving library of governance-ready artifacts for DPI and AI systems,
+  including risk matrices, tier bindings, control-surface mappings, and Minimum Digital Kernel
+  operational contracts (schemas, templates, and conformance profiles).
+repository-code: "https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-artifacts"

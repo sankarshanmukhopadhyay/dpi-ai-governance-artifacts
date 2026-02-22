@@ -1,0 +1,23 @@
+{
+  "rulebook_id": "benefitA-eligibility",
+  "version": "1.4.2",
+  "title": "Benefit A eligibility rulebook",
+  "jurisdiction": "IN-WB",
+  "effective_from": "2026-02-01",
+  "source_refs": ["gazette:2026:benefitA:eligibility"],
+  "artifacts": [
+    { "kind": "policy_text", "ref": "docs/rulebooks/benefitA-eligibility/1.4.2/policy.md", "hash": "sha256:..." },
+    { "kind": "reason_codes", "ref": "templates/reason-codes.vocab.example.json", "hash": "sha256:..." }
+  ],
+  "tests": {
+    "vector_set_ref": "rulebook-test-vectors/vectors/benefitA-eligibility/1.4.2/inputs.json",
+    "expected_results_ref": "rulebook-test-vectors/vectors/benefitA-eligibility/1.4.2/expected.json",
+    "conformance_profile_ref": "conformance/mdk-tier-profile.md"
+  },
+  "change_control": {
+    "change_summary": "Clarified address requirement and updated reason code mappings.",
+    "impact_assessment": "Denials due to address mismatch may increase until registry corrections are completed.",
+    "rollback_plan": "Revert to 1.4.1 and reissue receipts with corrected rulebook version if critical failures are observed.",
+    "approvals": ["policy-owner", "legal", "operations"]
+  }
+}

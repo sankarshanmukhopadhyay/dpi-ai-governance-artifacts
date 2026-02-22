@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/appeal-filing.schema.json",
+  "title": "Appeal Filing",
+  "description": "A structured appeal submission referencing a decision receipt.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["appeal_id", "filed_at", "receipt_ref", "appellant", "grounds"],
+  "properties": {
+    "appeal_id": { "type": "string" },
+    "filed_at": { "type": "string", "format": "date-time" },
+    "receipt_ref": { "type": "string" },
+    "appellant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["appellant_ref", "appellant_type"],
+      "properties": {
+        "appellant_ref": { "type": "string" },
+        "appellant_type": { "type": "string", "enum": ["subject", "authorized_representative", "agency", "other"] }
+      }
+    },
+    "grounds": {
+      "type": "array",
+      "description": "Grounds for appeal.",
+      "items": {
+        "type": "string",
+        "enum": ["fact_error", "policy_misapplied", "procedural_error", "discretion_required", "new_evidence", "bias_or_discrimination", "other"]
+      },
+      "minItems": 1
+    },
+    "statement": { "type": "string" },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "preferred_remedy": { "type": "string", "description": "For example recompute, correction order, override, compensation, expedited review." }
+  }
+}

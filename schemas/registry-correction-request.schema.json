@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/registry-correction-request.schema.json",
+  "title": "Registry Correction Request",
+  "description": "A standardized request to correct a registry fact used in a decision.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "submitted_at", "registry", "record_ref", "requested_change", "requestor"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "submitted_at": { "type": "string", "format": "date-time" },
+    "registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry_id"],
+      "properties": {
+        "registry_id": { "type": "string" },
+        "authority_ref": { "type": "string" }
+      }
+    },
+    "record_ref": { "type": "string" },
+    "requested_change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "new_value"],
+      "properties": {
+        "field": { "type": "string" },
+        "old_value": { "type": ["string", "number", "boolean", "object", "null"] },
+        "new_value": { "type": ["string", "number", "boolean", "object", "null"] },
+        "reason": { "type": "string" }
+      }
+    },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "related_receipt_refs": { "type": "array", "items": { "type": "string" } },
+    "requestor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestor_ref", "requestor_type"],
+      "properties": {
+        "requestor_ref": { "type": "string" },
+        "requestor_type": { "type": "string", "enum": ["subject", "authorized_representative", "agency", "auditor", "other"] }
+      }
+    }
+  }
+}

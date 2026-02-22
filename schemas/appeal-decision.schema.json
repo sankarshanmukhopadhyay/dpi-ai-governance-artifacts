@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/appeal-decision.schema.json",
+  "title": "Appeal Decision",
+  "description": "Outcome of an appeal, including orders that trigger correction or recompute.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["appeal_id", "decided_at", "authority", "status"],
+  "properties": {
+    "appeal_id": { "type": "string" },
+    "decided_at": { "type": "string", "format": "date-time" },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority_id"],
+      "properties": {
+        "authority_id": { "type": "string" },
+        "directory_ref": { "type": "string" }
+      }
+    },
+    "status": { "type": "string", "enum": ["upheld", "overturned", "modified", "remanded", "dismissed"] },
+    "rationale": { "type": "string" },
+    "orders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["order_type"],
+        "properties": {
+          "order_type": { "type": "string", "enum": ["registry_correction", "recompute", "manual_review", "policy_fix", "audit", "other"] },
+          "ref": { "type": "string" },
+          "due_by": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alg", "kid", "value"],
+      "properties": {
+        "alg": { "type": "string" },
+        "kid": { "type": "string" },
+        "value": { "type": "string" }
+      }
+    }
+  }
+}

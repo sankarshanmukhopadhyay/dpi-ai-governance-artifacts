@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/rulebook-manifest.schema.json",
+  "title": "Rulebook Manifest",
+  "description": "Release metadata for a versioned rulebook (policy as code).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rulebook_id", "version", "title", "jurisdiction", "effective_from", "artifacts", "tests"],
+  "properties": {
+    "rulebook_id": { "type": "string" },
+    "version": { "type": "string", "description": "Semantic version or compatible scheme." },
+    "title": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "effective_from": { "type": "string", "format": "date" },
+    "effective_to": { "type": "string", "format": "date" },
+    "source_refs": { "type": "array", "items": { "type": "string" } },
+    "deprecates": { "type": "array", "items": { "type": "string" } },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": { "type": "string", "description": "For example policy_text, policy_code, reason_codes." },
+          "ref": { "type": "string" },
+          "hash": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "tests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vector_set_ref", "expected_results_ref"],
+      "properties": {
+        "vector_set_ref": { "type": "string" },
+        "expected_results_ref": { "type": "string" },
+        "conformance_profile_ref": { "type": "string" }
+      }
+    },
+    "change_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "change_summary": { "type": "string" },
+        "impact_assessment": { "type": "string" },
+        "rollback_plan": { "type": "string" },
+        "approvals": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

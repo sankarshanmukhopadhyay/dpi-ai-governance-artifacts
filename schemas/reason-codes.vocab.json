@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/vocab/reason-codes.vocab.json",
+  "title": "Reason Codes Vocabulary",
+  "description": "Controlled vocabulary for decision receipt reason codes. Extend by adding new entries under codes with stable identifiers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "codes"],
+  "properties": {
+    "version": { "type": "string" },
+    "codes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "description", "severity"],
+        "properties": {
+          "label": { "type": "string" },
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["info", "warning", "error", "blocking"] },
+          "remedy_hint": { "type": "string" }
+        }
+      }
+    }
+  }
+}

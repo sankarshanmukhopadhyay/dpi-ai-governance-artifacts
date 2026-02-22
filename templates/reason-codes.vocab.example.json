@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "codes": {
+    "RC_ELIGIBLE": {
+      "label": "Eligible",
+      "description": "All mandatory checks passed for the evaluated rulebook version.",
+      "severity": "info",
+      "remedy_hint": "None"
+    },
+    "RC_ADDRESS_MISMATCH": {
+      "label": "Address mismatch",
+      "description": "The address facts evaluated did not match the service requirement.",
+      "severity": "blocking",
+      "remedy_hint": "Verify the address registry entry and submit a correction request if needed."
+    },
+    "RC_PRIORITY_ASSIGNED": {
+      "label": "Priority assigned",
+      "description": "A priority category or rank was assigned based on the rulebook.",
+      "severity": "info",
+      "remedy_hint": "If incorrect, file an appeal with supporting evidence."
+    }
+  }
+}

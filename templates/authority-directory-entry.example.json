@@ -1,0 +1,24 @@
+{
+  "authority_id": "agency.example.gov/benefits",
+  "name": "Example Benefits Agency",
+  "jurisdiction": "IN-WB",
+  "roles": ["controller", "decision_service"],
+  "status": "active",
+  "endpoints": [
+    { "type": "decision_receipts", "url": "https://api.example.gov/receipts", "signed_responses": true },
+    { "type": "appeals", "url": "https://appeals.example.gov", "signed_responses": true }
+  ],
+  "keys": [
+    {
+      "kid": "kid-001",
+      "kty": "OKP",
+      "public_key": "{\"kty\":\"OKP\",\"crv\":\"Ed25519\",\"x\":\"...\"}",
+      "not_before": "2026-01-01T00:00:00Z",
+      "not_after": "2027-01-01T00:00:00Z"
+    }
+  ],
+  "governance": {
+    "policy_ref": "https://example.gov/governance/policy",
+    "revocation_ref": "https://example.gov/governance/revocations"
+  }
+}

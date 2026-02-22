@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/recompute-trigger.schema.json",
+  "title": "Recompute Trigger",
+  "description": "A standardized trigger describing what must be recomputed after a registry correction or policy update.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["trigger_id", "triggered_at", "trigger_reason", "targets"],
+  "properties": {
+    "trigger_id": { "type": "string" },
+    "triggered_at": { "type": "string", "format": "date-time" },
+    "trigger_reason": { "type": "string", "enum": ["registry_correction", "rulebook_update", "appeal_order", "audit_order", "incident_review", "other"] },
+    "cause_refs": { "type": "array", "items": { "type": "string" } },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["receipt_ref"],
+        "properties": {
+          "receipt_ref": { "type": "string" },
+          "service_id": { "type": "string" },
+          "notify": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

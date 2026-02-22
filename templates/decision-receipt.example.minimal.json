@@ -1,0 +1,37 @@
+{
+  "receipt_id": "dr-2026-000001",
+  "issued_at": "2026-02-22T10:00:00Z",
+  "authority": {
+    "authority_id": "ministry.example.gov/benefits",
+    "jurisdiction": "IN-WB",
+    "role": "controller",
+    "directory_ref": "authdir:entry:benefits"
+  },
+  "decision": {
+    "decision_type": "eligibility",
+    "risk_tier": "tier2",
+    "service": {
+      "service_id": "benefitA",
+      "service_name": "Benefit A",
+      "channel": "api"
+    }
+  },
+  "rulebook": {
+    "rulebook_id": "benefitA-eligibility",
+    "version": "1.4.2",
+    "manifest_ref": "rulebook:manifest:benefitA-eligibility:1.4.2"
+  },
+  "input_refs": [
+    { "name": "identity", "ref": "registry:national-id:hash:abc123", "hash": "sha256:..." },
+    { "name": "address", "ref": "registry:address:record:987", "hash": "sha256:..." }
+  ],
+  "outcome": {
+    "status": "denied"
+  },
+  "reason_codes": ["RC_ADDRESS_MISMATCH"],
+  "signature": {
+    "alg": "EdDSA",
+    "kid": "kid-001",
+    "value": "<signature-or-jws>"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/authority-directory-entry.schema.json",
+  "title": "Authority Directory Entry",
+  "description": "A minimal machine-readable entry for an authority directory or trust directory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["authority_id", "name", "jurisdiction", "roles", "status", "keys"],
+  "properties": {
+    "authority_id": { "type": "string", "description": "Stable identifier for the authority." },
+    "name": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "roles": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["issuer", "verifier", "controller", "governor", "auditor", "appeals_authority", "registry", "decision_service", "other"] },
+      "minItems": 1
+    },
+    "status": { "type": "string", "enum": ["active", "suspended", "revoked", "expired"] },
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "url"],
+        "properties": {
+          "type": { "type": "string", "description": "Endpoint type, for example decision_receipts, appeals, registry_corrections." },
+          "url": { "type": "string", "format": "uri" },
+          "signed_responses": { "type": "boolean" }
+        }
+      }
+    },
+    "keys": {
+      "type": "array",
+      "description": "Public keys or references used to verify signatures produced by this authority.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kid", "kty", "public_key"],
+        "properties": {
+          "kid": { "type": "string" },
+          "kty": { "type": "string", "description": "Key type, for example OKP, EC, RSA." },
+          "public_key": { "type": "string", "description": "JWK, PEM, or other agreed representation." },
+          "not_before": { "type": "string", "format": "date-time" },
+          "not_after": { "type": "string", "format": "date-time" }
+        }
+      },
+      "minItems": 1
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "policy_ref": { "type": "string" },
+        "revocation_ref": { "type": "string" },
+        "appeal_ref": { "type": "string" }
+      }
+    },
+    "metadata": { "type": "object", "additionalProperties": true }
+  }
+}

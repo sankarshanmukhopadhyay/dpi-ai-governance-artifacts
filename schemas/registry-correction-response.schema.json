@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/registry-correction-response.schema.json",
+  "title": "Registry Correction Response",
+  "description": "Response to a registry correction request, including acceptance, denial, or need for more information.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "responded_at", "status"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "responded_at": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["accepted", "denied", "needs_more_info", "in_progress"] },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decision_reason": { "type": "string" },
+        "reason_codes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "updated_record_ref": { "type": "string" },
+    "effective_at": { "type": "string", "format": "date-time" },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alg", "kid", "value"],
+      "properties": {
+        "alg": { "type": "string" },
+        "kid": { "type": "string" },
+        "value": { "type": "string" }
+      }
+    }
+  }
+}
