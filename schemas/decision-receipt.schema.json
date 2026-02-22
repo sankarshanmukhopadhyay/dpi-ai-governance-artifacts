@@ -349,6 +349,10 @@
           "description": "Optional certificate reference."
         }
       }
+    },
+    "lawful_basis": {
+      "$ref": "lawful-basis.schema.json",
+      "description": "Legal justification and consent/lawful basis traceability for decisions, when applicable."
     }
   },
   "allOf": [
@@ -404,6 +408,44 @@
       "then": {
         "required": [
           "appeal"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "decision",
+          "subject"
+        ],
+        "properties": {
+          "decision": {
+            "required": [
+              "risk_tier"
+            ],
+            "properties": {
+              "risk_tier": {
+                "enum": [
+                  "tier2",
+                  "tier3"
+                ]
+              }
+            }
+          },
+          "subject": {
+            "properties": {
+              "subject_type": {
+                "const": "person"
+              }
+            },
+            "required": [
+              "subject_type"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "lawful_basis"
         ]
       }
     }

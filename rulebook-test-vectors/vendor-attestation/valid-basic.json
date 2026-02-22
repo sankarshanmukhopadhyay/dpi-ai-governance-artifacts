@@ -1,0 +1,13 @@
+{
+  "vendor_id": "vendor-123",
+  "capability_classification": "ai-decision-engine",
+  "assurance_level": "high",
+  "security_certifications": [
+    "ISO27001"
+  ],
+  "model_governance_controls": [
+    "bias-monitoring"
+  ],
+  "data_residency_claims": "IN",
+  "signature": "abc123signature"
+}

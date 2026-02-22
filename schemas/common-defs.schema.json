@@ -2,9 +2,24 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "common-defs.schema.json",
   "$defs": {
-    "identifier": { "type": "string" },
-    "timestamp": { "type": "string", "format": "date-time" },
-    "signature": { "type": "string" },
-    "hash": { "type": "string" }
+    "identifier": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    }
   }
 }

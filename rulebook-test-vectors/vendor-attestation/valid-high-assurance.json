@@ -1,0 +1,17 @@
+{
+  "vendor_id": "vendor-789",
+  "capability_classification": "ai-risk-scoring-service",
+  "assurance_level": "very_high",
+  "security_certifications": [
+    "ISO27001",
+    "SOC2-Type2"
+  ],
+  "model_governance_controls": [
+    "bias-monitoring",
+    "drift-monitoring",
+    "human-override",
+    "red-team-testing"
+  ],
+  "data_residency_claims": "IN-only",
+  "signature": "highAssuranceSignatureValue"
+}
