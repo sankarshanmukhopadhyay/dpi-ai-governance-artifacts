@@ -2,6 +2,10 @@
 
 This repository provides a practical path from "Minimum Digital Kernel" concepts to implementable and auditable interfaces.
 
+## Reference
+
+- Essay: https://open.substack.com/pub/digitalstatecraft/p/the-minimum-digital-kernel-of-an
+
 ## The thin waist
 
 Start by standardizing a small set of portable contracts:

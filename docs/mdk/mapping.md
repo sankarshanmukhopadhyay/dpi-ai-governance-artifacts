@@ -2,6 +2,10 @@
 
 This note maps commonly described Minimum Digital Kernel primitives to concrete files in this repository.
 
+## Reference
+
+- Essay: https://open.substack.com/pub/digitalstatecraft/p/the-minimum-digital-kernel-of-an
+
 | Minimum Digital Kernel primitive | Repository artifact |
 |---|---|
 | Signed decision receipt | `schemas/decision-receipt.schema.json` and `templates/decision-receipt.example.*.json` |
