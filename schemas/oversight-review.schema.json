@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/oversight-review.schema.json",
+  "title": "Oversight Review (Audit of the Auditor)",
+  "description": "Second-order oversight record capturing independence, conflicts, funding, peer review, and scope for an auditing/oversight body.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_id",
+    "reviewed_body",
+    "reviewing_body",
+    "scope",
+    "period",
+    "independence",
+    "outcomes",
+    "status"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string"
+    },
+    "reviewed_body": {
+      "type": "string",
+      "description": "Identifier for the auditor/oversight body being reviewed."
+    },
+    "reviewing_body": {
+      "type": "string",
+      "description": "Identifier for the peer/regulator/body performing this review."
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "funding_source",
+        "conflict_of_interest_declared",
+        "independence_assessment"
+      ],
+      "properties": {
+        "funding_source": {
+          "type": "string"
+        },
+        "conflict_of_interest_declared": {
+          "type": "boolean"
+        },
+        "conflict_details": {
+          "type": "string"
+        },
+        "independence_assessment": {
+          "type": "string",
+          "description": "Narrative assessment of independence and mitigation steps."
+        },
+        "independence_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Optional normalized score (0–1)."
+        }
+      }
+    },
+    "methods": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "standard": {
+          "type": "string",
+          "description": "Standard/framework used (if any)."
+        },
+        "sampling": {
+          "type": "string"
+        },
+        "evidence_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outcomes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "findings",
+        "recommendations"
+      ],
+      "properties": {
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "issued",
+        "superseded",
+        "withdrawn"
+      ]
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "signer",
+          "signature"
+        ],
+        "properties": {
+          "signer": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string",
+            "description": "Detached signature or JWS/JAdES reference."
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

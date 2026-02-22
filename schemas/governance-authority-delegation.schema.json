@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/governance-authority-delegation.schema.json",
+  "title": "Governance Authority Delegation",
+  "description": "Machine-readable record of an authority's delegated mandate, scope, limits, oversight, and lifecycle (meta-governance primitive).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "delegation_id",
+    "authority_id",
+    "delegated_by",
+    "delegation_basis",
+    "scope",
+    "effective_date",
+    "review_interval",
+    "oversight_body",
+    "status"
+  ],
+  "properties": {
+    "delegation_id": {
+      "type": "string",
+      "description": "Stable identifier for this delegation record."
+    },
+    "authority_id": {
+      "type": "string",
+      "description": "Identifier of the authority receiving delegated mandate."
+    },
+    "delegated_by": {
+      "type": "string",
+      "description": "Identifier of the delegating principal (e.g., ministry, regulator, statute, board)."
+    },
+    "delegation_basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "reference"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "law",
+            "regulation",
+            "charter",
+            "contract",
+            "policy",
+            "other"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "description": "Human-readable reference (citation/URI) to the basis of delegation."
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domains",
+        "actions"
+      ],
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Domains the authority governs (e.g., benefits, licensing, credit, health)."
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Permitted governance actions (e.g., set_rules, approve_models, audit, sanction, revoke)."
+        },
+        "geography": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Geographic/jurisdictional scope."
+        },
+        "populations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Populations/subjects covered by this mandate."
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prohibited_actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_dual_control": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Actions requiring multi-party approval."
+        },
+        "automation_constraints": {
+          "type": "string",
+          "description": "Constraints on automated decision-making within this mandate."
+        }
+      }
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "sunset_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit",
+        "value"
+      ],
+      "properties": {
+        "unit": {
+          "type": "string",
+          "enum": [
+            "days",
+            "weeks",
+            "months",
+            "years"
+          ]
+        },
+        "value": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "revocation_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Conditions under which this delegation must be revoked or re-issued."
+    },
+    "oversight_body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "body_id",
+        "role"
+      ],
+      "properties": {
+        "body_id": {
+          "type": "string",
+          "description": "Identifier of oversight body (committee, ombuds, regulator, court)."
+        },
+        "role": {
+          "type": "string",
+          "description": "Oversight role (e.g., review_appeals, approve_changes, audit_auditors)."
+        },
+        "endpoints": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Optional discovery endpoints for the oversight body."
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "suspended",
+        "revoked",
+        "expired"
+      ]
+    },
+    "change_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp",
+          "change",
+          "changed_by"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "change": {
+            "type": "string"
+          },
+          "changed_by": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

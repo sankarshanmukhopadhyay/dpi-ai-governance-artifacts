@@ -1,7 +1,7 @@
 # DPI–AI Governance Artifacts
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Version](https://img.shields.io/badge/version-v0.2.1-green)
+![Version](https://img.shields.io/badge/version-v0.3.0-green)
 ![Type](https://img.shields.io/badge/type-governance--artifacts-orange)
 
 A lightweight, evolving repository of governance-ready artifacts for DPI + AI systems.
@@ -15,11 +15,15 @@ This operational pack is inspired by the essay **“The Minimum Digital Kernel o
 
 - Source essay: https://open.substack.com/pub/digitalstatecraft/p/the-minimum-digital-kernel-of-an
 
+This repository also includes a **meta-governance** layer inspired by the essay **“Meta-governance of AI systems”** (Shru14stack / Substack).
+
+- Source essay: https://open.substack.com/pub/shru14stack/p/meta-governance-of-ai-systems
+
 This repository is **not** affiliated with or endorsed by the author/publisher of the essay. It aims to translate the essay’s concepts into implementable, auditable interface contracts (schemas, templates, and conformance profiles).
 
 ## Version
 
-Current release: **v0.2.1** (Minimum Digital Kernel Operational Pack)
+Current release: **v0.3.0** (Minimum Digital Kernel + Meta-Governance Operational Pack)
 
 ## What is inside
 
@@ -42,6 +46,22 @@ Current release: **v0.2.1** (Minimum Digital Kernel Operational Pack)
   Ready-to-use examples and governance templates (change control, validation checklists, SLAs).
 - `conformance/mdk-tier-profile.md` 
   Tier-driven conformance expectations for Minimum Digital Kernel primitives.
+
+### Meta-governance operational pack
+- `schemas/governance-authority-delegation.schema.json`
+  Delegation ledger: who has mandate, scope, limits, oversight, and lifecycle.
+- `schemas/oversight-review.schema.json`
+  Second-order oversight: audit-of-the-auditor independence and peer review record.
+- `schemas/governance-trigger.schema.json`
+  Trigger model: machine-readable conditions for when governance must adapt.
+- `artifacts/governance-risk-register.md`
+  Second-order risk register for governance system failure modes.
+- `artifacts/governance-transparency-scorecard.md`
+  Transparency scorecard to keep governance observable (not just compliant).
+- `templates/governance-constitutional-constraints.template.md`
+  Constitutional guardrails template: non-derogable constraints and emergency power limits.
+- `docs/guides/meta-governance-operationalising.md`
+  Practitioner guide for adopting the meta-governance layer.
 
 ## How to use
 

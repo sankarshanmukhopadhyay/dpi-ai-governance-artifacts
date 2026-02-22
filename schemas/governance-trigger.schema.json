@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/governance-trigger.schema.json",
+  "title": "Governance Trigger",
+  "description": "A machine-readable trigger definition for when governance must adapt (policy update, review, pause, escalation).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trigger_id",
+    "name",
+    "signal",
+    "threshold",
+    "action",
+    "severity",
+    "owner",
+    "status"
+  ],
+  "properties": {
+    "trigger_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "source"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "appeal_rate",
+            "sla_breach",
+            "bias_signal",
+            "incident",
+            "reg_change",
+            "model_change",
+            "audit_finding",
+            "other"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "description": "Source system, telemetry feed, registry, or oversight channel."
+        },
+        "metric": {
+          "type": "string",
+          "description": "Metric name if applicable."
+        }
+      }
+    },
+    "threshold": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operator",
+        "value",
+        "window"
+      ],
+      "properties": {
+        "operator": {
+          "type": "string",
+          "enum": [
+            ">",
+            ">=",
+            "<",
+            "<=",
+            "==",
+            "!="
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "integer",
+            "string",
+            "boolean"
+          ]
+        },
+        "window": {
+          "type": "string",
+          "description": "Evaluation window (e.g., '7d', '30d')."
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "review",
+            "pause",
+            "rollback",
+            "escalate",
+            "publish_notice",
+            "recompute",
+            "other"
+          ]
+        },
+        "target": {
+          "type": "string",
+          "description": "Artifact/process impacted (rulebook, model, registry, service)."
+        },
+        "playbook_ref": {
+          "type": "string",
+          "description": "Reference to a playbook/runbook to execute."
+        }
+      }
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "description": "Responsible role/team for this trigger."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "disabled",
+        "retired"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
