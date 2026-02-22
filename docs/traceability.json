@@ -1,0 +1,44 @@
+{
+  "trace_method": "TRACE",
+  "trace_version": "0.1.0",
+  "mappings": [
+    {
+      "control_id": "TRACE-TRUST-01",
+      "artifacts": [
+        "templates/governance/decision-rights.md",
+        "templates/governance/raci.md"
+      ],
+      "evidence": "recommended"
+    },
+    {
+      "control_id": "TRACE-TRUST-03",
+      "artifacts": [
+        "templates/redress/redress-workflow.md",
+        "schemas/redress/redress-workflow.schema.json"
+      ],
+      "evidence": "recommended"
+    },
+    {
+      "control_id": "TRACE-RISK-01",
+      "artifacts": [
+        "templates/risk/risk-register.md",
+        "schemas/risk/risk-register.schema.json"
+      ],
+      "evidence": "recommended"
+    },
+    {
+      "control_id": "TRACE-ARC-02",
+      "artifacts": [
+        "templates/architecture/dependency-inventory.md"
+      ],
+      "evidence": "recommended"
+    },
+    {
+      "control_id": "TRACE-CONF-01",
+      "artifacts": [
+        "conformance/evidence-bundle.md"
+      ],
+      "evidence": "recommended"
+    }
+  ]
+}

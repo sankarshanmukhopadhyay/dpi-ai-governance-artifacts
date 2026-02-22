@@ -1,9 +1,8 @@
 # DPI–AI Governance Artifacts
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Version](https://img.shields.io/badge/version-v0.4.1-green)
+![Version](https://img.shields.io/badge/version-v0.4.0-green)
 ![Type](https://img.shields.io/badge/type-governance--artifacts-orange)
-![Methodology](https://img.shields.io/badge/methodology-dpi--ai--governance--lab%20v0.4.1-purple)
 
 A lightweight, evolving repository of governance-ready artifacts for DPI + AI systems.
 
@@ -11,12 +10,15 @@ This release adds an **operational pack** that translates the "Minimum Digital K
 
 
 
-## Methodology alignment
+## TRACE alignment
 
-These artifacts are designed to operationalize the **DPI AI Governance Lab** methodology.
+This repository provides **TRACE-aligned operational artifacts**.
 
-- Alignment contract: `docs/methodology-alignment.md`
-- Upstream methodology repo: https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-lab
+- TRACE definition and controls live in the Lab repo (`docs/trace/`).
+- Alignment contract: `docs/trace-alignment.md`
+- Traceability map: `docs/traceability.md` and `docs/traceability.json`
+- TRACE version: `TRACE_VERSION`
+
 ## Acknowledgements
 
 This operational pack is inspired by the essay **“The Minimum Digital Kernel of an Effective State”** (Digital Statecraft / Substack).

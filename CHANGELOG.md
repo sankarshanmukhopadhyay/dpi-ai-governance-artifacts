@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1] - 2026-02-22
+### Added
+- TRACE alignment contract (`docs/trace-alignment.md`) and traceability map (`docs/traceability.*`).
+- `TRACE_VERSION` to declare the TRACE method version this repo aligns with.
+
+### Changed
+- Bumped repo version to 0.4.1.
+
 All notable changes to this repository will be documented in this file.
 
 The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) and this project adheres to Semantic Versioning.
@@ -87,12 +95,3 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
 - CITATION.cff metadata
 - VERSION file
 - Baseline repository structure
-## [0.4.1] - 2026-02-22
-
-### Added
-- Methodology alignment contract (`docs/methodology-alignment.md`) binding operational packs to the Lab.
-- Machine-readable alignment map (`docs/methodology-alignment.json`).
-
-### Changed
-- README now declares alignment to DPI AI Governance Lab v0.4.1.
-- Updated citation metadata to match repository version.
