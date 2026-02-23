@@ -1,89 +1,155 @@
 # DPI–AI Governance Artifacts
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Version](https://img.shields.io/badge/version-v0.4.0-green)
-![Type](https://img.shields.io/badge/type-governance--artifacts-orange)
+![Release](https://img.shields.io/badge/release-v0.6.0-green)
+![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
 
-A lightweight, evolving repository of governance-ready artifacts for DPI + AI systems.
+**Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance checklists that turn “governance” from a slide deck into **interfaces you can procure, implement, test, and audit**.
 
-This release adds an **operational pack** that translates the "Minimum Digital Kernel" idea into **portable interface contracts**: schemas, templates, and conformance profiles that teams can adopt in procurement, implementation, and audit workflows.
+This repo has grown beyond a single pack. It now ships a **full governance surface area**:
+- **Decision and accountability contracts** (decision receipts, appeals, audit findings)
+- **Authority and delegation contracts** (who can do what, with what limits, and how oversight works)
+- **Policy-as-code release discipline** (rulebook manifests, test vectors)
+- **Incident and notification interfaces** (so failures have a standard shape)
+- **Assurance and evidence bundles** (TRACE-aligned conformance artifacts)
+- **Operational playbooks** for recurring failure modes
 
+---
 
+## Where this fits (portfolio view)
 
-## TRACE alignment
+This repository is the **operational layer** for the DPI–AI Governance Lab methodology.
 
-This repository provides **TRACE-aligned operational artifacts**.
+- **Normative methodology + evaluation workflow:** `dpi-ai-governance-lab`
+- **Operational artifacts you can embed into programs and systems:** this repo
 
-- TRACE definition and controls live in the Lab repo (`docs/trace/`).
-- Alignment contract: `docs/trace-alignment.md`
+See:
+- Methodology alignment: `docs/methodology-alignment.md`
 - Traceability map: `docs/traceability.md` and `docs/traceability.json`
-- TRACE version: `TRACE_VERSION`
 
-## Acknowledgements
+---
 
-This operational pack is inspired by the essay **“The Minimum Digital Kernel of an Effective State”** (Digital Statecraft / Substack).
+## What you can do with this repo (practical outcomes)
 
-- Source essay: https://open.substack.com/pub/digitalstatecraft/p/the-minimum-digital-kernel-of-an
+Use these artifacts to harden delivery and de-risk adoption:
 
-This repository also includes a **meta-governance** layer inspired by the essay **“Meta-governance of AI systems”** (Shru14stack / Substack).
+1. **Procurement-ready requirements**  
+   Turn “must be transparent” into a schema-backed requirement: *emit a signed decision receipt*, *support appeals*, *publish a rulebook manifest*, *log Tier 0 events*, etc.
 
-- Source essay: https://open.substack.com/pub/shru14stack/p/meta-governance-of-ai-systems
+2. **Implementation contracts**  
+   Give engineering teams explicit JSON contracts for governance surfaces (instead of vague policy docs).
 
-This repository is **not** affiliated with or endorsed by the author/publisher of the essay. It aims to translate the essay’s concepts into implementable, auditable interface contracts (schemas, templates, and conformance profiles).
+3. **Audit and assurance acceleration**  
+   Use conformance profiles + evidence bundle checklists to reduce audit ambiguity and the “interpretive dance” tax.
 
-## Version
+4. **Interoperability across vendors and ministries**  
+   Standard shapes for receipts, delegations, incidents, and notifications reduce bespoke integrations.
 
-Current release: **v0.4.0** (Minimum Digital Kernel + Meta-Governance Operational Pack)
+---
 
-## What is inside
+## What’s inside (high signal inventory)
 
-### Baseline artifacts
-- `artifacts/dpi-ai-risk-scoring-matrix.md` 
-  Risk scoring matrix and Tier 0–3 governance bindings.
+### Baseline risk tiering
+- `artifacts/dpi-ai-risk-scoring-matrix.md`  
+  A Tier 0–3 risk model with governance bindings.
 
-### Minimum Digital Kernel operational pack
-- `schemas/decision-receipt.schema.json` 
-  A machine-readable contract for signed decision receipts.
-- `schemas/authority-directory-entry.schema.json` 
-  A minimal entry format for authority directories and trust directories.
-- `schemas/rulebook-manifest.schema.json` 
-  A release discipline format for versioned rulebooks (policy as code).
-- `schemas/registry-correction-*.schema.json` and `schemas/recompute-trigger.schema.json` 
-  Correction, recompute, and notification workflows.
-- `schemas/appeal-*.schema.json` and `schemas/audit-finding.schema.json` 
-  Contestability and oversight interfaces.
-- `templates/` 
-  Ready-to-use examples and governance templates (change control, validation checklists, SLAs).
-- `conformance/mdk-tier-profile.md` 
-  Tier-driven conformance expectations for Minimum Digital Kernel primitives.
+### Minimum Digital Kernel pack (core interoperability + redress)
+Key contracts that frequently become mandatory once systems become consequential:
 
-### Meta-governance operational pack
-- `schemas/governance-authority-delegation.schema.json`
-  Delegation ledger: who has mandate, scope, limits, oversight, and lifecycle.
-- `schemas/oversight-review.schema.json`
-  Second-order oversight: audit-of-the-auditor independence and peer review record.
-- `schemas/governance-trigger.schema.json`
-  Trigger model: machine-readable conditions for when governance must adapt.
+- Decision and redress:
+  - `schemas/decision-receipt.schema.json`
+  - `schemas/appeal-filing.schema.json`
+  - `schemas/appeal-decision.schema.json`
+  - `schemas/audit-finding.schema.json`
+
+- Trust/authority directories:
+  - `schemas/authority-directory-entry.schema.json`
+
+- Policy release discipline:
+  - `schemas/rulebook-manifest.schema.json`
+  - `rulebook-test-vectors/` (fixtures for validators and implementers)
+
+- Corrections and recompute:
+  - `schemas/registry-correction-request.schema.json`
+  - `schemas/registry-correction-response.schema.json`
+  - `schemas/recompute-trigger.schema.json`
+
+- Incidents, notifications, federation:
+  - `schemas/incident.schema.json`
+  - `schemas/notification-delivery.schema.json`
+  - `schemas/federation-agreement.schema.json`
+  - `schemas/tier0-log-entry.schema.json`
+
+Conformance guidance:
+- `conformance/mdk-tier-profile.md` (Tier-driven “what is required when”)
+
+### Meta-governance pack (governing the governors)
+Second-order controls so governance does not silently fail:
+
+- `schemas/governance-authority-delegation.schema.json` (mandates, scope, limits, lifecycle, oversight)
+- `schemas/oversight-review.schema.json` (audit-of-auditor / independence / peer review)
+- `schemas/governance-trigger.schema.json` (machine-readable triggers for governance adaptation)
 - `artifacts/governance-risk-register.md`
-  Second-order risk register for governance system failure modes.
 - `artifacts/governance-transparency-scorecard.md`
-  Transparency scorecard to keep governance observable (not just compliant).
-- `templates/governance-constitutional-constraints.template.md`
-  Constitutional guardrails template: non-derogable constraints and emergency power limits.
 - `docs/guides/meta-governance-operationalising.md`
-  Practitioner guide for adopting the meta-governance layer.
 
-## How to use
+### Supply-chain / vendor attestations
+- `schemas/vendor-capability-attestation.schema.json`
+- `schemas/supply-chain-control.schema.json`
+- `rulebook-test-vectors/vendor-attestation/` (known-good/known-bad fixtures)
 
-1. Start with the Tier model in `artifacts/dpi-ai-risk-scoring-matrix.md`.
-2. Adopt `schemas/decision-receipt.schema.json` as a procurement and implementation requirement for consequential decisions.
-3. Use `conformance/mdk-tier-profile.md` to map risk tiers to mandatory kernel primitives.
-4. Plug in the templates under `templates/` to standardize audits, registry corrections, and appeals.
+### Shared schema primitives
+To reduce drift and make schemas composable:
 
+- `schemas/common-defs.schema.json`
+- `schemas/lawful-basis.schema.json`
+- `schemas/reason-codes.vocab.json`
+
+Migration note:
+- `docs/migrations/v0.5-to-v0.6.md` (lawful basis rules + common defs consolidation)
+
+### Operational playbooks
+Scenario playbooks for recurring governance failure modes:
+
+- `playbooks/model-drift.md`
+- `playbooks/widespread-misclassification.md`
+- `playbooks/security-compromise.md`
+
+---
+
+## TRACE alignment and conformance
+
+This repository ships **TRACE-aligned operational artifacts**.
+
+- Alignment contract: `docs/trace-alignment.md`
+- TRACE version: `TRACE_VERSION`
+- Conformance evidence bundle: `conformance/evidence-bundle.md`
+
+---
+
+## Quickstart (recommended adoption path)
+
+1. **Start with Tiering**  
+   Apply `artifacts/dpi-ai-risk-scoring-matrix.md` to classify a system (Tier 0–3).
+
+2. **Make decisions auditable by default**  
+   Require `schemas/decision-receipt.schema.json` for consequential decisions.  
+   Tier 2/3 + *person* decisions: follow the lawful basis requirements in `docs/migrations/v0.5-to-v0.6.md`.
+
+3. **Make redress real (not ceremonial)**  
+   Implement `schemas/appeal-filing.schema.json` and `schemas/appeal-decision.schema.json`, and capture oversight using `schemas/audit-finding.schema.json`.
+
+4. **Make governance itself observable**  
+   Adopt the meta-governance pack: delegation ledger + oversight review + governance triggers.
+
+5. **Prove it with evidence**  
+   Use `conformance/evidence-bundle.md` to operationalize assurance claims in a TRACE evaluation.
+
+---
 
 ## Validation (schemas + examples)
 
-This repository ships with **examples** and **test vectors** that are validated in CI.
+This repository ships **examples** and **test vectors** that validate against the schemas.
 
 Run locally:
 
@@ -92,21 +158,38 @@ python -m pip install jsonschema
 python tools/validate_schemas.py
 ```
 
+---
+
 ## Repository structure
-- `/artifacts` 
-  Published governance artifacts
-- `/schemas` 
-  Machine-readable schemas for operational governance
-- `/templates` 
-  Templates and examples for implementers
-- `/conformance` 
-  Conformance profiles and checklists
-- `/docs` 
-  Guides and notes
+
+| Path | What it contains |
+|---|---|
+| `artifacts/` | Published governance artifacts (risk registers, scorecards, tiering) |
+| `schemas/` | Machine-readable contracts for governance interfaces |
+| `templates/` | Example instances and implementation templates |
+| `rulebook-test-vectors/` | Known-good/known-bad fixtures for validators |
+| `conformance/` | Conformance profiles and evidence bundles |
+| `playbooks/` | Practitioner playbooks for common failure modes |
+| `docs/` | Guides, traceability, alignment, and migration notes |
+| `tools/` | Validation and helper tooling |
+
+---
+
+## Acknowledgements
+
+This repo translates ideas into implementable artifacts and is **not affiliated with** or endorsed by the authors below.
+
+- “The Minimum Digital Kernel of an Effective State” (Digital Statecraft / Substack)  
+  https://open.substack.com/pub/digitalstatecraft/p/the-minimum-digital-kernel-of-an
+
+- “Meta-governance of AI systems” (Shru14stack / Substack)  
+  https://open.substack.com/pub/shru14stack/p/meta-governance-of-ai-systems
+
+---
 
 ## Citation and attribution
 
-If you reuse or adapt this work, please attribute as follows:
+If you reuse or adapt this work, please attribute:
 
 Sankarshan Mukhopadhyay (2026). *DPI–AI Governance Artifacts*. Licensed under **CC BY-SA 4.0**.
 

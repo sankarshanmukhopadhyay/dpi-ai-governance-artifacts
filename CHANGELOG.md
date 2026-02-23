@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0] - 2026-02-22
+
+### Added
+- Lawful basis support and conditional enforcement in decision receipts (`schemas/lawful-basis.schema.json`, updates to `schemas/decision-receipt.schema.json`).
+- Consolidated shared primitives in `schemas/common-defs.schema.json` to reduce schema drift.
+- Vendor capability attestation vectors under `rulebook-test-vectors/vendor-attestation/`.
+- Conformance evidence bundle for TRACE evaluations (`conformance/evidence-bundle.md`).
+- Migration guide for implementers (`docs/migrations/v0.5-to-v0.6.md`).
+
+### Changed
+- Expanded repository validation conventions and fixtures to improve determinism for implementers and validators.
+
 ## [0.4.1] - 2026-02-22
 ### Added
 - TRACE alignment contract (`docs/trace-alignment.md`) and traceability map (`docs/traceability.*`).
