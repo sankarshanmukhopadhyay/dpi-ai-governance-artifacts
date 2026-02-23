@@ -33,13 +33,13 @@ Minimum viable use:
 - Define 5–10 triggers that force review: appeal spikes, SLA breaches, bias signals, major model changes, major policy changes.
 
 ### 4) Meta-governance risk register
-- `artifacts/governance-risk-register.md`
+- `controlled/risk/risk-register.md`
 
 Minimum viable use:
 - Review quarterly, and whenever a governance trigger fires.
 
 ### 5) Transparency scorecard
-- `artifacts/governance-transparency-scorecard.md`
+- `controlled/assurance/transparency-scorecard.md`
 
 Minimum viable use:
 - Publish internally monthly; publish externally where possible.

@@ -1,12 +1,22 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+- Governance spine (`governance/`) to clarify normativity, controlled documents, and revision discipline.
+- Controlled document taxonomy under `controlled/` (risk, assurance, redress, plus reserved categories).
+- ToIP compatibility mapping annex under `annex/` and ToIP references in `REFERENCES.md`.
+
+### Changed
+- Moved risk and assurance artifacts into `controlled/` (legacy pointers left in `artifacts/` and `conformance/`).
+
 ## [0.6.0] - 2026-02-22
 
 ### Added
 - Lawful basis support and conditional enforcement in decision receipts (`schemas/lawful-basis.schema.json`, updates to `schemas/decision-receipt.schema.json`).
 - Consolidated shared primitives in `schemas/common-defs.schema.json` to reduce schema drift.
 - Vendor capability attestation vectors under `rulebook-test-vectors/vendor-attestation/`.
-- Conformance evidence bundle for TRACE evaluations (`conformance/evidence-bundle.md`).
+- Conformance evidence bundle for TRACE evaluations (`controlled/assurance/evidence-bundles.md`).
 - Migration guide for implementers (`docs/migrations/v0.5-to-v0.6.md`).
 
 ### Changed
@@ -54,9 +64,9 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
   - Dismissed/denied decisions must include `rationale`
 - `schemas/governance-authority-delegation.schema.json`
   - Typed `oversight_body.endpoints` (removed unbounded object)
-- `artifacts/dpi-ai-risk-scoring-matrix.md`
+- `controlled/risk/risk-scoring-matrix.md`
   - Clarified Tier 0 boundary and added conservative tiebreak rule at Priority = 12
-- `conformance/mdk-tier-profile.md`
+- `controlled/assurance/tier-profiles/mdk-tier-profile.md`
   - Specified Tier 0 minimum portable logging format
 
 ### Notes
@@ -69,8 +79,8 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
   - `schemas/governance-authority-delegation.schema.json` (delegation ledger)
   - `schemas/oversight-review.schema.json` (audit-of-the-auditor)
   - `schemas/governance-trigger.schema.json` (adaptive governance triggers)
-  - `artifacts/governance-risk-register.md` (second-order risk register)
-  - `artifacts/governance-transparency-scorecard.md` (observable governance scorecard)
+  - `controlled/risk/risk-register.md` (second-order risk register)
+  - `controlled/assurance/transparency-scorecard.md` (observable governance scorecard)
   - `templates/governance-constitutional-constraints.template.md` (constitutional guardrails)
   - `docs/guides/meta-governance-operationalising.md` (adoption guide)
 - Added reference link to the Shru14stack essay that motivated the meta-governance layer.

@@ -16,4 +16,4 @@ This note maps commonly described Minimum Digital Kernel primitives to concrete 
 | Recompute triggers | `schemas/recompute-trigger.schema.json` |
 | Appeals filing and decisions | `schemas/appeal-filing.schema.json` and `schemas/appeal-decision.schema.json` |
 | Independent audit findings | `schemas/audit-finding.schema.json` |
-| Tier-driven requirements | `conformance/mdk-tier-profile.md` |
+| Tier-driven requirements | `controlled/assurance/tier-profiles/mdk-tier-profile.md` |

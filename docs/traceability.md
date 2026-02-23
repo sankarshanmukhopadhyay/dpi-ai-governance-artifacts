@@ -25,4 +25,4 @@ This document maps TRACE controls (from the Lab) to concrete artifacts in this r
 ## Conformance
 
 - **TRACE-CONF-01** — Claims are backed by artifacts and evidence expectations.  
-  Artifacts: `conformance/evidence-bundle.md`
+  Artifacts: `controlled/assurance/evidence-bundles.md`
