@@ -7,6 +7,17 @@ This repository is the **operational layer** for the DPI AI Governance Lab metho
 
 The goal is to keep the two repos **loosely coupled** but **semantically locked** via explicit versioning + traceability.
 
+
+## Methodology v1.0 stabilization
+
+The Lab now includes a stable review spine under `methodology/`:
+- Evaluation contract (required outputs)
+- Review workflow
+- Scoring rubric + anchored scale
+- Templates + calibration scaffolding
+
+This repo remains the operational artifact layer; when the Lab’s rubric/outputs change materially, update traceability and bump versions accordingly.
+
 ---
 
 ## Declared compatibility

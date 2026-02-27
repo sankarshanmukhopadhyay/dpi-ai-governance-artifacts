@@ -7,7 +7,7 @@ This repository contains **TRACE-aligned operational artifacts**.
 ## Alignment contract
 
 - TRACE version: see `TRACE_VERSION`
-- Lab reference: `dpi-ai-governance-lab` (TRACE docs live under `docs/trace/`)
+- Lab reference: `dpi-ai-governance-lab` (TRACE docs live under `docs/trace/`; stabilized review methodology lives under `methodology/`)
 - This repo provides a traceability map from TRACE controls → artifact files.
 
 ## Traceability

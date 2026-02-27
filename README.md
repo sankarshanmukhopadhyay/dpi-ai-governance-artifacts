@@ -18,6 +18,7 @@ This repo ships a **full governance surface area**:
 
 Lower the cognitive barrier to adoption by starting with the practical guides below:
 
+- **Companion evaluation engine (Lab):** `dpi-ai-governance-lab` — TRACE (TRACE (Trust, Risk, Architecture & Conformance Evaluation)) method + reproducible paper reviews (see `methodology/` in the Lab repo)
 - **How to use this repo (implementation guide):** `docs/guides/how-to-use-this-repo.md`
 - **Suggested adoption pathways (startup, enterprise, state):** `docs/guides/adoption-pathways.md`
 - **Maturity model alignment:** `docs/guides/maturity-model-alignment.md`
