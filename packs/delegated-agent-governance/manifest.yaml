@@ -1,0 +1,37 @@
+pack_id: delegated-agent-governance
+title: Delegated Agent Governance — Operational Pack
+version: 0.1.0
+artifacts:
+  - path: packs/delegated-agent-governance/delegated-agent-governance.md
+    role: guide
+    requirement: required
+  - path: packs/delegated-agent-governance/override-kill-switch.runbook.template.md
+    role: template
+    requirement: required
+  - path: schemas/governance-authority-delegation.schema.json
+    role: schema
+    requirement: required
+  - path: schemas/decision-receipt.schema.json
+    role: schema
+    requirement: required
+  - path: schemas/tier0-log-entry.schema.json
+    role: schema
+    requirement: required
+  - path: schemas/governance-trigger.schema.json
+    role: schema
+    requirement: optional
+  - path: schemas/recompute-trigger.schema.json
+    role: schema
+    requirement: optional
+  - path: schemas/incident.schema.json
+    role: schema
+    requirement: optional
+  - path: schemas/notification-delivery.schema.json
+    role: schema
+    requirement: optional
+  - path: schemas/oversight-review.schema.json
+    role: schema
+    requirement: optional
+  - path: playbooks/security-compromise.md
+    role: playbook
+    requirement: optional

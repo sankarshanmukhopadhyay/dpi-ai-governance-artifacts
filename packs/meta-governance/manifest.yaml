@@ -1,0 +1,34 @@
+pack_id: meta-governance
+title: Meta-Governance — Implementation Pack
+version: 0.1.0
+artifacts:
+  - path: docs/guides/meta-governance-operationalising.md
+    role: guide
+    requirement: required
+  - path: schemas/governance-authority-delegation.schema.json
+    role: schema
+    requirement: required
+  - path: templates/governance-authority-delegation.example.json
+    role: example
+    requirement: required
+  - path: schemas/governance-trigger.schema.json
+    role: schema
+    requirement: required
+  - path: templates/governance-trigger.example.json
+    role: example
+    requirement: required
+  - path: schemas/oversight-review.schema.json
+    role: schema
+    requirement: required
+  - path: templates/oversight-review.example.json
+    role: example
+    requirement: required
+  - path: templates/rulebook-change-control.template.md
+    role: template
+    requirement: required
+  - path: schemas/recompute-trigger.schema.json
+    role: schema
+    requirement: optional
+  - path: templates/recompute-trigger.example.json
+    role: example
+    requirement: optional

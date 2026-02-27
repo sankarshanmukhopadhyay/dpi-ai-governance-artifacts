@@ -1,0 +1,46 @@
+pack_id: mdk
+title: Minimum Digital Kernel — Operational Pack
+version: 0.1.0
+artifacts:
+  - path: docs/guides/minimum-digital-kernel-operationalising.md
+    role: guide
+    requirement: required
+  - path: conformance/mdk-tier-profile.md
+    role: tier_profile
+    requirement: required
+  - path: conformance/evidence-bundle.md
+    role: conformance_guide
+    requirement: required
+  - path: schemas/decision-receipt.schema.json
+    role: schema
+    requirement: required
+  - path: templates/decision-receipt.example.minimal.json
+    role: example
+    requirement: required
+  - path: templates/decision-receipt.example.high-impact.json
+    role: example
+    requirement: optional
+  - path: templates/decision-receipt.validation-checklist.md
+    role: checklist
+    requirement: required
+  - path: schemas/authority-directory-entry.schema.json
+    role: schema
+    requirement: required
+  - path: templates/authority-directory-entry.example.json
+    role: example
+    requirement: required
+  - path: schemas/rulebook-manifest.schema.json
+    role: schema
+    requirement: required
+  - path: templates/rulebook-manifest.example.json
+    role: example
+    requirement: required
+  - path: templates/rulebook-change-control.template.md
+    role: template
+    requirement: required
+  - path: schemas/reason-codes.vocab.json
+    role: vocabulary
+    requirement: optional
+  - path: templates/reason-codes.vocab.example.json
+    role: example
+    requirement: optional

@@ -1,0 +1,55 @@
+pack_id: ai-redress-accountability
+title: AI Redress & Accountability — Operational Pack
+version: 0.1.0
+artifacts:
+  - path: controlled/redress/redress-and-remediation.md
+    role: controlled_doc
+    requirement: required
+  - path: schemas/redress/redress-workflow.schema.json
+    role: schema
+    requirement: required
+  - path: schemas/appeal-filing.schema.json
+    role: schema
+    requirement: required
+  - path: templates/appeal-filing.example.json
+    role: example
+    requirement: required
+  - path: schemas/appeal-decision.schema.json
+    role: schema
+    requirement: required
+  - path: templates/appeal-decision.example.json
+    role: example
+    requirement: required
+  - path: schemas/incident.schema.json
+    role: schema
+    requirement: required
+  - path: templates/incident.example.json
+    role: example
+    requirement: required
+  - path: schemas/audit-finding.schema.json
+    role: schema
+    requirement: required
+  - path: templates/audit-finding.example.json
+    role: example
+    requirement: required
+  - path: schemas/notification-delivery.schema.json
+    role: schema
+    requirement: required
+  - path: templates/notification-delivery.example.json
+    role: example
+    requirement: required
+  - path: schemas/registry-correction-request.schema.json
+    role: schema
+    requirement: required
+  - path: templates/registry-correction-request.example.json
+    role: example
+    requirement: required
+  - path: schemas/registry-correction-response.schema.json
+    role: schema
+    requirement: required
+  - path: templates/registry-correction-response.example.json
+    role: example
+    requirement: required
+  - path: templates/correction-sla-metrics.md
+    role: metrics_template
+    requirement: optional
