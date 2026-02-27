@@ -1,0 +1,608 @@
+registry_id: dpi-ai-controls
+version: 0.1.0
+generated_on: '2026-02-27'
+id_format: DPI-AI-CTRL-XXX
+categories:
+- Governance
+- Risk
+- Assurance
+- Redress
+- Transparency
+controls:
+- id: DPI-AI-CTRL-001
+  title: Governance scope and decision boundaries defined
+  category: Governance
+  intent: Prevent ambiguous authority and uncontrolled decision-making in AI-enabled
+    DPI systems.
+  requirements:
+  - Define the decision domain(s) where AI is used, including explicit non-goals.
+  - Define authority boundaries for automated, assisted, and human-only decisions.
+  - Document assumptions and operational constraints.
+  evidence:
+  - Authority Directory entries
+  - Decision Receipt samples
+  - System scope statement
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MAP
+    oecd_ai_principles:
+    - Transparency & explainability
+    - Accountability
+    iso_iec_42001_topics:
+    - Planning
+    - Operation
+- id: DPI-AI-CTRL-002
+  title: Decision rights are assigned and published
+  category: Governance
+  intent: Make accountable ownership legible and enforceable.
+  requirements:
+  - Assign named roles/units to decision rights for each governed action type.
+  - Publish escalation and override authorities.
+  - Review decision rights on a defined cadence or on governance triggers.
+  evidence:
+  - Decision rights matrix
+  - Authority Directory
+  - Oversight review records
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+    oecd_ai_principles:
+    - Accountability
+    iso_iec_42001_topics:
+    - Leadership
+    - Operation
+    - Performance evaluation
+- id: DPI-AI-CTRL-003
+  title: Rulebook change control is enforced
+  category: Governance
+  intent: Ensure governance rules evolve under oversight with traceability.
+  requirements:
+  - Maintain a rulebook manifest with versioning and ownership.
+  - Use a change-control template for updates to rules, thresholds, and policies.
+  - Record approvals, rationale, and effective date for every change.
+  evidence:
+  - Rulebook manifest
+  - Change control records
+  - Approval trail
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Improvement
+- id: DPI-AI-CTRL-004
+  title: Governance triggers are defined and monitored
+  category: Governance
+  intent: Automatically surface events that require governance attention.
+  requirements:
+  - Define governance triggers (policy change, incident, drift, legal change, etc.).
+  - Assign trigger ownership and response playbooks.
+  - Record trigger firings and outcomes.
+  evidence:
+  - Governance trigger registry
+  - Trigger response records
+  - Oversight reviews
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+- id: DPI-AI-CTRL-005
+  title: Risk register maintained with severity and likelihood
+  category: Risk
+  intent: Track, prioritize, and manage AI risks as living operational objects.
+  requirements:
+  - Maintain a risk register with defined scoring scale(s).
+  - Link each risk to owners, mitigations, and review cadence.
+  - Record changes and rationale.
+  evidence:
+  - Risk register
+  - Risk scoring matrix
+  - Mitigation tracking
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MAP
+      - MANAGE
+    oecd_ai_principles:
+    - Robustness, security and safety
+    - Accountability
+    iso_iec_42001_topics:
+    - Planning
+    - Operation
+- id: DPI-AI-CTRL-006
+  title: Impact tiering applied to AI-enabled decisions
+  category: Risk
+  intent: Ensure higher-impact decisions receive stronger governance, assurance, and
+    redress.
+  requirements:
+  - Define impact tiers and tier-conditional requirements.
+  - Assign tier to each decision type and justify it.
+  - Review tier assignments when triggers fire.
+  evidence:
+  - Tier profile
+  - Decision type inventory
+  - Tier assignment rationale
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MAP
+      - GOV
+    oecd_ai_principles:
+    - Accountability
+    - Robustness, security and safety
+    iso_iec_42001_topics:
+    - Planning
+    - Operation
+- id: DPI-AI-CTRL-007
+  title: Model/system performance is measured against stated objectives
+  category: Assurance
+  intent: Prevent unverifiable claims and ensure measurable performance expectations
+    exist.
+  requirements:
+  - Define measurable objectives and evaluation metrics.
+  - Run evaluations on representative data and conditions.
+  - Document limitations and uncertainty.
+  evidence:
+  - Evaluation protocol
+  - Metrics reports
+  - Limitations statement
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Robustness, security and safety
+    iso_iec_42001_topics:
+    - Performance evaluation
+    - Operation
+- id: DPI-AI-CTRL-008
+  title: Evidence bundles are produced for governed releases
+  category: Assurance
+  intent: Make assurance and audit practical by packaging required evidence.
+  requirements:
+  - Define required evidence artifacts by tier/profile.
+  - Package evidence as a bundle per governed release.
+  - Maintain an index and integrity checks.
+  evidence:
+  - Evidence bundle index
+  - Tier profile requirements
+  - Artifact checklist
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Performance evaluation
+    - Operation
+- id: DPI-AI-CTRL-009
+  title: Decision receipts are generated for governed decisions
+  category: Transparency
+  intent: Create a traceable record of what decision was made and why.
+  requirements:
+  - Generate a decision receipt for governed decisions (tier-conditional).
+  - Include rationale elements and applicable reason codes.
+  - Store receipts with retention and access controls.
+  evidence:
+  - Decision receipt samples
+  - Decision receipt schema conformance
+  - Retention policy
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+    oecd_ai_principles:
+    - Transparency & explainability
+    - Accountability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+- id: DPI-AI-CTRL-010
+  title: Affected-party notification is reliable and logged
+  category: Transparency
+  intent: Ensure decisions and remedies are communicated and provable.
+  requirements:
+  - Define notification triggers and minimum content requirements.
+  - Log delivery events and failures.
+  - Provide a verifiable trail for disputes.
+  evidence:
+  - Notification delivery logs
+  - Notification templates
+  - Delivery failure handling
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MANAGE
+      - MEASURE
+    oecd_ai_principles:
+    - Transparency & explainability
+    - Accountability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+- id: DPI-AI-CTRL-011
+  title: Redress intake and triage workflow exists
+  category: Redress
+  intent: Make redress accessible and operational, not symbolic.
+  requirements:
+  - Provide an intake mechanism for appeals/complaints.
+  - Define triage categories, SLAs, and ownership.
+  - Record case status transitions.
+  evidence:
+  - Redress workflow
+  - Appeal filing records
+  - SLA metrics
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    iso_iec_42001_topics:
+    - Operation
+    - Improvement
+- id: DPI-AI-CTRL-012
+  title: Appeal decisions are reasoned and traceable
+  category: Redress
+  intent: Ensure appeal outcomes are explainable and defensible.
+  requirements:
+  - Document appeal decision rationale and evidence considered.
+  - Record the remediation decision and responsible party.
+  - Notify the affected party with delivery logs.
+  evidence:
+  - Appeal decision records
+  - Remediation plan
+  - Notification logs
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MANAGE
+      - MEASURE
+    oecd_ai_principles:
+    - Transparency & explainability
+    - Accountability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-013
+  title: Procurement requirements specify governance evidence
+  category: Governance
+  intent: Shift governance left by demanding evidence at procurement time.
+  requirements:
+  - Specify required governance and assurance artifacts for suppliers.
+  - Define evaluation criteria and weighting.
+  - Require attestations and evidence bundles where relevant.
+  evidence:
+  - Procurement clauses
+  - Evidence request template
+  - Supplier responses
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MAP
+    oecd_ai_principles:
+    - Accountability
+    - Robustness, security and safety
+    iso_iec_42001_topics:
+    - Planning
+    - Operation
+- id: DPI-AI-CTRL-014
+  title: Supplier supply-chain control is documented
+  category: Assurance
+  intent: Reduce hidden dependencies and unmanaged risk from suppliers and components.
+  requirements:
+  - Maintain a supply-chain control record for AI components and services.
+  - Identify critical dependencies and update cadence.
+  - Record known limitations and third-party assurance where available.
+  evidence:
+  - Supply-chain control records
+  - SBOM-like dependency lists
+  - Third-party attestations
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MAP
+      - MANAGE
+    oecd_ai_principles:
+    - Robustness, security and safety
+    iso_iec_42001_topics:
+    - Planning
+    - Operation
+- id: DPI-AI-CTRL-015
+  title: Delegated agents have explicit authorization boundaries
+  category: Governance
+  intent: Prevent agents from operating outside delegated authority.
+  requirements:
+  - Define what an agent can and cannot do, including data access and action scopes.
+  - Bind agent actions to accountable human/organizational principals.
+  - Require explicit approval for high-impact actions.
+  evidence:
+  - Delegation contract
+  - Authorization boundary doc
+  - Approval logs
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MAP
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Planning
+- id: DPI-AI-CTRL-016
+  title: Agent override and kill-switch procedures are tested
+  category: Assurance
+  intent: Ensure operators can stop or constrain autonomous behavior safely.
+  requirements:
+  - Maintain a documented override/kill-switch runbook.
+  - Test procedures on a defined cadence.
+  - Record drills and outcomes.
+  evidence:
+  - Override runbook
+  - Drill records
+  - Incident retrospectives
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - MANAGE
+      - MEASURE
+    oecd_ai_principles:
+    - Robustness, security and safety
+    - Accountability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-017
+  title: Public transparency reporting is produced
+  category: Transparency
+  intent: Publish periodic transparency reporting suitable for public-sector legitimacy.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-018
+  title: Audit findings are tracked to closure
+  category: Assurance
+  intent: Ensure audit findings drive remediation and learning.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-019
+  title: Incident intake and response workflow exists
+  category: Risk
+  intent: Operational incident response for AI harms and failures.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-020
+  title: Registry correction workflows exist
+  category: Redress
+  intent: Support correction of registry entries and decision inputs.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-021
+  title: Bias and disparate impact evaluation is performed where relevant
+  category: Assurance
+  intent: Evaluate for unfair impacts where affected groups exist.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-022
+  title: Human-in-the-loop requirements are tier-conditional
+  category: Governance
+  intent: Require human review/approval for defined high-impact cases.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-023
+  title: Data provenance and consent/authority is tracked
+  category: Transparency
+  intent: Track provenance/authority for inputs to governed decisions.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-024
+  title: Model/system changes trigger re-evaluation
+  category: Governance
+  intent: Re-evaluate when models, data, or policies change.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+- id: DPI-AI-CTRL-025
+  title: Redress SLAs and metrics are defined and monitored
+  category: Redress
+  intent: Define and track SLAs for redress and remediation.
+  requirements:
+  - Document the policy/process and make it operational.
+  - Assign ownership and cadence.
+  - Record outcomes and maintain traceability.
+  evidence:
+  - Templates and filled artifacts
+  - Logs/records
+  - Oversight review notes
+  mappings:
+    nist_ai_rmf:
+      functions:
+      - GOV
+      - MEASURE
+      - MANAGE
+    oecd_ai_principles:
+    - Accountability
+    - Transparency & explainability
+    iso_iec_42001_topics:
+    - Operation
+    - Performance evaluation
+    - Improvement
+mappings_notice: Mappings are indicative starting points for alignment work and are
+  not authoritative compliance determinations.

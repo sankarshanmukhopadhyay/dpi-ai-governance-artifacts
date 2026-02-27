@@ -42,3 +42,15 @@ Out-of-scope:
 ## Included artifacts
 
 See [`manifest.yaml`](./manifest.yaml) for the exact inventory.
+
+
+---
+
+## What’s in this pack (quick links)
+
+- Implementation guide: `implementation-guide.md`
+- Control mapping: `controls-mapping.md`
+- Supplier attestation: `supplier-attestation.template.md`
+- Red flags checklist: `red-flags-checklist.md`
+
+This pack is procurement-ready: it is designed to be used in RFPs, vendor evaluation, and contract clauses.

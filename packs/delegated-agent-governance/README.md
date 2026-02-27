@@ -33,3 +33,15 @@ Out-of-scope:
 ## Included artifacts
 
 See [`manifest.yaml`](./manifest.yaml) for the exact inventory.
+
+
+---
+
+## What’s in this pack (quick links)
+
+- Implementation guide: `implementation-guide.md`
+- Artifact checklist: `artifact-checklist.md`
+- Control mapping: `controls-mapping.md`
+- Templates: `agent-authorization-boundary.template.md`, `agent-action-log.template.md`
+
+This pack assumes agentic systems operate under explicit delegation and tier-conditional approvals.

@@ -1,46 +1,68 @@
 pack_id: mdk
 title: Minimum Digital Kernel — Operational Pack
-version: 0.1.0
+version: 0.2.0
 artifacts:
-  - path: docs/guides/minimum-digital-kernel-operationalising.md
-    role: guide
-    requirement: required
-  - path: conformance/mdk-tier-profile.md
-    role: tier_profile
-    requirement: required
-  - path: conformance/evidence-bundle.md
-    role: conformance_guide
-    requirement: required
-  - path: schemas/decision-receipt.schema.json
-    role: schema
-    requirement: required
-  - path: templates/decision-receipt.example.minimal.json
-    role: example
-    requirement: required
-  - path: templates/decision-receipt.example.high-impact.json
-    role: example
-    requirement: optional
-  - path: templates/decision-receipt.validation-checklist.md
-    role: checklist
-    requirement: required
-  - path: schemas/authority-directory-entry.schema.json
-    role: schema
-    requirement: required
-  - path: templates/authority-directory-entry.example.json
-    role: example
-    requirement: required
-  - path: schemas/rulebook-manifest.schema.json
-    role: schema
-    requirement: required
-  - path: templates/rulebook-manifest.example.json
-    role: example
-    requirement: required
-  - path: templates/rulebook-change-control.template.md
-    role: template
-    requirement: required
-  - path: schemas/reason-codes.vocab.json
-    role: vocabulary
-    requirement: optional
-  - path: templates/reason-codes.vocab.example.json
-    role: example
-    requirement: optional
+- path: docs/guides/minimum-digital-kernel-operationalising.md
+  role: guide
+  requirement: required
+- path: conformance/mdk-tier-profile.md
+  role: tier_profile
+  requirement: required
+- path: conformance/evidence-bundle.md
+  role: conformance_guide
+  requirement: required
+- path: schemas/decision-receipt.schema.json
+  role: schema
+  requirement: required
+- path: templates/decision-receipt.example.minimal.json
+  role: example
+  requirement: required
+- path: templates/decision-receipt.example.high-impact.json
+  role: example
+  requirement: optional
+- path: templates/decision-receipt.validation-checklist.md
+  role: checklist
+  requirement: required
+- path: schemas/authority-directory-entry.schema.json
+  role: schema
+  requirement: required
+- path: templates/authority-directory-entry.example.json
+  role: example
+  requirement: required
+- path: schemas/rulebook-manifest.schema.json
+  role: schema
+  requirement: required
+- path: templates/rulebook-manifest.example.json
+  role: example
+  requirement: required
+- path: templates/rulebook-change-control.template.md
+  role: template
+  requirement: required
+- path: schemas/reason-codes.vocab.json
+  role: vocabulary
+  requirement: optional
+- path: templates/reason-codes.vocab.example.json
+  role: example
+  requirement: optional
+- path: packs/minimum-digital-kernel/implementation-guide.md
+  role: pack_artifact
+  requirement: required
+- path: packs/minimum-digital-kernel/artifact-checklist.md
+  role: pack_artifact
+  requirement: optional
+- path: packs/minimum-digital-kernel/controls-mapping.md
+  role: pack_artifact
+  requirement: optional
+- path: packs/minimum-digital-kernel/decision-receipt.template.md
+  role: pack_artifact
+  requirement: optional
+- path: packs/minimum-digital-kernel/authority-directory.template.md
+  role: pack_artifact
+  requirement: optional
+controls:
+- DPI-AI-CTRL-001
+- DPI-AI-CTRL-002
+- DPI-AI-CTRL-003
+- DPI-AI-CTRL-006
+- DPI-AI-CTRL-009
+- DPI-AI-CTRL-024

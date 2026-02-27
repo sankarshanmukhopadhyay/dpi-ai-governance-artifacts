@@ -10,6 +10,18 @@
 ### Changed
 - Moved risk and assurance artifacts into `controlled/` (legacy pointers left in `artifacts/` and `conformance/`).
 
+
+## [0.6.1]
+
+### Added
+- Control library with stable control IDs (`DPI-AI-CTRL-XXX`) and machine-readable registries (`controls/registry.yaml`, `controls/registry.json`).
+- Pack-level implementation guides, artifact checklists, control mappings, and additional templates across MDK, Meta-Governance, Redress, Procurement, and Delegated Agent Governance.
+
+### Changed
+- Updated pack manifests to reference pack artifacts and declare control coverage.
+- Updated README and roadmap to reflect operational pack expansion and control library availability.
+
+
 ## [0.6.0] - 2026-02-22
 
 ### Added

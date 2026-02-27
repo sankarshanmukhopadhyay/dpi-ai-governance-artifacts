@@ -35,3 +35,15 @@ In-scope:
 ## Included artifacts
 
 See [`manifest.yaml`](./manifest.yaml) for the exact inventory.
+
+
+---
+
+## What’s in this pack (quick links)
+
+- Implementation guide: `implementation-guide.md`
+- Artifact checklist: `artifact-checklist.md`
+- Control mapping: `controls-mapping.md`
+- Templates: `redress-casefile.template.md`, `remediation-plan.template.md`
+
+This pack operationalizes contestability, remedy, and traceability using the controlled redress documentation and schemas referenced in `manifest.yaml`.

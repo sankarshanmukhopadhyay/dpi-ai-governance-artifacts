@@ -43,3 +43,15 @@ Out-of-scope:
 ## Included artifacts
 
 See [`manifest.yaml`](./manifest.yaml) for the exact inventory.
+
+
+---
+
+## What’s in this pack (quick links)
+
+- Implementation guide: `implementation-guide.md`
+- Artifact checklist: `artifact-checklist.md`
+- Control mapping: `controls-mapping.md`
+- Templates: `decision-receipt.template.md`, `authority-directory.template.md`
+
+This pack uses the shared schemas and examples referenced in `manifest.yaml` and maps to stable control IDs in `controls/registry.yaml`.

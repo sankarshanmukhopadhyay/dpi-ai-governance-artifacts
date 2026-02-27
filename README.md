@@ -1,7 +1,7 @@
 # DPI–AI Governance Artifacts
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Release](https://img.shields.io/badge/release-v0.6.0-green)
+![Release](https://img.shields.io/badge/release-v0.6.1-green)
 ![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
 
 **Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance materials that turn “governance” from a slide deck into **interfaces you can procure, implement, test, and audit**.
@@ -14,12 +14,18 @@ This repo ships a **full governance surface area**:
 
 ---
 
+### What’s new in this update
+
+- **Operational Pack expansion**: each pack now includes an implementation guide, artifact checklist, control mapping, and additional templates to move from conceptual framing to **implementation-ready bundles**.
+- **Control Library + Control IDs**: introduce stable control IDs (`DPI-AI-CTRL-XXX`) with a machine-readable registry in **YAML and JSON** under `controls/`, including **indicative** crosswalk fields to NIST AI RMF, OECD AI Principles, and ISO/IEC 42001 topic areas.
+
+> TRACE note: this repository uses **TRACE** as *Trust, Risk, Architecture & Conformance Evaluation* across packs and controlled docs.
+
+
 ## Adoption & integration guidance
 
 Lower the cognitive barrier to adoption by starting with the practical guides below:
 
-- **Companion evaluation engine (Lab):** `dpi-ai-governance-lab` — TRACE (Trust, Risk, Architecture & Conformance Evaluation) method + reproducible paper reviews (see `methodology/` in the Lab repo)
-  - Canonical TRACE review package example: `dpi-ai-governance-lab/reviews/2026-02-22-ukri-ai-research-and-innovation-strategic-framework/`
 - **How to use this repo (implementation guide):** `docs/guides/how-to-use-this-repo.md`
 - **Suggested adoption pathways (startup, enterprise, state):** `docs/guides/adoption-pathways.md`
 - **Maturity model alignment:** `docs/guides/maturity-model-alignment.md`

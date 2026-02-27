@@ -1,31 +1,47 @@
 pack_id: public-sector-procurement
 title: Public Sector AI Procurement — Operational Pack
-version: 0.1.0
+version: 0.2.0
 artifacts:
-  - path: packs/public-sector-procurement/evidence-request.template.md
-    role: template
-    requirement: required
-  - path: packs/public-sector-procurement/evaluation-scorecard.template.md
-    role: template
-    requirement: required
-  - path: packs/public-sector-procurement/procurement-clauses.template.md
-    role: template
-    requirement: optional
-  - path: schemas/vendor-capability-attestation.schema.json
-    role: schema
-    requirement: required
-  - path: schemas/supply-chain-control.schema.json
-    role: schema
-    requirement: required
-  - path: schemas/decision-receipt.schema.json
-    role: schema
-    requirement: optional
-  - path: schemas/governance-authority-delegation.schema.json
-    role: schema
-    requirement: optional
-  - path: conformance/mdk-tier-profile.md
-    role: tier_profile
-    requirement: optional
-  - path: controlled/redress/redress-and-remediation.md
-    role: reference
-    requirement: optional
+- path: packs/public-sector-procurement/evidence-request.template.md
+  role: template
+  requirement: required
+- path: packs/public-sector-procurement/evaluation-scorecard.template.md
+  role: template
+  requirement: required
+- path: packs/public-sector-procurement/procurement-clauses.template.md
+  role: template
+  requirement: optional
+- path: schemas/vendor-capability-attestation.schema.json
+  role: schema
+  requirement: required
+- path: schemas/supply-chain-control.schema.json
+  role: schema
+  requirement: required
+- path: schemas/decision-receipt.schema.json
+  role: schema
+  requirement: optional
+- path: schemas/governance-authority-delegation.schema.json
+  role: schema
+  requirement: optional
+- path: conformance/mdk-tier-profile.md
+  role: tier_profile
+  requirement: optional
+- path: controlled/redress/redress-and-remediation.md
+  role: reference
+  requirement: optional
+- path: packs/public-sector-procurement/implementation-guide.md
+  role: pack_artifact
+  requirement: required
+- path: packs/public-sector-procurement/controls-mapping.md
+  role: pack_artifact
+  requirement: optional
+- path: packs/public-sector-procurement/supplier-attestation.template.md
+  role: pack_artifact
+  requirement: optional
+- path: packs/public-sector-procurement/red-flags-checklist.md
+  role: pack_artifact
+  requirement: optional
+controls:
+- DPI-AI-CTRL-008
+- DPI-AI-CTRL-013
+- DPI-AI-CTRL-014

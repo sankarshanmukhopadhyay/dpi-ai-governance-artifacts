@@ -36,3 +36,15 @@ In-scope:
 ## Included artifacts
 
 See [`manifest.yaml`](./manifest.yaml) for the exact inventory.
+
+
+---
+
+## What’s in this pack (quick links)
+
+- Implementation guide: `implementation-guide.md`
+- Artifact checklist: `artifact-checklist.md`
+- Control mapping: `controls-mapping.md`
+- Templates: `governance-change-request.template.md`, `oversight-review.template.md`, `trigger-registry.template.md`
+
+This pack is designed to keep governance **under change control** and maps to stable control IDs in `controls/registry.yaml`.
