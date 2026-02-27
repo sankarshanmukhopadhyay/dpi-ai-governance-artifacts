@@ -8,12 +8,12 @@ categories:
 - Assurance
 - Redress
 - Transparency
+- Identity Assurance
 controls:
 - id: DPI-AI-CTRL-001
   title: Governance scope and decision boundaries defined
   category: Governance
-  intent: Prevent ambiguous authority and uncontrolled decision-making in AI-enabled
-    DPI systems.
+  intent: Prevent ambiguous authority and uncontrolled decision-making in AI-enabled DPI systems.
   requirements:
   - Define the decision domain(s) where AI is used, including explicit non-goals.
   - Define authority boundaries for automated, assisted, and human-only decisions.
@@ -126,8 +126,7 @@ controls:
 - id: DPI-AI-CTRL-006
   title: Impact tiering applied to AI-enabled decisions
   category: Risk
-  intent: Ensure higher-impact decisions receive stronger governance, assurance, and
-    redress.
+  intent: Ensure higher-impact decisions receive stronger governance, assurance, and redress.
   requirements:
   - Define impact tiers and tier-conditional requirements.
   - Assign tier to each decision type and justify it.
@@ -150,8 +149,7 @@ controls:
 - id: DPI-AI-CTRL-007
   title: Model/system performance is measured against stated objectives
   category: Assurance
-  intent: Prevent unverifiable claims and ensure measurable performance expectations
-    exist.
+  intent: Prevent unverifiable claims and ensure measurable performance expectations exist.
   requirements:
   - Define measurable objectives and evaluation metrics.
   - Run evaluations on representative data and conditions.
@@ -604,5 +602,40 @@ controls:
     - Operation
     - Performance evaluation
     - Improvement
-mappings_notice: Mappings are indicative starting points for alignment work and are
-  not authoritative compliance determinations.
+- id: DPI-AI-CTRL-026
+  title: Agent identity assurance level bound to deployment risk tier
+  category: Identity Assurance
+  intent: Ensure acting agents meet a minimum identity assurance level proportional to DPI AI risk tiering.
+  requirements:
+  - Deployments MUST define a risk tier for each acting agent (or agent class).
+  - Deployments MUST enforce a minimum identity assurance level for each tier using an external baseline (e.g., ANAB).
+  - Where multiple tiers apply, the highest applicable tier MUST drive the minimum level.
+  evidence:
+  - "Risk-tier \u2194 assurance mapping (policy + machine-readable registry)."
+  - Proof of agent registration/binding at the required assurance level.
+  - Operational procedure showing tier assignment and enforcement.
+- id: DPI-AI-CTRL-027
+  title: Revocation and suspension semantics for agent identifiers and delegated authority
+  category: Identity Assurance
+  intent: Prevent continued reliance on compromised, withdrawn, or unauthorized agent identities and delegations.
+  requirements:
+  - Deployments MUST support revocation or suspension of agent identifiers and delegated authority.
+  - Relying parties MUST have a defined mechanism to learn about revocations within an operationally acceptable timeframe.
+  - Revocation events MUST be auditable and attributable.
+  evidence:
+  - Revocation policy and runbook.
+  - Revocation log or registry events with timestamps.
+  - Test evidence demonstrating revocation propagation to relying parties.
+- id: DPI-AI-CTRL-028
+  title: Registry transparency and integrity for agent name/identifier bindings
+  category: Identity Assurance
+  intent: Ensure authoritative agent name/identifier bindings are discoverable, reviewable, and resistant to tampering.
+  requirements:
+  - "Deployments MUST define the authoritative registry for agent bindings (name \u2194 identifier \u2194 operator)."
+  - Registry records MUST be integrity-protected and reviewable by authorized parties.
+  - Changes to bindings MUST be logged and attributable.
+  evidence:
+  - Registry specification and access model.
+  - Integrity mechanism description (e.g., signatures, append-only log, transparency log).
+  - Change history demonstrating attribution.
+mappings_notice: Mappings are indicative starting points for alignment work and are not authoritative compliance determinations.

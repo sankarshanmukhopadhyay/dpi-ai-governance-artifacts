@@ -1,0 +1,48 @@
+{
+  "registry_id": "dpi-ai-risk-tier-assurance-mapping",
+  "version": "0.1.0",
+  "generated_on": "2026-02-27",
+  "source": {
+    "dpi_ai_repo": "dpi-ai-governance-artifacts",
+    "identity_assurance_baseline": "agent-name-assurance-baseline (ANAB)"
+  },
+  "mapping": [
+    {
+      "dpi_risk_tier": 0,
+      "label": "Informational",
+      "minimum_identity_assurance": {
+        "baseline": "ANAB",
+        "level": "AL1"
+      }
+    },
+    {
+      "dpi_risk_tier": 1,
+      "label": "Operational support",
+      "minimum_identity_assurance": {
+        "baseline": "ANAB",
+        "level": "AL2"
+      }
+    },
+    {
+      "dpi_risk_tier": 2,
+      "label": "Decision-influencing",
+      "minimum_identity_assurance": {
+        "baseline": "ANAB",
+        "level": "AL3"
+      }
+    },
+    {
+      "dpi_risk_tier": 3,
+      "label": "Public authority / high impact",
+      "minimum_identity_assurance": {
+        "baseline": "ANAB",
+        "level": "AL4"
+      }
+    }
+  ],
+  "notes": [
+    "This file expresses minimum expectations and is intentionally conservative.",
+    "Deployments MAY raise minimum levels based on context, threat model, or statutory requirements.",
+    "DPI AI repos SHOULD reference identity assurance baselines rather than copying their annex sets."
+  ]
+}

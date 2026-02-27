@@ -42,3 +42,8 @@ Operational Packs SHOULD list:
 - which control IDs they operationalize
 - the artifact(s) that satisfy evidence expectations
 - tier-conditional requirements (where relevant)
+
+
+## Categories
+
+The control registry categorizes controls into: Governance, Risk, Assurance, Redress, Transparency, and Identity Assurance.
