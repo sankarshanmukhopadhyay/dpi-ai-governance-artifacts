@@ -62,10 +62,12 @@ Goal: Improve usability and reduce interpretive ambiguity.
 
 ## 6. Adoption & Integration Guidance
 
-- “How to use this repo” implementation guide
-- Suggested adoption pathways (startup, enterprise, state)
-- Maturity model alignment
-- FAQ for practitioners
+**Status:** Implemented (guides + FAQ added).
+
+- “How to use this repo” implementation guide → `docs/guides/how-to-use-this-repo.md`
+- Suggested adoption pathways (startup, enterprise, state) → `docs/guides/adoption-pathways.md`
+- Maturity model alignment → `docs/guides/maturity-model-alignment.md`
+- FAQ for practitioners → `docs/faq.md`
 
 Goal: Lower the cognitive barrier to adoption.
 

@@ -6,17 +6,6 @@
 
 **Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance materials that turn “governance” from a slide deck into **interfaces you can procure, implement, test, and audit**.
 
-## Start here: Operational Packs
-
-The fastest path to adoption is to start from **pack-level bundles** (curated inventories + adoption paths) rather than browsing individual artifacts.
-
-- Pack index: [`packs/README.md`](./packs/README.md)
-- Minimum Digital Kernel: [`packs/minimum-digital-kernel/`](./packs/minimum-digital-kernel/README.md)
-- Meta-Governance: [`packs/meta-governance/`](./packs/meta-governance/README.md)
-- AI Redress & Accountability: [`packs/ai-redress-accountability/`](./packs/ai-redress-accountability/README.md)
-- Public Sector AI Procurement: [`packs/public-sector-procurement/`](./packs/public-sector-procurement/README.md)
-- Delegated Agent Governance: [`packs/delegated-agent-governance/`](./packs/delegated-agent-governance/README.md)
-
 This repo ships a **full governance surface area**:
 - Decision and accountability contracts (decision receipts, appeals, audit findings)
 - Policy-as-code release discipline (schemas, test vectors)
@@ -24,6 +13,15 @@ This repo ships a **full governance surface area**:
 - Operational playbooks for recurring failure modes
 
 ---
+
+## Adoption & integration guidance
+
+Lower the cognitive barrier to adoption by starting with the practical guides below:
+
+- **How to use this repo (implementation guide):** `docs/guides/how-to-use-this-repo.md`
+- **Suggested adoption pathways (startup, enterprise, state):** `docs/guides/adoption-pathways.md`
+- **Maturity model alignment:** `docs/guides/maturity-model-alignment.md`
+- **Practitioner FAQ:** `docs/faq.md`
 
 ## Governance spine (how this repo is organized)
 
