@@ -53,3 +53,10 @@ The Lab produces deterministic review outputs (schemas + templates). This reposi
 ## References
 
 - DPI AI Governance Lab: https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-lab
+
+## Canonical example
+
+For a concrete end-to-end example of TRACE outputs in the Lab repo, see:
+
+- `dpi-ai-governance-lab/reviews/2026-02-22-ukri-ai-research-and-innovation-strategic-framework/`
+

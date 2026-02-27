@@ -19,3 +19,10 @@ This repository contains **TRACE-aligned operational artifacts**.
 
 - This repository does not redefine TRACE scoring or controls.
 - If controls change, update the traceability map and bump versions accordingly.
+
+## Canonical example
+
+For a concrete end-to-end example of TRACE outputs in the Lab repo, see:
+
+- `dpi-ai-governance-lab/reviews/2026-02-22-ukri-ai-research-and-innovation-strategic-framework/`
+
