@@ -53,3 +53,11 @@ This repository operationalizes TRACE-aligned governance using TSAM-aligned assu
 
 See `docs/reference/TRACE-TSAM.md` for the local reference and pointers to canonical sources.
 
+
+
+## Compatibility contract
+
+Cross-repo coupling is enforced via a machine-readable contract:
+
+- `TRACE_COMPATIBILITY.json` declares the expected `TRACE_VERSION`, Lab version, and Artifacts version.
+- CI runs `python tools/check_compatibility.py` to fail fast if versions drift.

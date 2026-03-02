@@ -20,7 +20,7 @@
       ]
     },
     "jurisdiction": {
-      "$ref": "common-defs.schema.json#/$defs/jurisdiction"
+      "$ref": "https://example.org/schemas/common-defs.schema.json#/$defs/jurisdiction"
     },
     "authority_reference": {
       "type": "string"
@@ -29,18 +29,19 @@
       "type": "string"
     },
     "valid_from": {
-      "$ref": "common-defs.schema.json#/$defs/timestamp"
+      "$ref": "https://example.org/schemas/common-defs.schema.json#/$defs/timestamp"
     },
     "valid_until": {
-      "$ref": "common-defs.schema.json#/$defs/timestamp"
+      "$ref": "https://example.org/schemas/common-defs.schema.json#/$defs/timestamp"
     },
     "revocation_endpoint": {
       "type": "string",
       "format": "uri"
     },
     "evidence_hash": {
-      "$ref": "common-defs.schema.json#/$defs/hash"
+      "$ref": "https://example.org/schemas/common-defs.schema.json#/$defs/hash"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$id": "https://example.org/schemas/lawful-basis.schema.json"
 }

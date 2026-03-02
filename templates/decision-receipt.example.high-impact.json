@@ -35,16 +35,35 @@
     }
   ],
   "checks_performed": [
-    { "check_id": "CHK-ELIG-01", "description": "Base eligibility", "result": "pass", "evidence_ref": "evidence:bf-3321#elig" },
-    { "check_id": "CHK-PRIO-04", "description": "Priority category", "result": "pass", "evidence_ref": "evidence:bf-3321#prio" }
+    {
+      "check_id": "CHK-ELIG-01",
+      "description": "Base eligibility",
+      "result": "pass",
+      "evidence_ref": "evidence:bf-3321#elig"
+    },
+    {
+      "check_id": "CHK-PRIO-04",
+      "description": "Priority category",
+      "result": "pass",
+      "evidence_ref": "evidence:bf-3321#prio"
+    }
   ],
   "outcome": {
     "status": "approved",
-    "value": { "priority_rank": 7 }
+    "value": {
+      "priority_rank": 7
+    }
   },
-  "reason_codes": ["RC_ELIGIBLE", "RC_PRIORITY_ASSIGNED"],
+  "reason_codes": [
+    "RC_ELIGIBLE",
+    "RC_PRIORITY_ASSIGNED"
+  ],
   "evidence_pointers": [
-    { "kind": "evidence_bundle", "ref": "evidence:bundle:bf-3321", "hash": "sha256:..." }
+    {
+      "kind": "evidence_bundle",
+      "ref": "evidence:bundle:bf-3321",
+      "hash": "sha256:..."
+    }
   ],
   "appeal": {
     "appeal_available": true,
@@ -56,5 +75,11 @@
     "kid": "kid-alloc-2026",
     "value": "<signature-or-jws>",
     "cert_ref": "certs:allocations:2026"
+  },
+  "lawful_basis": {
+    "basis_type": "public_task",
+    "jurisdiction": "IN",
+    "valid_from": "2026-01-01T00:00:00Z",
+    "authority_reference": "Example lawful basis placeholder (replace per deployment)."
   }
 }

@@ -27,7 +27,7 @@
 ### Added
 - Lawful basis support and conditional enforcement in decision receipts (`schemas/lawful-basis.schema.json`, updates to `schemas/decision-receipt.schema.json`).
 - Consolidated shared primitives in `schemas/common-defs.schema.json` to reduce schema drift.
-- Vendor capability attestation vectors under `rulebook-test-vectors/vendor-attestation/`.
+- Vendor capability attestation vectors under `rulebook-test-vectors/vendor-capability-attestation/`.
 - Conformance evidence bundle for TRACE evaluations (`controlled/assurance/evidence-bundles.md`).
 - Migration guide for implementers (`docs/migrations/v0.5-to-v0.6.md`).
 
@@ -46,7 +46,7 @@ All notable changes to this repository will be documented in this file.
 
 The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) and this project adheres to Semantic Versioning.
 
-## [v0.4.0] - 2026-02-22
+## [0.4.0] - 2026-02-22
 
 ### Added
 - New schemas to complete remediation and ecosystem interoperability surfaces:
@@ -84,7 +84,7 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
 ### Notes
 - Items related to lawful basis/consent, supply-chain control artifacts, and playbooks remain planned enhancements for a future release.
 
-## [v0.3.0] - 2026-02-22
+## [0.3.0] - 2026-02-22
 
 ### Added
 - Meta-governance operational pack (governance-of-governance primitives)
@@ -100,13 +100,13 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
 ### Changed
 - README updated to document the meta-governance pack and acknowledgements.
 
-## [v0.2.1] - 2026-02-22
+## [0.2.1] - 2026-02-22
 
 ### Added
 - Added explicit acknowledgement and reference link to the Digital Statecraft essay that motivated the Minimum Digital Kernel operational pack.
 - Added `REFERENCES.md`.
 
-## [v0.2.0] - 2026-02-22
+## [0.2.0] - 2026-02-22
 
 ### Added
 - Minimum Digital Kernel operational pack
@@ -121,7 +121,7 @@ The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) a
 ### Changed
 - README updated for clearer onboarding and operational usage
 
-## [v0.1.0] - 2026-02-21
+## [0.1.0] - 2026-02-21
 
 ### Added
 - Initial DPI–AI Risk Scoring Matrix artifact

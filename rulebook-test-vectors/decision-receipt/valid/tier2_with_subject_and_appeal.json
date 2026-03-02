@@ -53,5 +53,11 @@
     "alg": "EdDSA",
     "kid": "did:example:issuer#key-1",
     "value": "BASE64URLSIG"
+  },
+  "lawful_basis": {
+    "basis_type": "public_task",
+    "jurisdiction": "IN",
+    "valid_from": "2026-01-01T00:00:00Z",
+    "authority_reference": "Example lawful basis placeholder (replace per deployment)."
   }
 }

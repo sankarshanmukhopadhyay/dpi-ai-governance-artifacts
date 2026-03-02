@@ -20,12 +20,33 @@ import json
 from pathlib import Path
 
 from jsonschema import Draft202012Validator
+from referencing import Registry, Resource
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCHEMAS_DIR = REPO_ROOT / "schemas"
 TEMPLATES_DIR = REPO_ROOT / "templates"
 VECTORS_DIR = REPO_ROOT / "rulebook-test-vectors"
+
+
+def build_registry() -> Registry:
+    reg = Registry()
+    if not SCHEMAS_DIR.exists():
+        return reg
+    for p in sorted(SCHEMAS_DIR.glob("*.json")):
+        try:
+            schema = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        # Prefer declared $id (if present) but also register by filename for relative $ref usage.
+        sid = schema.get("$id")
+        if sid:
+            reg = reg.with_resource(sid, Resource.from_contents(schema))
+        reg = reg.with_resource(p.name, Resource.from_contents(schema))
+    return reg
+
+
+REGISTRY = build_registry()
 
 
 def load_json(path: Path) -> dict:
@@ -35,7 +56,7 @@ def load_json(path: Path) -> dict:
 
 def validator_for(schema_path: Path) -> Draft202012Validator:
     schema = load_json(schema_path)
-    return Draft202012Validator(schema)
+    return Draft202012Validator(schema, registry=REGISTRY)
 
 
 def iter_template_examples():
@@ -101,7 +122,9 @@ def main() -> int:
         if schema_path is None:
             failures.append(f"{ex}: No matching schema found in schemas/")
             continue
-        failures.extend(validate_one(schema_path, ex))
+        errs = validate_one(schema_path, ex)
+        if errs:
+            failures.extend(errs)
 
     # vectors
     for vec in iter_vectors() or []:
@@ -110,7 +133,7 @@ def main() -> int:
             failures.append(f"{vec}: No matching schema found for vector directory")
             continue
 
-        expected_invalid = "invalid" in vec.parts
+        expected_invalid = ("invalid" in vec.parts) or vec.name.startswith("invalid") or ".invalid" in vec.name
         errs = validate_one(schema_path, vec)
 
         if expected_invalid:

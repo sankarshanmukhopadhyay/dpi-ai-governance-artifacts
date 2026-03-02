@@ -840,7 +840,7 @@
         "Where multiple tiers apply, the highest applicable tier MUST drive the minimum level."
       ],
       "evidence": [
-        "Risk-tier ↔ assurance mapping (policy + machine-readable registry).",
+        "Risk-tier \u2194 assurance mapping (policy + machine-readable registry).",
         "Proof of agent registration/binding at the required assurance level.",
         "Operational procedure showing tier assignment and enforcement."
       ]
@@ -867,7 +867,7 @@
       "category": "Identity Assurance",
       "intent": "Ensure authoritative agent name/identifier bindings are discoverable, reviewable, and resistant to tampering.",
       "requirements": [
-        "Deployments MUST define the authoritative registry for agent bindings (name ↔ identifier ↔ operator).",
+        "Deployments MUST define the authoritative registry for agent bindings (name \u2194 identifier \u2194 operator).",
         "Registry records MUST be integrity-protected and reviewable by authorized parties.",
         "Changes to bindings MUST be logged and attributable."
       ],
@@ -878,5 +878,6 @@
       ]
     }
   ],
-  "mappings_notice": "Mappings are indicative starting points for alignment work and are not authoritative compliance determinations."
+  "mappings_notice": "Mappings are indicative starting points for alignment work and are not authoritative compliance determinations.",
+  "crosswalk_status": "indicative"
 }
