@@ -19,3 +19,12 @@ This repository contains **TRACE-aligned operational artifacts**.
 
 - This repository does not redefine TRACE scoring or controls.
 - If controls change, update the traceability map and bump versions accordingly.
+
+
+## TRACE ↔ TSAM binding (forward reference)
+
+This repo provides operational artifacts that instantiate the TRACE↔TSAM relationship via annex templates and machine-readable mappings.
+
+- Reference: `docs/reference/TRACE-TSAM.md`
+- Annex templates: `templates/annexes/dpi-ai-trace-tsam-annex.md` and `.yaml`
+- Compliance matrix: `docs/reference/trace-tsam-compliance-matrix.yaml`

@@ -2,6 +2,11 @@
 
 This document maps TRACE controls (from the Lab) to concrete artifacts in this repository.
 
+## Cross-cutting
+
+- **TRACE (multi-axis)** — TRACE↔TSAM DPI AI Annex Template (cross-control instantiation).  
+  Artifacts: `templates/annexes/dpi-ai-trace-tsam-annex.md`, `templates/annexes/dpi-ai-trace-tsam-annex.yaml`
+
 > This is intentionally lightweight in v0.1.0. Expand coverage incrementally.
 
 ## Trust

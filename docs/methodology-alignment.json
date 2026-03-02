@@ -36,6 +36,14 @@
         "tools/",
         "rulebook-test-vectors/"
       ]
+    },
+    {
+      "lab_schema": "docs/annexes/dpi-ai-trace-tsam-annex.yaml",
+      "purpose": "TRACE↔TSAM DPI AI annex template (operational instantiation)",
+      "artifact_paths": [
+        "templates/annexes/",
+        "docs/reference/"
+      ]
     }
   ]
 }

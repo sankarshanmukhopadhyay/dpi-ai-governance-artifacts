@@ -42,3 +42,14 @@ The Lab produces deterministic review outputs (schemas + templates). This reposi
 ## References
 
 - DPI AI Governance Lab: https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-lab
+
+
+## TRACE ↔ TSAM binding
+
+This repository operationalizes TRACE-aligned governance using TSAM-aligned assurance artifacts.
+
+- TRACE defines the governance lens (risk, delegation, legitimacy, redress).
+- TSAM defines how those requirements are instantiated as assurance tiers, conformance checks, runtime integrity controls, and evidence.
+
+See `docs/reference/TRACE-TSAM.md` for the local reference and pointers to canonical sources.
+

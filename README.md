@@ -97,3 +97,8 @@ And the ToIP references:
 - `rulebook-test-vectors/` — examples to validate implementations
 - `playbooks/` — operational runbooks for recurring failure modes
 - `docs/` — guides, methodology alignment, migrations, traceability
+
+
+## Methodology
+
+This repo includes operational templates aligned to the TRACE↔TSAM spine (see `docs/reference/TRACE-TSAM.md`).

@@ -6,7 +6,9 @@
       "control_id": "TRACE-TRUST-01",
       "artifacts": [
         "templates/governance/decision-rights.md",
-        "templates/governance/raci.md"
+        "templates/governance/raci.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.yaml"
       ],
       "evidence": "recommended"
     },
@@ -14,7 +16,9 @@
       "control_id": "TRACE-TRUST-03",
       "artifacts": [
         "templates/redress/redress-workflow.md",
-        "schemas/redress/redress-workflow.schema.json"
+        "schemas/redress/redress-workflow.schema.json",
+        "templates/annexes/dpi-ai-trace-tsam-annex.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.yaml"
       ],
       "evidence": "recommended"
     },
@@ -22,21 +26,27 @@
       "control_id": "TRACE-RISK-01",
       "artifacts": [
         "templates/risk/risk-register.md",
-        "schemas/risk/risk-register.schema.json"
+        "schemas/risk/risk-register.schema.json",
+        "templates/annexes/dpi-ai-trace-tsam-annex.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.yaml"
       ],
       "evidence": "recommended"
     },
     {
       "control_id": "TRACE-ARC-02",
       "artifacts": [
-        "templates/architecture/dependency-inventory.md"
+        "templates/architecture/dependency-inventory.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.yaml"
       ],
       "evidence": "recommended"
     },
     {
       "control_id": "TRACE-CONF-01",
       "artifacts": [
-        "conformance/evidence-bundle.md"
+        "conformance/evidence-bundle.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.md",
+        "templates/annexes/dpi-ai-trace-tsam-annex.yaml"
       ],
       "evidence": "recommended"
     }
