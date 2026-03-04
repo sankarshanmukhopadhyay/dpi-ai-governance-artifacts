@@ -12,7 +12,7 @@ within a defined delivery cycle.
 | [Minimum Digital Kernel](./minimum-digital-kernel/README.md) | Establish the minimum governance surface area needed for legitimate action in DPI+AI systems | Decision receipts, authority directory, rulebook manifest, tier profile |
 | [Meta-Governance](./meta-governance/README.md) | Put governance itself under change-control and oversight | Delegation contracts, governance triggers, oversight reviews, rulebook change-control |
 | [AI Redress & Accountability](./ai-redress-accountability/README.md) | Make redress, remediation, and auditability operational | Appeals, incidents, audit findings, correction workflows, SLAs |
-| [Public Sector AI Procurement](./public-sector-ai-procurement/README.md) | Translate governance requirements into procurement language and vendor evidence | Vendor capability attestation, control evidence requests, evaluation scorecard |
+| [Public Sector AI Procurement](./public-sector-procurement/README.md) | Translate governance requirements into procurement language and vendor evidence | Vendor capability attestation, control evidence requests, evaluation scorecard |
 | [Delegated Agent Governance](./delegated-agent-governance/README.md) | Govern agent delegation boundaries, accountability handoffs, and override semantics | Delegation register, agent action logging expectations, escalation/kill-switch patterns |
 
 ## Pack contract (common structure)

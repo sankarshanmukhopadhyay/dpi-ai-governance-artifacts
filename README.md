@@ -1,5 +1,10 @@
 # DPI–AI Governance Artifacts
 
+## Documentation
+
+- Overview: `docs/overview.md`
+- Pack catalog: `packs/README.md`
+- Freshness + audit guardrails: `docs/documentation-freshness.md` (last reviewed: 2026-03-04)
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
 ![Release](https://img.shields.io/badge/release-v0.6.1-green)
 ![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
