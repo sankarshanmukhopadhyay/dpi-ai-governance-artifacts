@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/agent/agent-policy-constraints.schema.json",
+  "title": "Agent Policy Constraints",
+  "description": "Executable constraints for agent operation: action boundaries, approval thresholds, data domains, containment, and stop-rights.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policy_id",
+    "applies_to_agent_id",
+    "issued_at",
+    "constraints"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "applies_to_agent_id": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed_actions",
+        "requires_human_approval",
+        "data_domains",
+        "rate_limits",
+        "containment"
+      ],
+      "properties": {
+        "allowed_actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_human_approval": {
+          "type": "array",
+          "description": "Actions that must be gated by a human approval step.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "data_domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rate_limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "max_actions_per_minute": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max_write_ops_per_hour": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "containment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sandbox_required": {
+              "type": "boolean",
+              "default": true
+            },
+            "network_egress_allowed": {
+              "type": "boolean",
+              "default": false
+            },
+            "shutdown_mechanism_ref": {
+              "type": "string"
+            },
+            "stop_rights": {
+              "type": "string",
+              "description": "Who can stop the agent, under what conditions, and how quickly."
+            }
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signed_by": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signature_alg": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

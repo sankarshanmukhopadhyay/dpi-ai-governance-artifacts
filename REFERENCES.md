@@ -1,5 +1,9 @@
 # References
 
+- Andrew Clearwater (Substack) — “Your Agents Are Running Wild and Your Pre-2023 Governance Playbook Won’t Save You” (Mar 03, 2026)
+  https://andrewclearwater.substack.com/p/your-agents-are-running-wild-and
+
+
 - Digital Statecraft (Substack) — “The Minimum Digital Kernel of an Effective State”
   https://open.substack.com/pub/digitalstatecraft/p/the-minimum-digital-kernel-of-an
 

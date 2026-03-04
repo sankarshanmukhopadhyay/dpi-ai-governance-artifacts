@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/agent/agent-capability-manifest.schema.json",
+  "title": "Agent Capability Manifest",
+  "description": "Machine-readable declaration of an agent\u2019s capabilities, tool access, memory use, and autonomy characteristics. Used for risk classification, policy enforcement, and audit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_id",
+    "declared_at",
+    "capabilities",
+    "tools",
+    "memory",
+    "autonomy"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string"
+    },
+    "declared_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "tools": {
+      "type": "array",
+      "description": "Tools the agent can invoke (APIs, connectors, system calls).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tool_id",
+          "scope"
+        ],
+        "properties": {
+          "tool_id": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "write_access": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uses_memory",
+        "retention"
+      ],
+      "properties": {
+        "uses_memory": {
+          "type": "boolean"
+        },
+        "retention": {
+          "type": "string",
+          "enum": [
+            "none",
+            "session",
+            "short",
+            "long",
+            "indefinite"
+          ]
+        },
+        "pii_allowed": {
+          "type": "boolean",
+          "default": false
+        },
+        "redaction_policy_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "autonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "can_execute_without_human",
+        "can_spawn_agents",
+        "can_self_modify",
+        "shutdown_resistance_expected"
+      ],
+      "properties": {
+        "can_execute_without_human": {
+          "type": "boolean"
+        },
+        "can_spawn_agents": {
+          "type": "boolean"
+        },
+        "can_self_modify": {
+          "type": "boolean"
+        },
+        "shutdown_resistance_expected": {
+          "type": "boolean",
+          "description": "Set true only if the agent is expected to continue operating under partial failures or attempted shutdown, which increases containment requirements."
+        },
+        "max_action_rate_per_minute": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signed_by": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signature_alg": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

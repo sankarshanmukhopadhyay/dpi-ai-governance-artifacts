@@ -3,6 +3,9 @@
 ## [Unreleased]
 
 ### Added
+- Agent governance schemas (`schemas/agent/*`) and pack updates aligned to Andrew Clearwater’s agent governance framing (agent registry, capability manifests, policy constraints, delegation chains).
+
+### Added
 - Governance spine (`governance/`) to clarify normativity, controlled documents, and revision discipline.
 - Controlled document taxonomy under `controlled/` (risk, assurance, redress, plus reserved categories).
 - ToIP compatibility mapping annex under `annex/` and ToIP references in `REFERENCES.md`.

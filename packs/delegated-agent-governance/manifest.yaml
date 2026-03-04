@@ -1,6 +1,6 @@
 pack_id: delegated-agent-governance
 title: Delegated Agent Governance — Operational Pack
-version: 0.2.0
+version: 0.3.0
 artifacts:
 - path: packs/delegated-agent-governance/delegated-agent-governance.md
   role: guide
@@ -50,8 +50,25 @@ artifacts:
 - path: packs/delegated-agent-governance/agent-action-log.template.md
   role: pack_artifact
   requirement: optional
+- path: schemas/agent/agent-registry-entry.schema.json
+  role: schema
+  requirement: optional
+- path: schemas/agent/agent-capability-manifest.schema.json
+  role: schema
+  requirement: optional
+- path: schemas/agent/delegation-chain-entry.schema.json
+  role: schema
+  requirement: optional
+- path: schemas/agent/agent-policy-constraints.schema.json
+  role: schema
+  requirement: optional
 controls:
 - DPI-AI-CTRL-009
 - DPI-AI-CTRL-015
 - DPI-AI-CTRL-016
 - DPI-AI-CTRL-022
+- DPI-AI-CTRL-029
+- DPI-AI-CTRL-030
+- DPI-AI-CTRL-031
+- DPI-AI-CTRL-032
+- DPI-AI-CTRL-033

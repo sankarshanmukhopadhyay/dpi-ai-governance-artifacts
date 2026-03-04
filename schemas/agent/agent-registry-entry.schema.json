@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/agent/agent-registry-entry.schema.json",
+  "title": "Agent Registry Entry",
+  "description": "Registry record for an operational AI agent (or agentic workflow) authorized to act within a DPI + AI service boundary. Designed to bind an agent to an accountable operator, an explicit mandate, and revocation / expiry controls.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_id",
+    "agent_type",
+    "operator",
+    "mandate_ref",
+    "risk_class",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "agent_type": {
+      "type": "string",
+      "enum": [
+        "assistant",
+        "tool-using-agent",
+        "multi-agent-orchestrator",
+        "workflow",
+        "external-saas-agent",
+        "other"
+      ]
+    },
+    "operator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "role"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "description": "Accountable role for this agent (e.g., Product Owner, System Operator, Service Provider)."
+        },
+        "contact": {
+          "type": "string"
+        }
+      }
+    },
+    "mandate_ref": {
+      "type": "string",
+      "description": "Reference to an Agent Mandate artifact (human-readable) and/or a signed delegation (machine-readable)."
+    },
+    "capability_manifest_ref": {
+      "type": "string"
+    },
+    "policy_constraints_ref": {
+      "type": "string"
+    },
+    "risk_class": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "suspended",
+        "revoked",
+        "retired"
+      ]
+    },
+    "expiry_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "revoked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revoked_by": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

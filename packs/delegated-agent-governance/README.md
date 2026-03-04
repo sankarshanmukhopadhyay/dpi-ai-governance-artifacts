@@ -45,3 +45,9 @@ See [`manifest.yaml`](./manifest.yaml) for the exact inventory.
 - Templates: `agent-authorization-boundary.template.md`, `agent-action-log.template.md`
 
 This pack assumes agentic systems operate under explicit delegation and tier-conditional approvals.
+
+
+## References
+
+- Andrew Clearwater — “Your Agents Are Running Wild and Your Pre-2023 Governance Playbook Won’t Save You” (Mar 03, 2026)  
+  https://andrewclearwater.substack.com/p/your-agents-are-running-wild-and

@@ -11,7 +11,7 @@ It is directional and architectural in nature. It does not imply delivery dates.
 - Meta-Governance implementation pack
 - AI Redress and Accountability pack
 - Public Sector AI Procurement pack
-- Delegated Agent Governance pack
+- Delegated Agent Governance pack (agent registry, mandates, capability manifests, policy constraints, containment/stop-rights, continuous monitoring)
 
 Goal: Move from conceptual framing to reusable, implementation-ready artifact bundles.
 

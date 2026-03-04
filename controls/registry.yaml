@@ -1,6 +1,6 @@
 registry_id: dpi-ai-controls
 version: 0.1.0
-generated_on: '2026-02-27'
+generated_on: '2026-03-04'
 id_format: DPI-AI-CTRL-XXX
 categories:
 - Governance
@@ -9,6 +9,7 @@ categories:
 - Redress
 - Transparency
 - Identity Assurance
+- Agent Governance
 controls:
 - id: DPI-AI-CTRL-001
   title: Governance scope and decision boundaries defined
@@ -617,7 +618,7 @@ controls:
   - Where multiple tiers apply, the highest applicable tier MUST drive the minimum
     level.
   evidence:
-  - "Risk-tier \u2194 assurance mapping (policy + machine-readable registry)."
+  - Risk-tier ↔ assurance mapping (policy + machine-readable registry).
   - Proof of agent registration/binding at the required assurance level.
   - Operational procedure showing tier assignment and enforcement.
 - id: DPI-AI-CTRL-027
@@ -641,8 +642,8 @@ controls:
   intent: Ensure authoritative agent name/identifier bindings are discoverable, reviewable,
     and resistant to tampering.
   requirements:
-  - "Deployments MUST define the authoritative registry for agent bindings (name \u2194\
-    \ identifier \u2194 operator)."
+  - Deployments MUST define the authoritative registry for agent bindings (name ↔
+    identifier ↔ operator).
   - Registry records MUST be integrity-protected and reviewable by authorized parties.
   - Changes to bindings MUST be logged and attributable.
   evidence:
@@ -650,6 +651,71 @@ controls:
   - Integrity mechanism description (e.g., signatures, append-only log, transparency
     log).
   - Change history demonstrating attribution.
+- id: DPI-AI-CTRL-029
+  title: Operational agent registry maintained
+  category: Agent Governance
+  intent: Prevent unowned or untraceable agents from executing actions with real-world
+    consequences.
+  requirements:
+  - Maintain a registry of all operational agents/workflows with unique IDs, accountable
+    operator, risk class, and current status (active/suspended/revoked).
+  - Require explicit mandate references and expiry for agents with autonomous tool
+    use.
+  - Support revocation and suspension with recorded rationale.
+  evidence:
+  - Agent registry exports (machine-readable) and change history.
+  - Revocation/suspension records and approval trail.
+- id: DPI-AI-CTRL-030
+  title: Agent mandates and authority boundaries defined and enforced
+  category: Agent Governance
+  intent: Prevent goal drift and unauthorized action by binding agents to explicit
+    scopes and constraints.
+  requirements:
+  - Define mandates with allowed actions, forbidden actions, approval thresholds,
+    and data domains.
+  - Implement executable policy constraints for enforcement at runtime.
+  - Require review and re-authorization on mandate changes.
+  evidence:
+  - Mandate artifacts and policy constraint documents (signed where applicable).
+  - Test results demonstrating enforcement (blocked actions, approval gates).
+- id: DPI-AI-CTRL-031
+  title: Delegation chains are reconstructable end-to-end
+  category: Agent Governance
+  intent: Enable accountability assignment and root-cause analysis across humans,
+    agents, and services.
+  requirements:
+  - Record delegation provenance across actors (human/org/agent/service/platform).
+  - Link consequential actions to delegation references and decision receipts/log
+    entries.
+  - Retain delegation chain records per retention policy and legal basis.
+  evidence:
+  - Delegation chain logs for sampled actions.
+  - Cross-links from decision receipts/action logs to delegation records.
+- id: DPI-AI-CTRL-032
+  title: Containment and stop-rights implemented for autonomous agents
+  category: Agent Governance
+  intent: Ensure rapid shutdown and harm containment when agent behavior becomes unsafe
+    or non-compliant.
+  requirements:
+  - Define stop-rights (who can stop an agent, when, and how quickly).
+  - Implement kill-switch / suspension mechanisms and validate them via drills.
+  - Apply containment boundaries (sandboxing, egress controls) proportionate to autonomy
+    and tool access.
+  evidence:
+  - Kill-switch runbook, drill logs, and outcomes.
+  - Containment configuration and access control records.
+- id: DPI-AI-CTRL-033
+  title: Continuous monitoring and post-deployment oversight for agents
+  category: Agent Governance
+  intent: Detect runaway loops, anomalous tool use, and emergent behavior drift after
+    deployment.
+  requirements:
+  - Collect runtime telemetry for agent actions, tool calls, and policy violations.
+  - Define anomaly thresholds and escalation pathways (including binding intervention).
+  - Perform periodic reviews and adjust constraints based on observed behavior.
+  evidence:
+  - Monitoring dashboards/log samples and alert configurations.
+  - Post-deployment review reports and corrective actions.
 mappings_notice: Mappings are indicative starting points for alignment work and are
   not authoritative compliance determinations.
 crosswalk_status: indicative
