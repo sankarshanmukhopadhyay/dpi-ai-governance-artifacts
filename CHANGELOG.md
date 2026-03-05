@@ -2,17 +2,15 @@
 
 ## [Unreleased]
 
-### Added
-- Agent governance schemas (`schemas/agent/*`) and pack updates aligned to Andrew Clearwater’s agent governance framing (agent registry, capability manifests, policy constraints, delegation chains).
+## [0.8.0] - 2026-03-05
 
 ### Added
-- Governance spine (`governance/`) to clarify normativity, controlled documents, and revision discipline.
-- Controlled document taxonomy under `controlled/` (risk, assurance, redress, plus reserved categories).
-- ToIP compatibility mapping annex under `annex/` and ToIP references in `REFERENCES.md`.
+- Baseline CI pipelines for link checking and repository integrity validation (schema + manifest consistency).
+- Pack integrity validator to ensure referenced artifacts exist and pack manifests remain internally consistent.
 
 ### Changed
-- Moved risk and assurance artifacts into `controlled/` (legacy pointers left in `artifacts/` and `conformance/`).
-
+- Documentation refreshed to align with the documentation freshness checklist: improved navigation, ownership cues, and version clarity.
+- Version synchronization: repository `VERSION` now reflects the current release series and is kept consistent across docs and release notes.
 
 ## [0.6.1]
 

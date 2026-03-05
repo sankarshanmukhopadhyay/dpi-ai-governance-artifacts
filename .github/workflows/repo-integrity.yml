@@ -1,0 +1,47 @@
+name: Repo Integrity
+on:
+  push:
+  pull_request:
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install validation deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Validate pack manifests and referenced artifacts
+        run: |
+          python tools/validate_packs.py
+
+      - name: JSON sanity (schemas and registries)
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path(".")
+          bad = []
+          for p in root.rglob("*.json"):
+            try:
+              json.loads(p.read_text(encoding="utf-8"))
+            except Exception as e:
+              bad.append((str(p), str(e)))
+          if bad:
+            print("Invalid JSON files:")
+            for f,e in bad:
+              print("-", f, ":", e)
+            raise SystemExit(2)
+          print("JSON sanity OK:", len(list(root.rglob("*.json"))), "files")
+          PY
+
+      - name: Hygiene check (no OS cruft)
+        run: |
+          test -z "$(find . -name .DS_Store -print -quit)" || (echo ".DS_Store found" && exit 2)
