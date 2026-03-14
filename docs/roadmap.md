@@ -1,6 +1,6 @@
 # Roadmap (Schedule-Free)
 
-This roadmap captures the intended evolution of the DPI AI Governance Artifacts repository.  
+This roadmap captures the intended evolution of the DPI AI Governance Artifacts repository.
 It is directional and architectural in nature. It does not imply delivery dates.
 
 ---
@@ -19,10 +19,9 @@ Goal: Move from conceptual framing to reusable, implementation-ready artifact bu
 
 ## 2. Control Library & Control IDs
 
-- Standardize control ID format (e.g., DPI-AI-CTRL-XX)
-- Introduce control categorization (Governance, Risk, Assurance, Redress, Transparency)
-- Create machine-readable control registry (JSON/YAML)
-- Crosswalk to NIST AI RMF, OECD AI Principles, ISO 42001 (where applicable)
+- [Implemented] Standardized control ID catalog with machine-readable JSON and narrative guidance
+- [Implemented] Crosswalk-ready control metadata
+- Extend category-specific depth and test vectors over time
 
 Goal: Enable traceable, machine-operable governance controls.
 
@@ -30,8 +29,8 @@ Goal: Enable traceable, machine-operable governance controls.
 
 ## 3. Schema & Machine-Readable Hardening
 
-- Formalize JSON schemas for all artifacts
-- Add validation examples
+- [Implemented] Risk register JSON Schema and example instance
+- Formalize JSON schemas for additional pack artifacts
 - Introduce schema versioning policy
 - Provide example conformant artifact bundles
 
@@ -41,9 +40,9 @@ Goal: Ensure artifacts are automatable and audit-ready.
 
 ## 4. Evidence & Conformance Layer
 
+- [Implemented] Reference assurance evidence bundle structure under `evidence-bundles/`
 - Define artifact-to-control mapping model
 - Introduce lightweight conformance declaration template
-- Provide example “evidence bundle” for at least one pack
 - Document minimum viable audit trail
 
 Goal: Transition from advisory artifacts to assurance-ready components.
@@ -52,8 +51,9 @@ Goal: Transition from advisory artifacts to assurance-ready components.
 
 ## 5. Reference Implementations
 
-- Publish sample filled artifacts
-- Provide illustrative governance case study
+- [Implemented] Deployment profile scaffold for representative DPI-AI systems
+- Publish additional sample filled artifacts
+- Provide illustrative governance case studies
 - Add redlined comparison examples (weak vs strong governance posture)
 
 Goal: Improve usability and reduce interpretive ambiguity.
@@ -75,7 +75,7 @@ Goal: Lower the cognitive barrier to adoption.
 
 ## 7. Ecosystem Alignment
 
-- Map artifacts to emerging AI governance standards
+- [Implemented] Standards crosswalk spanning TRACE, NIST AI RMF, ISO/IEC 42001, OECD AI Principles, and the EU AI Act
 - Document compatibility considerations
 - Track alignment gaps transparently
 
@@ -85,7 +85,7 @@ Goal: Ensure long-term interoperability.
 
 ## Tracking Philosophy
 
-This roadmap captures architectural intent and sequencing logic.  
+This roadmap captures architectural intent and sequencing logic.
 Items may evolve, merge, or reprioritize based on ecosystem needs.
 
 No timeline commitments are implied.

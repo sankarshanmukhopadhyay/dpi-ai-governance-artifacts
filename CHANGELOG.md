@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-03-14
+
+### Added
+- Canonical governance control catalog in machine-readable JSON plus narrative documentation (`controls/dpi-ai-governance-controls.json`, `controls/dpi-ai-governance-controls.md`).
+- Portable risk register JSON Schema and example instance (`schemas/risk-register.schema.json`, `templates/risk-register.example.json`).
+- Reference assurance evidence bundle layout and deployment profiles for representative DPI-AI systems (`evidence-bundles/`, `profiles/`).
+- Standards crosswalk connecting TRACE-oriented controls to NIST AI RMF, ISO/IEC 42001, OECD AI Principles, and the EU AI Act (`crosswalks/`).
+
+### Changed
+- Updated compatibility metadata and documentation navigation for the new Lab v0.6.0 / Artifacts v0.9.0 release pair.
+- Refreshed README positioning so the repo presents as an operational toolkit rather than a pile of earnest PDFs in a trench coat.
+
+### Fixed
+- Removed metadata drift across `VERSION`, `TRACE_COMPATIBILITY.json`, and release-facing docs.
+
+
 ## [0.8.0] - 2026-03-05
 
 ### Added

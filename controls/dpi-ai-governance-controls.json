@@ -1,0 +1,166 @@
+{
+  "version": "0.9.0",
+  "catalog_id": "dpi-ai-governance-controls",
+  "controls": [
+    {
+      "control_id": "DPI-AI-CTRL-001",
+      "title": "Mandate and legal authority definition",
+      "category": "Governance",
+      "description": "Define the institutional mandate, lawful authority, prohibited uses, and decision boundaries for the system.",
+      "risk_category": "governance-capture",
+      "trace_component": "Trust",
+      "implementation_guidance": [
+        "Document purpose limitation and prohibited uses.",
+        "Assign named accountable owners."
+      ],
+      "evidence_examples": [
+        "governance charter",
+        "delegation record",
+        "public notice"
+      ],
+      "related_standards": {
+        "nist_ai_rmf": [
+          "GOV"
+        ],
+        "iso_42001": [
+          "context of the organization",
+          "leadership"
+        ],
+        "oecd": [
+          "Inclusive growth, sustainable development and well-being"
+        ],
+        "eu_ai_act": [
+          "risk management and governance"
+        ]
+      }
+    },
+    {
+      "control_id": "DPI-AI-CTRL-002",
+      "title": "Risk register maintenance",
+      "category": "Risk",
+      "description": "Maintain a living risk register with owners, review frequencies, and links to mitigating controls.",
+      "risk_category": "systemic-risk",
+      "trace_component": "Risk",
+      "implementation_guidance": [
+        "Review risks periodically and after incidents.",
+        "Capture affected populations and review frequency."
+      ],
+      "evidence_examples": [
+        "risk register",
+        "review minutes",
+        "mitigation plan"
+      ],
+      "related_standards": {
+        "nist_ai_rmf": [
+          "MAP",
+          "MANAGE"
+        ],
+        "iso_42001": [
+          "risk and opportunity management"
+        ],
+        "oecd": [
+          "Robustness, security and safety"
+        ],
+        "eu_ai_act": [
+          "risk management system"
+        ]
+      }
+    },
+    {
+      "control_id": "DPI-AI-CTRL-003",
+      "title": "Evidence bundle completeness",
+      "category": "Assurance",
+      "description": "Require a minimum evidence bundle before deployment or major change approval.",
+      "risk_category": "assurance-failure",
+      "trace_component": "Conformance",
+      "implementation_guidance": [
+        "Define mandatory artifacts for each tier.",
+        "Validate presence and freshness before release."
+      ],
+      "evidence_examples": [
+        "model documentation",
+        "evaluation results",
+        "incident response plan"
+      ],
+      "related_standards": {
+        "nist_ai_rmf": [
+          "MEASURE",
+          "MANAGE"
+        ],
+        "iso_42001": [
+          "operational planning and control"
+        ],
+        "oecd": [
+          "Transparency and explainability"
+        ],
+        "eu_ai_act": [
+          "technical documentation"
+        ]
+      }
+    },
+    {
+      "control_id": "DPI-AI-CTRL-004",
+      "title": "Decision notice and redress",
+      "category": "Redress",
+      "description": "Provide meaningful notices, appeal pathways, and remedy tracking for materially affected people.",
+      "risk_category": "remedy-failure",
+      "trace_component": "Trust",
+      "implementation_guidance": [
+        "Provide clear user-facing reasons.",
+        "Measure reversal rates and closure times."
+      ],
+      "evidence_examples": [
+        "decision receipt",
+        "appeal record",
+        "remediation closure log"
+      ],
+      "related_standards": {
+        "nist_ai_rmf": [
+          "GOV",
+          "MANAGE"
+        ],
+        "iso_42001": [
+          "communication and competence"
+        ],
+        "oecd": [
+          "Accountability"
+        ],
+        "eu_ai_act": [
+          "human oversight"
+        ]
+      }
+    },
+    {
+      "control_id": "DPI-AI-CTRL-005",
+      "title": "Population-scale monitoring",
+      "category": "Transparency",
+      "description": "Monitor drift, exclusion, complaints, overrides, and subgroup performance after deployment.",
+      "risk_category": "population-scale-drift",
+      "trace_component": "Architecture",
+      "implementation_guidance": [
+        "Define thresholds that trigger reassessment.",
+        "Publish aggregate transparency metrics where feasible."
+      ],
+      "evidence_examples": [
+        "monitoring dashboard export",
+        "incident log",
+        "quarterly transparency report"
+      ],
+      "related_standards": {
+        "nist_ai_rmf": [
+          "MEASURE",
+          "MANAGE"
+        ],
+        "iso_42001": [
+          "performance evaluation"
+        ],
+        "oecd": [
+          "Robustness, security and safety"
+        ],
+        "eu_ai_act": [
+          "post-market monitoring"
+        ]
+      }
+    }
+  ]
+}

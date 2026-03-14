@@ -6,7 +6,7 @@
 - Pack catalog: `packs/README.md`
 - Freshness + audit guardrails: `docs/documentation-freshness.md` (last reviewed: 2026-03-04)
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Release](https://img.shields.io/badge/release-v0.8.0-green)
+![Release](https://img.shields.io/badge/release-v0.9.0-green)
 ![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
 
 **Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance materials that turn “governance” from a slide deck into **interfaces you can procure, implement, test, and audit**.
@@ -111,3 +111,12 @@ This repo includes operational templates aligned to the TRACE↔TSAM spine (see 
 ## Documentation
 
 - Documentation index: `docs/INDEX.md`
+
+
+## New in v0.9.0
+
+- Canonical DPI-AI governance control catalog in machine-readable and narrative form
+- Risk register JSON Schema and example register
+- Assurance evidence-bundle reference structure under `evidence-bundles/`
+- Deployment profiles under `profiles/`
+- Standards crosswalk under `crosswalks/`

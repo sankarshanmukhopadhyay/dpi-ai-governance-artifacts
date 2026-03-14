@@ -1,0 +1,11 @@
+{
+  "model_id": "triage-model-01",
+  "version": "1.0.0",
+  "intended_use": "case prioritization",
+  "out_of_scope": [
+    "final denial decision",
+    "law-enforcement action"
+  ],
+  "training_data_lineage": "Documented in internal data lineage register",
+  "owner": "model assurance lead"
+}

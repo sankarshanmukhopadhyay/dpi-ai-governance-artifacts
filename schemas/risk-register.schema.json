@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "risk-register.schema.json",
+  "title": "DPI AI Risk Register",
+  "type": "object",
+  "required": [
+    "system_id",
+    "version",
+    "risks"
+  ],
+  "properties": {
+    "system_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "risk_id",
+          "risk_description",
+          "affected_population",
+          "likelihood",
+          "impact",
+          "mitigation_control_ids",
+          "review_frequency"
+        ],
+        "properties": {
+          "risk_id": {
+            "type": "string"
+          },
+          "risk_description": {
+            "type": "string"
+          },
+          "affected_population": {
+            "type": "string"
+          },
+          "likelihood": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          "mitigation_control_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "evidence_links": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "review_frequency": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

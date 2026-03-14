@@ -47,3 +47,9 @@ Operational Packs SHOULD list:
 ## Categories
 
 The control registry categorizes controls into: Governance, Risk, Assurance, Redress, Transparency, and Identity Assurance.
+
+
+## Canonical catalog
+
+- `controls/dpi-ai-governance-controls.json`
+- `controls/dpi-ai-governance-controls.md`

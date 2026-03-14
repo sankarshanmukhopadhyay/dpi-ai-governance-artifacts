@@ -1,0 +1,8 @@
+profile_id: welfare-ai-profile
+version: 0.9.0
+base_profile: dpi-ai-system-profile
+sector: social protection
+additional_requirements:
+  - no fully automated denial of entitlement
+  - mandatory appeal pathway
+  - monthly exclusion-risk review

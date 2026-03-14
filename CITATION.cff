@@ -1,8 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it as below."
 title: "DPI–AI Governance Artifacts"
-version: 0.4.1
-authors:
+version: 0.9.0
   - family-names: "Mukhopadhyay"
     given-names: "Sankarshan"
     email: "sankarshan@qbfconsulting.digital"
@@ -12,3 +11,5 @@ abstract: >
   including risk matrices, tier bindings, control-surface mappings, and Minimum Digital Kernel
   operational contracts (schemas, templates, and conformance profiles).
 repository-code: "https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-artifacts"
+
+date-released: "2026-03-14"

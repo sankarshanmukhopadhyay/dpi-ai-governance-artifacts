@@ -1,0 +1,23 @@
+{
+  "system_id": "welfare-eligibility-ai",
+  "version": "1.0.0",
+  "risks": [
+    {
+      "risk_id": "RISK-001",
+      "risk_description": "False positives in fraud triage lead to suspension of benefits for legitimate recipients.",
+      "affected_population": "benefit applicants and recipients",
+      "likelihood": "medium",
+      "impact": "critical",
+      "mitigation_control_ids": [
+        "DPI-AI-CTRL-002",
+        "DPI-AI-CTRL-004",
+        "DPI-AI-CTRL-005"
+      ],
+      "evidence_links": [
+        "evidence-bundles/ai-system-assurance/risk_register.json"
+      ],
+      "review_frequency": "monthly",
+      "owner": "program risk committee"
+    }
+  ]
+}

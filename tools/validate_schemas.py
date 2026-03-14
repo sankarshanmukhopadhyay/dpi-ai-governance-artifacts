@@ -98,6 +98,10 @@ def schema_for_vector(vector_path: Path) -> Path | None:
     if not rel.parts:
         return None
     schema_stem = rel.parts[0]
+    aliases = {
+        "vendor-attestation": "vendor-capability-attestation",
+    }
+    schema_stem = aliases.get(schema_stem, schema_stem)
     candidate = SCHEMAS_DIR / f"{schema_stem}.schema.json"
     return candidate if candidate.exists() else None
 

@@ -11,7 +11,7 @@ The goal is to keep the two repos **loosely coupled** but **semantically locked*
 
 ## Declared compatibility
 
-- **Aligned Lab version:** `dpi-ai-governance-lab` **v0.4.1**
+- **Aligned Lab version:** `dpi-ai-governance-lab` **v0.6.0**
 - **Policy:**  
   - Minor edits in the Lab docs are tolerated without requiring artifact changes.  
   - Changes to *schemas*, *review output structure*, or *tier semantics* are considered breaking for operational packs and SHOULD trigger an update here.
@@ -59,5 +59,5 @@ See `docs/reference/TRACE-TSAM.md` for the local reference and pointers to canon
 
 Cross-repo coupling is enforced via a machine-readable contract:
 
-- `TRACE_COMPATIBILITY.json` declares the expected `TRACE_VERSION`, Lab version, and Artifacts version.
+- `TRACE_COMPATIBILITY.json` declares the expected `TRACE_VERSION`, Lab version, and Artifacts version. The current supported pair is Lab v0.6.0 and Artifacts v0.9.0.
 - CI runs `python tools/check_compatibility.py` to fail fast if versions drift.

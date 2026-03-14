@@ -1,0 +1,22 @@
+profile_id: dpi-ai-system-profile
+version: 0.9.0
+system_type: public-sector-ai
+deployment_context: DPI
+risk_tier: high
+required_controls:
+  - DPI-AI-CTRL-001
+  - DPI-AI-CTRL-002
+  - DPI-AI-CTRL-003
+  - DPI-AI-CTRL-004
+  - DPI-AI-CTRL-005
+required_evidence:
+  - governance_policy
+  - risk_register
+  - model_documentation
+  - evaluation_results
+  - incident_response_plan
+review_triggers:
+  - major model update
+  - policy scope change
+  - appeal reversal spike
+  - drift threshold exceeded

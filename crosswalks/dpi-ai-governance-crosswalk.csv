@@ -1,0 +1,6 @@
+control_id,trace_component,nist_ai_rmf,iso_42001,oecd_ai_principles,eu_ai_act_focus
+DPI-AI-CTRL-001,Trust,GOV,Context; Leadership,Inclusive growth; accountability,governance and risk management
+DPI-AI-CTRL-002,Risk,MAP; MANAGE,Risk and opportunity management,"Robustness, security and safety",risk management system
+DPI-AI-CTRL-003,Conformance,MEASURE; MANAGE,Operational planning and control,Transparency and explainability,technical documentation
+DPI-AI-CTRL-004,Trust,GOV; MANAGE,Communication and competence,Accountability,human oversight and redress
+DPI-AI-CTRL-005,Architecture,MEASURE; MANAGE,Performance evaluation,"Robustness, security and safety",post-market monitoring
