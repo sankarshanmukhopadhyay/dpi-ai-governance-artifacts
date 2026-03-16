@@ -4,10 +4,11 @@
 
 - Overview: `docs/overview.md`
 - Pack catalog: `packs/README.md`
-- Freshness + audit guardrails: `docs/documentation-freshness.md` (last reviewed: 2026-03-04)
+- Freshness + audit guardrails: `docs/documentation-freshness.md` (last reviewed: 2026-03-16)
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Release](https://img.shields.io/badge/release-v0.9.0-green)
+![Release](https://img.shields.io/badge/release-v1.0.0-green)
 ![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
+![Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)
 
 **Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance materials that turn “governance” from a slide deck into **interfaces you can procure, implement, test, and audit**.
 

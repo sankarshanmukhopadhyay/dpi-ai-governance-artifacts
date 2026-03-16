@@ -1,0 +1,13 @@
+title: "DPI–AI Governance Artifacts"
+description: "Operational packs for DPI and AI governance systems — schemas, templates, playbooks, and conformance materials."
+theme: jekyll-theme-primer
+show_downloads: false
+google_analytics:
+
+exclude:
+  - tools/
+  - scripts/
+  - "*.zip"
+  - ".github/"
+  - "TRACE_COMPATIBILITY.json"
+  - "TRACE_VERSION"

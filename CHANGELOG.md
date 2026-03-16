@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.0.0] - 2026-03-16
+
+### Summary
+
+Infrastructure release. This version establishes the repository's CI baseline, documentation freshness discipline, and public documentation site. It does not introduce new governance artifacts or schema changes — those are preserved from v0.9.0.
+
+### Fixed
+
+- `CITATION.cff`: repaired malformed YAML (`authors:` key was missing, causing the file to be invalid).
+
+### Added
+
+- `.github/workflows/lint-markdown.yml`: Markdown linting CI using `avto-dev/markdown-lint`. Pre-existing style violations are suppressed via `.markdownlint.json` rather than fixed wholesale.
+- `.markdownlint.json`: lint configuration with suppressions for MD013 (line length), MD033 (inline HTML), MD041 (first heading), MD024 (duplicate headings).
+- `.github/workflows/pages.yml`: GitHub Actions workflow deploying the repository to GitHub Pages on every push to `main`.
+- `_config.yml`: Jekyll/primer theme configuration for GitHub Pages.
+- `index.md`: curated landing page for the GitHub Pages site.
+
+### Changed
+
+- `.github/workflows/repo-integrity.yml`: extended hygiene check to detect `.pyc` files and `__pycache__` directories in addition to `.DS_Store`.
+- `docs/documentation-freshness.md`, `docs/overview.md`, `docs/INDEX.md`, `README.md`: updated `last_reviewed` dates to 2026-03-16 as part of scheduled Tier 0 freshness sweep.
+- `TRACE_COMPATIBILITY.json`: added `{ "lab": "0.7.0", "artifacts": "1.0.0", "status": "supported" }` compatibility entry.
+- `CITATION.cff`: updated `version` to `1.0.0` and `date-released` to `2026-03-16`.
+- `VERSION`: bumped to `1.0.0`.
+
+### Notes
+
+- GitHub Pages requires manual activation in repository settings: Settings → Pages → Source → **GitHub Actions**.
+- No governance artifacts, schemas, or controlled documents were modified in this release. See v0.9.0 for the latest substantive changes.
+
 ## [Unreleased]
 
 ## [0.9.0] - 2026-03-14
