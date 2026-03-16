@@ -16,6 +16,8 @@ jobs:
             --verbose
             --no-progress
             --accept 200,206,429
+            --exclude "open\.substack\.com"
+            --exclude "andrewclearwater\.substack\.com"
             --exclude-path ./node_modules
             --exclude-path ./dist
             --exclude-path ./build
