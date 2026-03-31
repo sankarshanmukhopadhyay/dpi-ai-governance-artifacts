@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "system": "trace-review-assurance-demo",
+  "events": [
+    {
+      "timestamp": "2026-03-30T09:00:00Z",
+      "event_type": "bundle_exported",
+      "actor": "reviewer",
+      "artifact_ref": "review-bundle.json",
+      "outcome": "success"
+    },
+    {
+      "timestamp": "2026-03-30T09:15:00Z",
+      "event_type": "control_mapping_updated",
+      "actor": "maintainer",
+      "artifact_ref": "artifact-control-map.json",
+      "outcome": "success"
+    },
+    {
+      "timestamp": "2026-03-30T09:30:00Z",
+      "event_type": "conformance_declared",
+      "actor": "steward",
+      "artifact_ref": "trace-conformance-declaration.json",
+      "outcome": "recorded"
+    }
+  ]
+}

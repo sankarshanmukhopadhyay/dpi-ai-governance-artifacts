@@ -35,3 +35,8 @@ Last reviewed: 2026-03-16
 ## Ownership
 
 This repo uses `.github/CODEOWNERS` for ownership cues (see `.github/`).
+
+- `docs/evidence-and-conformance-layer.md`
+- `docs/compatibility-considerations.md`
+- `docs/alignment-gaps.md`
+- `docs/schema-versioning-policy.md`

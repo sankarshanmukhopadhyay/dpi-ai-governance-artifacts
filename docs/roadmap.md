@@ -30,9 +30,9 @@ Goal: Enable traceable, machine-operable governance controls.
 ## 3. Schema & Machine-Readable Hardening
 
 - [Implemented] Risk register JSON Schema and example instance
-- Formalize JSON schemas for additional pack artifacts
-- Introduce schema versioning policy
-- Provide example conformant artifact bundles
+- [Implemented] Formalize JSON schemas for additional evidence/conformance artifacts
+- [Implemented] Schema versioning policy
+- [Implemented] Example conformant artifact bundle
 
 Goal: Ensure artifacts are automatable and audit-ready.
 
@@ -41,9 +41,9 @@ Goal: Ensure artifacts are automatable and audit-ready.
 ## 4. Evidence & Conformance Layer
 
 - [Implemented] Reference assurance evidence bundle structure under `evidence-bundles/`
-- Define artifact-to-control mapping model
-- Introduce lightweight conformance declaration template
-- Document minimum viable audit trail
+- [Implemented] Artifact-to-control mapping model
+- [Implemented] Lightweight conformance declaration template
+- [Implemented] Minimum viable audit trail
 
 Goal: Transition from advisory artifacts to assurance-ready components.
 
@@ -76,8 +76,8 @@ Goal: Lower the cognitive barrier to adoption.
 ## 7. Ecosystem Alignment
 
 - [Implemented] Standards crosswalk spanning TRACE, NIST AI RMF, ISO/IEC 42001, OECD AI Principles, and the EU AI Act
-- Document compatibility considerations
-- Track alignment gaps transparently
+- [Implemented] Compatibility considerations
+- [Implemented] Alignment gaps tracking
 
 Goal: Ensure long-term interoperability.
 

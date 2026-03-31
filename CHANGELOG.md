@@ -33,6 +33,14 @@ Infrastructure release. This version establishes the repository's CI baseline, d
 
 ## [Unreleased]
 
+### Added
+- Schemas and examples for artifact-control maps, TRACE conformance declarations, and minimum audit trails.
+- Example TRACE review assurance bundle and supporting documentation.
+
+### Changed
+- Schema validation now scans recursive templates and is enforced in repo integrity CI.
+
+
 ## [0.9.0] - 2026-03-14
 
 ### Added

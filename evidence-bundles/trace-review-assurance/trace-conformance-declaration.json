@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "artifact_bundle": "trace-review-assurance-bundle",
+  "trace_method_version": "1.0",
+  "declaration": {
+    "status": "tested",
+    "scope": [
+      "review bundle export",
+      "scorecard",
+      "evidence logs"
+    ],
+    "limitations": [
+      "No independent external assessment included in the example bundle."
+    ]
+  },
+  "evidence": [
+    {
+      "path": "review-bundle.json",
+      "role": "bundle_export",
+      "sha256": "8d6c5adac182c40b5397b2f32fa3d504a308182a5a0ffcd66c2c8060fcc046de"
+    },
+    {
+      "path": "artifact-control-map.json",
+      "role": "control_mapping",
+      "sha256": "5debf15b23c12c10fcad049c309f4a7567c0983312ef2baba06906411fceee21"
+    },
+    {
+      "path": "minimum-audit-trail.json",
+      "role": "audit_trail",
+      "sha256": "c6b653f03cd84c58e5fc79e6c665a0455b3decb7d9631b86c88ec4af6eb2b8f4"
+    }
+  ],
+  "approver": {
+    "name": "Example Maintainer",
+    "role": "Repository steward"
+  }
+}

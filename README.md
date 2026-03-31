@@ -121,3 +121,11 @@ This repo includes operational templates aligned to the TRACE↔TSAM spine (see 
 - Assurance evidence-bundle reference structure under `evidence-bundles/`
 - Deployment profiles under `profiles/`
 - Standards crosswalk under `crosswalks/`
+
+
+## New evidence handoff artifacts
+
+- `schemas/artifact-control-map.schema.json`
+- `schemas/trace-conformance-declaration.schema.json`
+- `schemas/minimum-audit-trail.schema.json`
+- `evidence-bundles/trace-review-assurance/`

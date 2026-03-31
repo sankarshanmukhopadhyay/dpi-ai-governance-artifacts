@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "artifact_id": "trace-review-assurance-bundle",
+  "artifact_type": "evidence_bundle",
+  "control_mappings": [
+    {
+      "control_id": "DPI-AI-CTRL-001",
+      "coverage": "partial",
+      "evidence": [
+        "review-bundle.json",
+        "paper-review-scorecard.yaml"
+      ],
+      "notes": "Supports traceability and review evidence."
+    },
+    {
+      "control_id": "DPI-AI-CTRL-009",
+      "coverage": "full",
+      "evidence": [
+        "claim-verification-log.yaml",
+        "assumption-log.yaml"
+      ],
+      "notes": "Makes evidentiary posture contestable."
+    }
+  ]
+}

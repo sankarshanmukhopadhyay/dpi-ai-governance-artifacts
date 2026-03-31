@@ -33,7 +33,7 @@ def build_registry() -> Registry:
     reg = Registry()
     if not SCHEMAS_DIR.exists():
         return reg
-    for p in sorted(SCHEMAS_DIR.glob("*.json")):
+    for p in sorted(SCHEMAS_DIR.rglob("*.json")):
         try:
             schema = json.loads(p.read_text(encoding="utf-8"))
         except Exception:
@@ -43,6 +43,11 @@ def build_registry() -> Registry:
         if sid:
             reg = reg.with_resource(sid, Resource.from_contents(schema))
         reg = reg.with_resource(p.name, Resource.from_contents(schema))
+        try:
+            rel_name = str(p.relative_to(SCHEMAS_DIR)).replace("\\", "/")
+            reg = reg.with_resource(rel_name, Resource.from_contents(schema))
+        except Exception:
+            pass
     return reg
 
 
@@ -60,7 +65,7 @@ def validator_for(schema_path: Path) -> Draft202012Validator:
 
 
 def iter_template_examples():
-    for p in sorted(TEMPLATES_DIR.glob("*.json")):
+    for p in sorted(TEMPLATES_DIR.rglob("*.json")):
         if ".example" in p.name:
             yield p
 
@@ -69,19 +74,9 @@ def schema_for_template(example_path: Path) -> Path | None:
     # appeal-filing.example.json -> appeal-filing.schema.json
     stem = example_path.name.split(".example")[0]
 
-    candidate = SCHEMAS_DIR / f"{stem}.schema.json"
-    if candidate.exists():
-        return candidate
-
-    # vocabulary convention (reason-codes.vocab.example.json -> reason-codes.vocab.json)
-    candidate = SCHEMAS_DIR / f"{stem}.vocab.json"
-    if candidate.exists():
-        return candidate
-
-    candidate = SCHEMAS_DIR / f"{stem}.json"
-    if candidate.exists():
-        return candidate
-
+    for candidate in [SCHEMAS_DIR / f"{stem}.schema.json", SCHEMAS_DIR / f"{stem}.vocab.json", SCHEMAS_DIR / f"{stem}.json"]:
+        if candidate.exists():
+            return candidate
     return None
 
 
