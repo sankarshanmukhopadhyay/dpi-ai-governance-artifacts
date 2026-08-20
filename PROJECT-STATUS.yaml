@@ -1,0 +1,31 @@
+schema_version: "1.0"
+project:
+  name: dpi-ai-governance-artifacts
+  maturity: implementation-draft
+  lifecycle: active
+  operational_status: active-development
+  specification_status: not-applicable
+  intended_use:
+    - applied-governance-artifacts
+    - reusable-assurance-patterns
+    - governance-evidence-prototyping
+  not_asserted:
+    - production-certification
+    - jurisdictional-policy-authority
+    - universal-governance-standard
+authority:
+  normative_scope:
+    - dpi-ai-governance-artifacts
+  does_not_own:
+    - external-governance-frameworks
+    - jurisdictional-authority
+    - deployment-specific-risk-acceptance
+  delegation: "Repository maintainers govern the project-local artifacts and their versioning; external governance frameworks and deployment authorities retain their own decision rights."
+  revocation_or_supersession: "Artifacts are superseded through explicit versioned changes with previous states preserved for audit and comparison."
+evidence:
+  validation_commands:
+    - git diff --check
+  evidence_outputs: []
+  known_limitations:
+    - artifacts are reusable implementation material rather than external certification
+    - deployment-specific assurance remains the responsibility of adopters
