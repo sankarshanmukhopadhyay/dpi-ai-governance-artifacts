@@ -1,0 +1,51 @@
+version: 1
+cases:
+  - id: admissible-employment-credential
+    expected: admit
+    profile:
+      profile_id: ADM-001
+      upstream_authority: employment-registry
+      output_type: employment-status-credential
+      relying_institution: benefits-agency
+      downstream_decision: benefit-eligibility
+      purpose: determine-income-eligibility
+      jurisdiction: EXAMPLE
+      not_before: 2026-01-01T00:00:00Z
+      not_after: 2026-12-31T23:59:59Z
+      status: active
+      conditions: [issuer-assurance-high]
+    request:
+      at: 2026-08-22T10:00:00Z
+      authentic: true
+      upstream_authority: employment-registry
+      output_type: employment-status-credential
+      relying_institution: benefits-agency
+      downstream_decision: benefit-eligibility
+      purpose: determine-income-eligibility
+      jurisdiction: EXAMPLE
+      conditions_met: [issuer-assurance-high]
+  - id: authentic-but-wrong-purpose
+    expected: reject
+    reason: purpose_not_admissible
+    profile: {profile_id: ADM-002, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, not_before: 2026-01-01T00:00:00Z, not_after: 2026-12-31T23:59:59Z, status: active, conditions: []}
+    request: {at: 2026-08-22T10:00:00Z, authentic: true, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: marketing, jurisdiction: EXAMPLE, conditions_met: []}
+  - id: wrong-jurisdiction
+    expected: reject
+    reason: jurisdiction_not_admissible
+    profile: {profile_id: ADM-003, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, not_before: 2026-01-01T00:00:00Z, not_after: 2026-12-31T23:59:59Z, status: active, conditions: []}
+    request: {at: 2026-08-22T10:00:00Z, authentic: true, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: OTHER, conditions_met: []}
+  - id: expired-profile
+    expected: reject
+    reason: admissibility_expired
+    profile: {profile_id: ADM-004, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, not_before: 2026-01-01T00:00:00Z, not_after: 2026-06-30T23:59:59Z, status: active, conditions: []}
+    request: {at: 2026-08-22T10:00:00Z, authentic: true, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, conditions_met: []}
+  - id: revoked-profile
+    expected: reject
+    reason: admissibility_revoked
+    profile: {profile_id: ADM-005, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, not_before: 2026-01-01T00:00:00Z, not_after: 2026-12-31T23:59:59Z, status: revoked, conditions: []}
+    request: {at: 2026-08-22T10:00:00Z, authentic: true, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, conditions_met: []}
+  - id: missing-assurance-condition
+    expected: reject
+    reason: assurance_condition_missing
+    profile: {profile_id: ADM-006, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, not_before: 2026-01-01T00:00:00Z, not_after: 2026-12-31T23:59:59Z, status: active, conditions: [issuer-assurance-high]}
+    request: {at: 2026-08-22T10:00:00Z, authentic: true, upstream_authority: employment-registry, output_type: employment-status-credential, relying_institution: benefits-agency, downstream_decision: benefit-eligibility, purpose: determine-income-eligibility, jurisdiction: EXAMPLE, conditions_met: []}
