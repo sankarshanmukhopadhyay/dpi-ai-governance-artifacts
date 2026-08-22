@@ -1,0 +1,98 @@
+vector_set: bounded-delegation-v1
+policy:
+  fail_closed: true
+cases:
+  - id: BD-ALLOW-001
+    delegation:
+      status: active
+      actor: service-agent
+      actions: [initiate-payment]
+      resources: [benefit-account]
+      purposes: [approved-entitlement]
+      not_before: 2026-08-01T00:00:00Z
+      not_after: 2026-12-31T23:59:59Z
+    request:
+      actor: service-agent
+      action: initiate-payment
+      resource: benefit-account
+      purpose: approved-entitlement
+      at: 2026-08-22T05:00:00Z
+    expected:
+      decision: allow
+      reason: delegation_valid
+
+  - id: BD-DENY-SCOPE-001
+    delegation:
+      status: active
+      actor: service-agent
+      actions: [initiate-payment]
+      resources: [benefit-account]
+      purposes: [approved-entitlement]
+      not_before: 2026-08-01T00:00:00Z
+      not_after: 2026-12-31T23:59:59Z
+    request:
+      actor: service-agent
+      action: change-eligibility
+      resource: benefit-account
+      purpose: approved-entitlement
+      at: 2026-08-22T05:00:00Z
+    expected:
+      decision: deny
+      reason: action_out_of_scope
+
+  - id: BD-DENY-REVOKED-001
+    delegation:
+      status: revoked
+      actor: service-agent
+      actions: [initiate-payment]
+      resources: [benefit-account]
+      purposes: [approved-entitlement]
+      not_before: 2026-08-01T00:00:00Z
+      not_after: 2026-12-31T23:59:59Z
+    request:
+      actor: service-agent
+      action: initiate-payment
+      resource: benefit-account
+      purpose: approved-entitlement
+      at: 2026-08-22T05:00:00Z
+    expected:
+      decision: deny
+      reason: delegation_revoked
+
+  - id: BD-DENY-EXPIRED-001
+    delegation:
+      status: active
+      actor: service-agent
+      actions: [initiate-payment]
+      resources: [benefit-account]
+      purposes: [approved-entitlement]
+      not_before: 2026-01-01T00:00:00Z
+      not_after: 2026-06-30T23:59:59Z
+    request:
+      actor: service-agent
+      action: initiate-payment
+      resource: benefit-account
+      purpose: approved-entitlement
+      at: 2026-08-22T05:00:00Z
+    expected:
+      decision: deny
+      reason: delegation_expired
+
+  - id: BD-DENY-PURPOSE-001
+    delegation:
+      status: active
+      actor: service-agent
+      actions: [initiate-payment]
+      resources: [benefit-account]
+      purposes: [approved-entitlement]
+      not_before: 2026-08-01T00:00:00Z
+      not_after: 2026-12-31T23:59:59Z
+    request:
+      actor: service-agent
+      action: initiate-payment
+      resource: benefit-account
+      purpose: analytics
+      at: 2026-08-22T05:00:00Z
+    expected:
+      decision: deny
+      reason: purpose_out_of_scope
