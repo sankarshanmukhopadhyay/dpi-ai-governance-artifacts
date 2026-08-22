@@ -1,0 +1,86 @@
+registry_version: 0.1.0
+status: experimental
+source_contract:
+  repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
+  schema: schemas/findings/governance-gaps.schema.json
+
+authority:
+  normative: false
+  statement: This registry recommends reusable remediation assets. Deployment, legal, institutional, and jurisdictional authorities retain decision authority.
+
+capabilities:
+  - capability_id: CAP-REDRESS-APPEAL
+    title: Operational appeal and remedy
+    gap_classes:
+      - absent_redress_path
+      - undefined_redress_authority
+      - missing_appeal_timeline
+    coverage: standardized
+    controls:
+      - TRACE-TRUST-03
+    implementation_requirements:
+      - Identify the accountable redress authority.
+      - Define intake, review, disposition, correction, escalation, and remedy states.
+      - Define measurable response and escalation timelines.
+    artifacts:
+      - path: templates/redress/redress-workflow.md
+        role: template
+      - path: schemas/redress/redress-workflow.schema.json
+        role: schema
+      - path: controlled/redress/redress-and-remediation.md
+        role: guidance
+    closure_evidence:
+      - instantiated_redress_workflow
+      - accountable_redress_authority
+      - published_response_timeline
+      - tested_adverse_decision_appeal
+
+  - capability_id: CAP-AUTHORITY-BOUNDED-DELEGATION
+    title: Bounded authority and delegation for consequential automation
+    gap_classes:
+      - undefined_decision_authority
+      - unbounded_machine_delegation
+      - missing_revocation_semantics
+    coverage: partial
+    controls:
+      - TRACE-TRUST-01
+    implementation_requirements:
+      - Identify an accountable authority for each consequential action.
+      - Bound delegation by action, resource, purpose, time, and revocation state.
+      - Preserve runtime authorization evidence before effect.
+    artifacts:
+      - path: templates/governance/decision-rights.md
+        role: template
+      - path: templates/governance/raci.md
+        role: template
+    closure_evidence:
+      - authority_map
+      - delegation_record
+      - runtime_authorization_record
+      - revocation_test
+
+  - capability_id: CAP-EVIDENCE-CLOSURE
+    title: Evidence-backed governance closure
+    gap_classes:
+      - missing_control_evidence
+      - unverifiable_assurance_claim
+      - undefined_closure_criteria
+    coverage: standardized
+    controls:
+      - TRACE-CONF-01
+    implementation_requirements:
+      - Bind control claims to versioned evidence artifacts.
+      - Preserve provenance and integrity for the evidence set.
+      - Define pass, partial, fail, and not-evaluable assurance outcomes.
+    artifacts:
+      - path: controlled/assurance/evidence-bundles.md
+        role: guidance
+      - path: schemas/minimum-audit-trail.schema.json
+        role: schema
+      - path: schemas/trace-conformance-declaration.schema.json
+        role: schema
+    closure_evidence:
+      - evidence_bundle_manifest
+      - artifact_hashes
+      - control_to_evidence_mapping
+      - verification_result
