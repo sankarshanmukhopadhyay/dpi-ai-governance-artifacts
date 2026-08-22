@@ -6,7 +6,9 @@ import sys
 import yaml
 
 
-def parse(ts: str) -> datetime:
+def parse(ts: str | datetime) -> datetime:
+    if isinstance(ts, datetime):
+        return ts
     return datetime.fromisoformat(ts.replace("Z", "+00:00"))
 
 
