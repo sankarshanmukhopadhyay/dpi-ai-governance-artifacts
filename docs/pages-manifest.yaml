@@ -3,6 +3,7 @@ pages:
   - index.md
   - docs/start-here.md
   - docs/operator-playbook.md
+  - docs/implementation-recipes.md
   - docs/remediation-catalog.md
   - docs/information-architecture.md
   - docs/pages-theme.md
