@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-artifacts/schemas/trust/admissibility-profile.schema.json",
+  "title":"Inter-institutional Admissibility Profile","type":"object","additionalProperties":false,
+  "required":["profile_id","upstream_authority","output_type","relying_institution","downstream_decision","purpose","jurisdiction","validity","status","recourse"],
+  "properties":{
+    "profile_id":{"type":"string"},
+    "upstream_authority":{"type":"string"},"output_type":{"type":"string"},"relying_institution":{"type":"string"},
+    "downstream_decision":{"type":"string"},"purpose":{"type":"string"},"jurisdiction":{"type":"string"},
+    "conditions":{"type":"array","items":{"type":"string"}},
+    "validity":{"type":"object","additionalProperties":false,"required":["not_before","not_after"],"properties":{"not_before":{"type":"string","format":"date-time"},"not_after":{"type":"string","format":"date-time"}}},
+    "status":{"enum":["active","suspended","revoked"]},
+    "recourse":{"type":"object","additionalProperties":false,"required":["authority_ref","dispute_path"],"properties":{"authority_ref":{"type":"string"},"dispute_path":{"type":"string"}}},
+    "assurance_requirements":{"type":"array","items":{"type":"string"}}
+  }
+}
