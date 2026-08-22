@@ -1,4 +1,4 @@
-registry_version: 0.2.0
+registry_version: 0.3.0
 status: experimental
 source_contract:
   repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
@@ -95,3 +95,41 @@ capabilities:
       - artifact_hashes
       - control_to_evidence_mapping
       - verification_result
+
+  - capability_id: CAP-INFERENCE-TRACEABILITY
+    title: Consequential inference traceability
+    gap_classes:
+      - unbound_automated_inference
+      - unversioned_model_decision
+      - rule_inference_conflation
+    coverage: standardized
+    implementation_requirements:
+      - Bind each material automated inference to the consequential decision it informed.
+      - Preserve immutable model or algorithm identity, version and artifact digest.
+      - Bind decision-time inputs, thresholds or parameters, output and execution time.
+      - Preserve the normative rule as a distinct authority source from the inference output.
+    artifacts:
+      - path: schemas/governance/inference-trace.schema.json
+        role: schema
+      - path: test-vectors/governance/inference-trace.yaml
+        role: tests
+      - path: controlled/governance/inference-traceability.md
+        role: guidance
+      - path: schemas/decision-receipt.schema.json
+        role: integration
+    closure_evidence:
+      - inference_trace
+      - model_version_binding
+      - input_snapshot_binding
+      - threshold_or_parameter_binding
+      - decision_receipt_correlation
+      - rule_inference_separation_test
+    provenance:
+      source_corpus: digital-statecraft-dpi-2026-wave1
+      contributing_reviews:
+        - DS-TRACE-002
+        - DS-TRACE-003
+        - DS-TRACE-004
+        - DS-TRACE-005
+      recurring_gap_class: unbound_automated_inference
+      previous_coverage: none
