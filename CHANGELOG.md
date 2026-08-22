@@ -1,5 +1,47 @@
 # Changelog
 
+## [Unreleased]
+
+## [1.1.0] - 2026-08-22
+
+### Summary
+
+Evidence-derived governance-capability release. This version closes the three reusable remediation gaps identified across the Digital Statecraft DPI first-wave TRACE corpus while preserving the repository's authority boundary and historical baselines.
+
+### Added
+
+- `CAP-INFERENCE-TRACEABILITY`
+  - `schemas/governance/inference-trace.schema.json`
+  - deterministic positive/negative inference-trace vectors
+  - CI validator for version, digest, threshold, input-snapshot, decision-correlation, and rule-vs-inference semantics
+  - controlled operator guidance with diagrams
+- `CAP-CORRECTION-PROPAGATION`
+  - machine-readable correction-order and correction-execution-receipt contracts
+  - downstream invalidation, recomputation, replacement, and compensation semantics
+  - partial-failure and false-completion prevention tests
+  - controlled lifecycle/sequence guidance
+- `CAP-INTERINSTITUTIONAL-ADMISSIBILITY`
+  - admissibility-profile and reliance-decision schemas
+  - purpose, jurisdiction, validity, assurance-condition, expiry, revocation, and recourse semantics
+  - authentic-but-inadmissible negative tests
+  - controlled trust/reliance guidance
+- Evidence provenance in the remediation registry linking each new capability to the Digital Statecraft corpus, contributing TRACE reviews, recurring gap class, and previous coverage state.
+- Operator-first Just-the-Docs information architecture, Pages manifests, front-matter enforcement, and diagrams for the new capability surfaces.
+
+### Changed
+
+- Remediation registry advanced from `0.2.0` historical baseline state to `0.5.0` current state while keeping historical evidence immutable.
+- First-wave Digital Statecraft gap mapping improves from 10/19 standardized mappings (52.63%) to 19/19 current mappings (100%).
+- `TRACE_COMPATIBILITY.json` records the supported Lab `0.8.0` / Artifacts `1.1.0` release pair.
+- README now foregrounds the gap → capability → artifact → test → closure workflow and the new reusable capability families.
+
+### Assurance boundary
+
+- Repository artifacts remain non-normative unless adopted by an external authority.
+- Inter-institutional admissibility artifacts represent an adopting institution's reliance policy; they do not create legal admissibility.
+- Inference traces record model contribution; they do not certify model lawfulness, fairness, or accuracy.
+- Correction propagation executes authorized correction semantics; it does not determine whether a correction is legally warranted.
+
 ## [1.0.0] - 2026-03-16
 
 ### Summary
@@ -12,176 +54,140 @@ Infrastructure release. This version establishes the repository's CI baseline, d
 
 ### Added
 
-- `.github/workflows/lint-markdown.yml`: Markdown linting CI using `avto-dev/markdown-lint`. Pre-existing style violations are suppressed via `.markdownlint.json` rather than fixed wholesale.
-- `.markdownlint.json`: lint configuration with suppressions for MD013 (line length), MD033 (inline HTML), MD041 (first heading), MD024 (duplicate headings).
-- `.github/workflows/pages.yml`: GitHub Actions workflow deploying the repository to GitHub Pages on every push to `main`.
-- `_config.yml`: Jekyll/primer theme configuration for GitHub Pages.
+- `.github/workflows/lint-markdown.yml`: Markdown linting CI using `avto-dev/markdown-lint`.
+- `.markdownlint.json`: lint configuration.
+- `.github/workflows/pages.yml`: GitHub Actions workflow deploying the repository to GitHub Pages.
+- `_config.yml`: Jekyll/primer theme configuration.
 - `index.md`: curated landing page for the GitHub Pages site.
 
 ### Changed
 
-- `.github/workflows/repo-integrity.yml`: extended hygiene check to detect `.pyc` files and `__pycache__` directories in addition to `.DS_Store`.
-- `docs/documentation-freshness.md`, `docs/overview.md`, `docs/INDEX.md`, `README.md`: updated `last_reviewed` dates to 2026-03-16 as part of scheduled Tier 0 freshness sweep.
-- `TRACE_COMPATIBILITY.json`: added `{ "lab": "0.7.0", "artifacts": "1.0.0", "status": "supported" }` compatibility entry.
-- `CITATION.cff`: updated `version` to `1.0.0` and `date-released` to `2026-03-16`.
-- `VERSION`: bumped to `1.0.0`.
-
-### Notes
-
-- GitHub Pages requires manual activation in repository settings: Settings → Pages → Source → **GitHub Actions**.
-- No governance artifacts, schemas, or controlled documents were modified in this release. See v0.9.0 for the latest substantive changes.
-
-## [Unreleased]
-
-### Added
-- Schemas and examples for artifact-control maps, TRACE conformance declarations, and minimum audit trails.
-- Example TRACE review assurance bundle and supporting documentation.
-
-### Changed
-- Schema validation now scans recursive templates and is enforced in repo integrity CI.
-
+- `.github/workflows/repo-integrity.yml`: extended hygiene checks.
+- Documentation freshness metadata updated.
+- `TRACE_COMPATIBILITY.json`: added the Lab `0.7.0` / Artifacts `1.0.0` supported pair.
+- `CITATION.cff` and `VERSION` synchronized to `1.0.0`.
 
 ## [0.9.0] - 2026-03-14
 
 ### Added
-- Canonical governance control catalog in machine-readable JSON plus narrative documentation (`controls/dpi-ai-governance-controls.json`, `controls/dpi-ai-governance-controls.md`).
-- Portable risk register JSON Schema and example instance (`schemas/risk-register.schema.json`, `templates/risk-register.example.json`).
-- Reference assurance evidence bundle layout and deployment profiles for representative DPI-AI systems (`evidence-bundles/`, `profiles/`).
-- Standards crosswalk connecting TRACE-oriented controls to NIST AI RMF, ISO/IEC 42001, OECD AI Principles, and the EU AI Act (`crosswalks/`).
+
+- Canonical governance control catalog in machine-readable JSON plus narrative documentation.
+- Portable risk register JSON Schema and example instance.
+- Reference assurance evidence bundle layout and representative deployment profiles.
+- Standards crosswalk connecting TRACE-oriented controls to NIST AI RMF, ISO/IEC 42001, OECD AI Principles, and the EU AI Act.
 
 ### Changed
-- Updated compatibility metadata and documentation navigation for the new Lab v0.6.0 / Artifacts v0.9.0 release pair.
-- Refreshed README positioning so the repo presents as an operational toolkit rather than a pile of earnest PDFs in a trench coat.
+
+- Updated compatibility metadata and documentation navigation for the Lab v0.6.0 / Artifacts v0.9.0 release pair.
+- Refreshed README positioning toward an operational toolkit.
 
 ### Fixed
-- Removed metadata drift across `VERSION`, `TRACE_COMPATIBILITY.json`, and release-facing docs.
 
+- Removed metadata drift across `VERSION`, `TRACE_COMPATIBILITY.json`, and release-facing docs.
 
 ## [0.8.0] - 2026-03-05
 
 ### Added
-- Baseline CI pipelines for link checking and repository integrity validation (schema + manifest consistency).
-- Pack integrity validator to ensure referenced artifacts exist and pack manifests remain internally consistent.
+
+- Baseline CI pipelines for link checking and repository integrity validation.
+- Pack integrity validator ensuring referenced artifacts exist and pack manifests remain internally consistent.
 
 ### Changed
-- Documentation refreshed to align with the documentation freshness checklist: improved navigation, ownership cues, and version clarity.
-- Version synchronization: repository `VERSION` now reflects the current release series and is kept consistent across docs and release notes.
+
+- Documentation refreshed for navigation, ownership cues, and version clarity.
+- Version synchronization across release surfaces.
 
 ## [0.6.1]
 
 ### Added
-- Control library with stable control IDs (`DPI-AI-CTRL-XXX`) and machine-readable registries (`controls/registry.yaml`, `controls/registry.json`).
-- Pack-level implementation guides, artifact checklists, control mappings, and additional templates across MDK, Meta-Governance, Redress, Procurement, and Delegated Agent Governance.
+
+- Control library with stable control IDs and machine-readable registries.
+- Pack-level implementation guides, artifact checklists, control mappings, and additional templates.
 
 ### Changed
-- Updated pack manifests to reference pack artifacts and declare control coverage.
-- Updated README and roadmap to reflect operational pack expansion and control library availability.
 
+- Pack manifests reference pack artifacts and declare control coverage.
+- README and roadmap updated for operational pack expansion.
 
 ## [0.6.0] - 2026-02-22
 
 ### Added
-- Lawful basis support and conditional enforcement in decision receipts (`schemas/lawful-basis.schema.json`, updates to `schemas/decision-receipt.schema.json`).
-- Consolidated shared primitives in `schemas/common-defs.schema.json` to reduce schema drift.
-- Vendor capability attestation vectors under `rulebook-test-vectors/vendor-capability-attestation/`.
-- Conformance evidence bundle for TRACE evaluations (`controlled/assurance/evidence-bundles.md`).
-- Migration guide for implementers (`docs/migrations/v0.5-to-v0.6.md`).
+
+- Lawful-basis support and conditional enforcement in decision receipts.
+- Consolidated shared schema primitives.
+- Vendor capability attestation vectors.
+- Conformance evidence bundle for TRACE evaluations.
+- Migration guide for implementers.
 
 ### Changed
-- Expanded repository validation conventions and fixtures to improve determinism for implementers and validators.
+
+- Expanded repository validation conventions and fixtures.
 
 ## [0.4.1] - 2026-02-22
+
 ### Added
-- TRACE alignment contract (`docs/trace-alignment.md`) and traceability map (`docs/traceability.*`).
-- `TRACE_VERSION` to declare the TRACE method version this repo aligns with.
+
+- TRACE alignment contract and traceability map.
+- `TRACE_VERSION` declaration.
 
 ### Changed
-- Bumped repo version to 0.4.1.
 
-All notable changes to this repository will be documented in this file.
-
-The format is based on Keep a Changelog (https://keepachangelog.com/en/1.0.0/) and this project adheres to Semantic Versioning.
+- Repository version bumped to 0.4.1.
 
 ## [0.4.0] - 2026-02-22
 
 ### Added
-- New schemas to complete remediation and ecosystem interoperability surfaces:
-  - `schemas/incident.schema.json` (incident record)
-  - `schemas/notification-delivery.schema.json` (notification delivery record)
-  - `schemas/federation-agreement.schema.json` (ecosystem federation mechanism)
-  - `schemas/tier0-log-entry.schema.json` (portable Tier 0 log minimum)
-- Examples for all schema types (plus new schemas) in `templates/`
-- Substantive decision-receipt test vectors under `rulebook-test-vectors/decision-receipt/`
-- Schema validation tooling and CI:
-  - `tools/validate_schemas.py`
-  - `.github/workflows/schema-validation.yml`
+
+- New incident, notification delivery, federation agreement, and Tier 0 log schemas.
+- Examples for schema types and substantive decision-receipt test vectors.
+- Schema validation tooling and CI.
 
 ### Changed
-- `schemas/decision-receipt.schema.json`
-  - Tier-conditioned enforcement:
-    - Tier 2/3 receipts require `subject`
-    - Tier 1+ receipts require `appeal`
-  - Introduced structured `rulebook.manifest` reference (machine-traversable); retained `manifest_ref` as deprecated
-- `schemas/recompute-trigger.schema.json`
-  - Added explicit `scope` and support for service-level/batch recompute targets
+
+- Decision receipt tier-conditioned enforcement and structured rulebook manifest references.
+- Recompute trigger scope support.
 
 ### Fixed
-- `schemas/registry-correction-response.schema.json`
-  - Denied responses must include `decision.reason_codes`
-- `schemas/appeal-decision.schema.json`
-  - Dismissed/denied decisions must include `rationale`
-- `schemas/governance-authority-delegation.schema.json`
-  - Typed `oversight_body.endpoints` (removed unbounded object)
-- `controlled/risk/risk-scoring-matrix.md`
-  - Clarified Tier 0 boundary and added conservative tiebreak rule at Priority = 12
-- `controlled/assurance/tier-profiles/mdk-tier-profile.md`
-  - Specified Tier 0 minimum portable logging format
 
-### Notes
-- Items related to lawful basis/consent, supply-chain control artifacts, and playbooks remain planned enhancements for a future release.
+- Registry correction denial reason-code requirements.
+- Appeal denial/dismissal rationale requirements.
+- Governance delegation endpoint typing.
+- Tier 0 risk/profile clarification.
 
 ## [0.3.0] - 2026-02-22
 
 ### Added
-- Meta-governance operational pack (governance-of-governance primitives)
-  - `schemas/governance-authority-delegation.schema.json` (delegation ledger)
-  - `schemas/oversight-review.schema.json` (audit-of-the-auditor)
-  - `schemas/governance-trigger.schema.json` (adaptive governance triggers)
-  - `controlled/risk/risk-register.md` (second-order risk register)
-  - `controlled/assurance/transparency-scorecard.md` (observable governance scorecard)
-  - `templates/governance-constitutional-constraints.template.md` (constitutional guardrails)
-  - `docs/guides/meta-governance-operationalising.md` (adoption guide)
-- Added reference link to the Shru14stack essay that motivated the meta-governance layer.
+
+- Meta-governance operational pack covering delegation ledger, oversight review, adaptive triggers, second-order risks, transparency, and constitutional constraints.
 
 ### Changed
-- README updated to document the meta-governance pack and acknowledgements.
+
+- README updated for meta-governance pack and acknowledgements.
 
 ## [0.2.1] - 2026-02-22
 
 ### Added
-- Added explicit acknowledgement and reference link to the Digital Statecraft essay that motivated the Minimum Digital Kernel operational pack.
-- Added `REFERENCES.md`.
+
+- Explicit acknowledgement and reference link to the Digital Statecraft essay that motivated the Minimum Digital Kernel operational pack.
+- `REFERENCES.md`.
 
 ## [0.2.0] - 2026-02-22
 
 ### Added
-- Minimum Digital Kernel operational pack
-  - Decision receipt schema and examples
-  - Authority directory entry schema
-  - Rulebook manifest schema, change control template, and test vector scaffold
-  - Registry correction and recompute workflow schemas
-  - Appeals and audit finding schemas
-  - Tier-driven conformance profile for Minimum Digital Kernel primitives
-  - Practitioner guides for operational adoption
+
+- Minimum Digital Kernel operational pack including decision receipts, authority directory entries, rulebook manifests, registry correction/recompute workflows, appeals, audit findings, and conformance profiles.
 
 ### Changed
-- README updated for clearer onboarding and operational usage
+
+- README updated for clearer onboarding and operational usage.
 
 ## [0.1.0] - 2026-02-21
 
 ### Added
-- Initial DPI–AI Risk Scoring Matrix artifact
-- CC BY-SA 4.0 LICENSE
-- CITATION.cff metadata
-- VERSION file
-- Baseline repository structure
+
+- Initial DPI–AI Risk Scoring Matrix artifact.
+- CC BY-SA 4.0 license.
+- Citation metadata.
+- Baseline repository structure.
+
+All notable changes to this repository are documented here. The format is based on Keep a Changelog and the project follows Semantic Versioning.
