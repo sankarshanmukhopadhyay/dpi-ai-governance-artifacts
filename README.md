@@ -18,6 +18,28 @@ This repo ships a **full governance surface area**:
 - Assurance and evidence bundles (TRACE-aligned conformance artifacts)
 - Operational playbooks for recurring failure modes
 
+## From TRACE gap to operator action
+
+This repository is the remediation side of the DPI AI Governance Lab improvement loop:
+
+```text
+TRACE evaluation
+  -> governance gap
+  -> required capability
+  -> remediation registry
+  -> implementation artifacts
+  -> closure evidence
+  -> TRACE re-evaluation
+```
+
+For an implementer or operator, start with:
+
+- `remediation/remediation-registry.yaml` — machine-readable capability-to-artifact resolver
+- `docs/remediation-resolution.md` — how to move from a normalized gap to implementation and closure evidence
+- `tools/validate_remediation_registry.py` — CI-safe validation that mapped artifacts actually exist
+
+The registry deliberately distinguishes **partial** from **standardized** remediation. A partial entry exposes where further design work is still required rather than overstating repository maturity.
+
 ---
 
 ### What’s new in this update
@@ -102,6 +124,7 @@ And the ToIP references:
 - `templates/` — fillable structures for governed artifacts
 - `rulebook-test-vectors/` — examples to validate implementations
 - `playbooks/` — operational runbooks for recurring failure modes
+- `remediation/` — capability-to-artifact resolution registry
 - `docs/` — guides, methodology alignment, migrations, traceability
 
 
