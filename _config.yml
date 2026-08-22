@@ -1,9 +1,42 @@
 title: "DPI–AI Governance Artifacts"
-description: "Operational packs for DPI and AI governance systems — schemas, templates, playbooks, and conformance materials."
-theme: jekyll-theme-primer
-show_downloads: false
-google_analytics:
-
+description: "Reusable remediation assets for implementing and verifying DPI/AI governance improvements."
+theme: just-the-docs
+url: "https://sankarshanmukhopadhyay.github.io"
+baseurl: "/dpi-ai-governance-artifacts"
+color_scheme: light
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 3
+  rel_url: true
+  button: true
+  focus_shortcut_key: k
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Back to top"
+aux_links:
+  "Artifacts on GitHub":
+    - "https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-artifacts"
+  "TRACE Lab":
+    - "https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-lab/"
+aux_links_new_tab: true
+nav_external_links:
+  - title: "TRACE Lab"
+    url: "https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-lab/"
+    opens_in_new_tab: true
+callouts:
+  note:
+    title: Note
+    color: blue
+  warning:
+    title: Authority boundary
+    color: yellow
+  evidence:
+    title: Evidence requirement
+    color: green
+mermaid:
+  version: "11.4.1"
+footer_content: "Reusable remediation assets support implementation; adopting authorities retain legal, institutional, procurement, and deployment authority."
 exclude:
   - tools/
   - scripts/
@@ -11,3 +44,4 @@ exclude:
   - ".github/"
   - "TRACE_COMPATIBILITY.json"
   - "TRACE_VERSION"
+  - vendor/
