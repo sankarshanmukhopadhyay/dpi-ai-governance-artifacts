@@ -1,0 +1,51 @@
+priority_version: 0.1.0
+status: experimental
+source:
+  repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
+  baseline: baselines/2026-08-22/README.md
+  reviewed_publications: 3
+  encoded_gaps: 9
+
+authority:
+  normative: false
+  statement: Priorities are evidence-derived repository planning inputs and do not bind adopting organizations.
+
+priorities:
+  - rank: 1
+    capability_id: CAP-AUTHORITY-BOUNDED-DELEGATION
+    recurrence:
+      reviews_with_gap: 3
+      reviews_total: 3
+    current_coverage: partial
+    rationale: All three rebaselined reviews identify missing or incomplete runtime authority, bounded delegation, escalation, revocation, or rollback semantics.
+    missing_or_weak_assets:
+      - machine-readable bounded delegation record
+      - explicit revocation and expiry semantics
+      - runtime authorization record schema
+      - deterministic negative test vectors for scope and revocation
+    next_evidence_gate:
+      - registry coverage can move toward standardized only after new artifacts are validated and exercised in a realistic deployment fixture
+
+  - rank: 2
+    capability_id: CAP-REDRESS-APPEAL
+    recurrence:
+      reviews_with_gap: 3
+      reviews_total: 3
+    current_coverage: standardized
+    rationale: All three reviews identify non-operational redress, but reusable assets already exist.
+    missing_or_weak_assets: []
+    next_evidence_gate:
+      - instantiate the existing redress package in a realistic consequential-decision fixture
+      - execute an adverse-decision appeal and preserve timing, disposition, authority, and remedy evidence
+
+  - rank: 3
+    capability_id: CAP-EVIDENCE-CLOSURE
+    recurrence:
+      reviews_with_gap: 3
+      reviews_total: 3
+    current_coverage: standardized
+    rationale: All three reviews identify weak evidence hooks; reusable evidence contracts already exist.
+    missing_or_weak_assets: []
+    next_evidence_gate:
+      - instantiate an evidence bundle against a realistic deployment
+      - verify hashes, control-to-evidence mappings, and assurance outcomes
