@@ -8,56 +8,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install validation deps
         run: |
           python -m pip install --upgrade pip
           pip install pyyaml
-
       - name: Validate pack manifests and referenced artifacts
-        run: |
-          python tools/validate_packs.py
-
+        run: python tools/validate_packs.py
       - name: Validate remediation registry and artifact references
-        run: |
-          python tools/validate_remediation_registry.py
-
+        run: python tools/validate_remediation_registry.py
       - name: Validate evidence-derived coverage priorities
-        run: |
-          python tools/validate_coverage_priorities.py
-
+        run: python tools/validate_coverage_priorities.py
       - name: Validate bounded delegation semantics
-        run: |
-          python tools/validate_bounded_delegation.py
-
+        run: python tools/validate_bounded_delegation.py
+      - name: Validate inference traceability semantics
+        run: python tools/validate_inference_trace.py
       - name: Validate Pages front matter
-        run: |
-          python tools/validate_pages_front_matter.py
-
+        run: python tools/validate_pages_front_matter.py
       - name: JSON sanity (schemas and registries)
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          root = Path(".")
-          bad = []
-          for p in root.rglob("*.json"):
-            try:
-              json.loads(p.read_text(encoding="utf-8"))
-            except Exception as e:
-              bad.append((str(p), str(e)))
+          root = Path('.')
+          bad=[]
+          for p in root.rglob('*.json'):
+            try: json.loads(p.read_text(encoding='utf-8'))
+            except Exception as e: bad.append((str(p),str(e)))
           if bad:
-            print("Invalid JSON files:")
-            for f,e in bad:
-              print("-", f, ":", e)
+            print('Invalid JSON files:')
+            [print('-',f,':',e) for f,e in bad]
             raise SystemExit(2)
-          print("JSON sanity OK:", len(list(root.rglob("*.json"))), "files")
+          print('JSON sanity OK:',len(list(root.rglob('*.json'))),'files')
           PY
-
       - name: Hygiene check (no OS cruft)
-        run: |
-          test -z "$(find . -name .DS_Store -print -quit)" || (echo ".DS_Store found" && exit 2)
+        run: test -z "$(find . -name .DS_Store -print -quit)" || (echo ".DS_Store found" && exit 2)

@@ -9,3 +9,4 @@ pages:
   - docs/README.md
   - remediation/baselines/2026-08-22-coverage.md
   - controlled/governance/bounded-delegation.md
+  - controlled/governance/inference-traceability.md
