@@ -11,3 +11,4 @@ pages:
   - controlled/governance/bounded-delegation.md
   - controlled/governance/inference-traceability.md
   - controlled/redress/correction-propagation.md
+  - controlled/trust/interinstitutional-admissibility.md
