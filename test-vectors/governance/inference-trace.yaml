@@ -1,0 +1,112 @@
+version: 1
+cases:
+  - id: valid-risk-input
+    expected: pass
+    decision_receipt:
+      receipt_id: DEC-001
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+      inference_trace_ref: INF-001
+    trace:
+      trace_id: INF-001
+      decision_ref: DEC-001
+      inference_id: RISK-MODEL
+      version: 3.2.1
+      artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      input_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      threshold: 0.72
+      output: 0.41
+      normative_role: risk_input
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+  - id: missing-version
+    expected: fail
+    reason: inference_version_missing
+    decision_receipt: {receipt_id: DEC-002, rulebook_id: BENEFIT-ELIGIBILITY, rulebook_version: 1.4.0, inference_trace_ref: INF-002}
+    trace:
+      trace_id: INF-002
+      decision_ref: DEC-002
+      inference_id: RISK-MODEL
+      artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      input_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      output: 0.41
+      normative_role: risk_input
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+  - id: model-digest-mutation
+    expected: fail
+    reason: model_artifact_mismatch
+    expected_artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    decision_receipt: {receipt_id: DEC-003, rulebook_id: BENEFIT-ELIGIBILITY, rulebook_version: 1.4.0, inference_trace_ref: INF-003}
+    trace:
+      trace_id: INF-003
+      decision_ref: DEC-003
+      inference_id: RISK-MODEL
+      version: 3.2.1
+      artifact_digest: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+      input_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      output: 0.41
+      normative_role: risk_input
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+  - id: threshold-mutation
+    expected: fail
+    reason: threshold_mismatch
+    expected_threshold: 0.72
+    decision_receipt: {receipt_id: DEC-004, rulebook_id: BENEFIT-ELIGIBILITY, rulebook_version: 1.4.0, inference_trace_ref: INF-004}
+    trace:
+      trace_id: INF-004
+      decision_ref: DEC-004
+      inference_id: RISK-MODEL
+      version: 3.2.1
+      artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      input_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      threshold: 0.81
+      output: 0.41
+      normative_role: risk_input
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+  - id: missing-input-binding
+    expected: fail
+    reason: input_snapshot_missing
+    decision_receipt: {receipt_id: DEC-005, rulebook_id: BENEFIT-ELIGIBILITY, rulebook_version: 1.4.0, inference_trace_ref: INF-005}
+    trace:
+      trace_id: INF-005
+      decision_ref: DEC-005
+      inference_id: RISK-MODEL
+      version: 3.2.1
+      artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      output: 0.41
+      normative_role: risk_input
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+  - id: inference-as-rule
+    expected: fail
+    reason: inference_cannot_be_normative_rule
+    decision_receipt: {receipt_id: DEC-006, rulebook_id: BENEFIT-ELIGIBILITY, rulebook_version: 1.4.0, inference_trace_ref: INF-006}
+    trace:
+      trace_id: INF-006
+      decision_ref: DEC-006
+      inference_id: RISK-MODEL
+      version: 3.2.1
+      artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      input_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      output: denied
+      normative_role: normative_rule
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
+  - id: wrong-decision-binding
+    expected: fail
+    reason: decision_reference_mismatch
+    decision_receipt: {receipt_id: DEC-007, rulebook_id: BENEFIT-ELIGIBILITY, rulebook_version: 1.4.0, inference_trace_ref: INF-007}
+    trace:
+      trace_id: INF-007
+      decision_ref: DEC-OTHER
+      inference_id: RISK-MODEL
+      version: 3.2.1
+      artifact_digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      input_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      output: 0.41
+      normative_role: risk_input
+      rulebook_id: BENEFIT-ELIGIBILITY
+      rulebook_version: 1.4.0
