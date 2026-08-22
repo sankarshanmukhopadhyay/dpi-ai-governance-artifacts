@@ -4,21 +4,14 @@
 
 - Overview: `docs/overview.md`
 - Pack catalog: `packs/README.md`
-- Freshness + audit guardrails: `docs/documentation-freshness.md` (last reviewed: 2026-03-16)
+- Freshness + audit guardrails: `docs/documentation-freshness.md`
+
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Release](https://img.shields.io/badge/release-v1.0.0-green)
+![Release](https://img.shields.io/badge/release-v1.1.0-green)
 ![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
 ![Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)
 
-**Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance materials that turn “governance” from a slide deck into **interfaces you can procure, implement, test, and audit**.
-
-This repo ships a **full governance surface area**:
-- Decision and accountability contracts (decision receipts, appeals, audit findings)
-- Policy-as-code release discipline (schemas, test vectors)
-- Assurance and evidence bundles (TRACE-aligned conformance artifacts)
-- Operational playbooks for recurring failure modes
-
-## From TRACE gap to operator action
+**Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, test vectors, and conformance materials that turn governance propositions into **interfaces you can procure, implement, test, audit, revoke, correct, and evidence**.
 
 This repository is the remediation side of the DPI AI Governance Lab improvement loop:
 
@@ -28,6 +21,7 @@ TRACE evaluation
   -> required capability
   -> remediation registry
   -> implementation artifacts
+  -> adversarial tests
   -> closure evidence
   -> TRACE re-evaluation
 ```
@@ -35,120 +29,120 @@ TRACE evaluation
 For an implementer or operator, start with:
 
 - `remediation/remediation-registry.yaml` — machine-readable capability-to-artifact resolver
-- `docs/remediation-resolution.md` — how to move from a normalized gap to implementation and closure evidence
-- `tools/validate_remediation_registry.py` — CI-safe validation that mapped artifacts actually exist
+- `docs/remediation-resolution.md` — gap-to-implementation and closure workflow
+- `docs/operator-playbook.md` — practical operator path
+- `tools/validate_remediation_registry.py` — CI-safe validation that mapped artifacts exist
 
-The registry deliberately distinguishes **partial** from **standardized** remediation. A partial entry exposes where further design work is still required rather than overstating repository maturity.
+## New in v1.1.0
 
----
+The Digital Statecraft DPI first-wave programme supplied evidence for three recurring capability gaps that are now standardized as reusable, publication-independent remediation contracts:
 
-### What’s new in this update
+- **Consequential inference traceability** — `CAP-INFERENCE-TRACEABILITY`
+  - immutable model/algorithm identity and version
+  - decision-time input/threshold/output binding
+  - rule-vs-inference separation
+  - decision-receipt correlation
+- **Correction propagation and recomputation** — `CAP-CORRECTION-PROPAGATION`
+  - correction orders
+  - downstream dependency targets
+  - invalidation/recompute/replace/compensate actions
+  - execution receipts and partial-failure semantics
+- **Inter-institutional admissibility** — `CAP-INTERINSTITUTIONAL-ADMISSIBILITY`
+  - relying-party admissibility profiles
+  - purpose/jurisdiction/validity/assurance conditions
+  - revocation and expiry
+  - authentic-but-inadmissible negative tests
 
-- **Operational Pack expansion**: each pack now includes an implementation guide, artifact checklist, control mapping, and additional templates to move from conceptual framing to **implementation-ready bundles**.
-- **Control Library + Control IDs**: introduce stable control IDs (`DPI-AI-CTRL-XXX`) with a machine-readable registry in **YAML and JSON** under `controls/`, including **indicative** crosswalk fields to NIST AI RMF, OECD AI Principles, and ISO/IEC 42001 topic areas.
+The same programme also standardized bounded delegation and proved a six-capability worked fixture in the companion Lab. The historical corpus baseline remains unchanged; v1.1.0 records the current reusable remediation state.
 
-> TRACE note: this repository uses **TRACE** as *Trust, Risk, Architecture & Conformance Evaluation* across packs and controlled docs.
+> **Authority boundary:** these artifacts encode and test adopted governance rules. They do not create legal authority, jurisdictional admissibility, certification, or deployment approval by themselves.
 
+## Governance surface
+
+The repository ships:
+
+- Decision and accountability contracts: decision receipts, appeals, audit findings
+- Authority and delegation controls: bounded delegation and runtime authorization records
+- Trust/reliance controls: inter-institutional admissibility and relying-party decisions
+- AI decision evidence: inference traces with immutable model/version/input/threshold bindings
+- Correction/redress controls: source correction, downstream propagation, recomputation, supersession, and remedy
+- Policy-as-code release discipline: schemas and test vectors
+- Assurance and evidence bundles: TRACE-aligned conformance artifacts
+- Operational playbooks for recurring failure modes
+
+The remediation registry deliberately distinguishes **partial** from **standardized** coverage. A partial entry must expose where further design work is still required rather than overstating repository maturity.
 
 ## Adoption & integration guidance
 
-Lower the cognitive barrier to adoption by starting with the practical guides below:
+- `docs/guides/how-to-use-this-repo.md`
+- `docs/guides/adoption-pathways.md`
+- `docs/guides/maturity-model-alignment.md`
+- `docs/faq.md`
 
-- **How to use this repo (implementation guide):** `docs/guides/how-to-use-this-repo.md`
-- **Suggested adoption pathways (startup, enterprise, state):** `docs/guides/adoption-pathways.md`
-- **Maturity model alignment:** `docs/guides/maturity-model-alignment.md`
-- **Practitioner FAQ:** `docs/faq.md`
+> TRACE means **Trust, Risk, Architecture & Conformance Evaluation**.
 
-## Governance spine (how this repo is organized)
-
-This repository now has an explicit **governance spine** to clarify:
-- what is normative vs informative,
-- how controlled documents are structured,
-- how changes and versions are managed.
+## Governance spine
 
 Start here:
-- `governance/primary.md` (purpose, scope, objectives, principles, normativity, revisions)
-- `governance/schedule-of-controlled-docs.md` (authoritative index)
-- `governance/normative-language.md` (MUST/SHOULD/MAY conventions)
 
----
-
-## Controlled documents (modular governance)
+- `governance/primary.md` — purpose, scope, authority, normativity, revisions
+- `governance/schedule-of-controlled-docs.md` — authoritative controlled-document index
+- `governance/normative-language.md` — MUST/SHOULD/MAY conventions
 
 Controlled documents live under `controlled/`:
 
-- Risk: `controlled/risk/`
-- Assurance: `controlled/assurance/`
-- Redress: `controlled/redress/`
-- Technical (reserved): `controlled/technical/`
-- Information trust (reserved): `controlled/info-trust/`
-- Inclusion & accessibility (reserved): `controlled/inclusion-accessibility/`
-- Legal (reserved): `controlled/legal/`
+- `controlled/risk/`
+- `controlled/assurance/`
+- `controlled/redress/`
+- `controlled/governance/`
+- reserved domains under `controlled/technical/`, `controlled/info-trust/`, `controlled/inclusion-accessibility/`, and `controlled/legal/`
 
 Key entry points:
-- Evidence bundles: `controlled/assurance/evidence-bundles.md`
-- Tier profiles: `controlled/assurance/tier-profiles/`
-- Risk register: `controlled/risk/risk-register.md`
-- Redress + remediation: `controlled/redress/redress-and-remediation.md`
 
----
+- `controlled/governance/bounded-delegation.md`
+- `controlled/governance/inference-traceability.md`
+- `controlled/trust/interinstitutional-admissibility.md`
+- `controlled/redress/correction-propagation.md`
+- `controlled/assurance/evidence-bundles.md`
+- `controlled/risk/risk-register.md`
 
-## Where this fits (portfolio view)
+## Where this fits
 
-This repository is the **operational layer** for the DPI–AI Governance Lab methodology.
+This repository is the **operational remediation layer** for the DPI–AI Governance Lab methodology.
 
-- Normative methodology + evaluation workflow: `dpi-ai-governance-lab`
-- Operational artifacts you can embed into programs and systems: this repo
+- Evaluation, findings, gap normalization, verification, and re-evaluation: `dpi-ai-governance-lab`
+- Reusable schemas, controls, test vectors, guidance, and evidence requirements: this repository
 
 See:
-- Methodology alignment: `docs/methodology-alignment.md`
-- Traceability map: `docs/traceability.md` and `docs/traceability.json`
 
----
+- `docs/methodology-alignment.md`
+- `docs/traceability.md`
+- `docs/traceability.json`
 
-## ToIP acknowledgment (inspiration, not compliance)
+## ToIP acknowledgment
 
-This repository borrows structural discipline from the Trust Over IP (ToIP) Governance Metamodel (primary + controlled documents, and normative drafting conventions). It does **not** claim ToIP Governance Framework compliance.
+This repository borrows structural discipline from the Trust Over IP Governance Metamodel. It does **not** claim ToIP Governance Framework compliance.
 
-See the mapping:
+See:
+
 - `annex/toip-governance-metamodel-mapping.md`
-
-And the ToIP references:
 - `REFERENCES.md`
-
----
 
 ## Repository map
 
-- `schemas/` — JSON Schemas (machine-testable)
-- `templates/` — fillable structures for governed artifacts
-- `rulebook-test-vectors/` — examples to validate implementations
-- `playbooks/` — operational runbooks for recurring failure modes
-- `remediation/` — capability-to-artifact resolution registry
-- `docs/` — guides, methodology alignment, migrations, traceability
-
+- `schemas/` — machine-testable JSON Schemas
+- `templates/` — fillable governed-artifact structures
+- `test-vectors/` and `rulebook-test-vectors/` — deterministic positive/negative examples
+- `playbooks/` — operational runbooks
+- `remediation/` — capability-to-artifact resolution registry and coverage evidence
+- `controlled/` — governed operator guidance
+- `evidence-bundles/` — assurance evidence structures
+- `docs/` — guides, methodology alignment, migrations, traceability, and Pages content
 
 ## Methodology
 
-This repo includes operational templates aligned to the TRACE↔TSAM spine (see `docs/reference/TRACE-TSAM.md`).
+Operational templates align to the TRACE↔TSAM spine; see `docs/reference/TRACE-TSAM.md`.
 
-## Documentation
+## Documentation index
 
-- Documentation index: `docs/INDEX.md`
-
-
-## New in v0.9.0
-
-- Canonical DPI-AI governance control catalog in machine-readable and narrative form
-- Risk register JSON Schema and example register
-- Assurance evidence-bundle reference structure under `evidence-bundles/`
-- Deployment profiles under `profiles/`
-- Standards crosswalk under `crosswalks/`
-
-
-## New evidence handoff artifacts
-
-- `schemas/artifact-control-map.schema.json`
-- `schemas/trace-conformance-declaration.schema.json`
-- `schemas/minimum-audit-trail.schema.json`
-- `evidence-bundles/trace-review-assurance/`
+See `docs/INDEX.md` and the GitHub Pages site for the rendered operator documentation.
