@@ -1,4 +1,4 @@
-registry_version: 0.3.0
+registry_version: 0.4.0
 status: experimental
 source_contract:
   repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
@@ -11,97 +11,53 @@ authority:
 capabilities:
   - capability_id: CAP-REDRESS-APPEAL
     title: Operational appeal and remedy
-    gap_classes:
-      - absent_redress_path
-      - undefined_redress_authority
-      - missing_appeal_timeline
+    gap_classes: [absent_redress_path, undefined_redress_authority, missing_appeal_timeline]
     coverage: standardized
-    controls:
-      - TRACE-TRUST-03
+    controls: [TRACE-TRUST-03]
     implementation_requirements:
       - Identify the accountable redress authority.
       - Define intake, review, disposition, correction, escalation, and remedy states.
       - Define measurable response and escalation timelines.
     artifacts:
-      - path: templates/redress/redress-workflow.md
-        role: template
-      - path: schemas/redress/redress-workflow.schema.json
-        role: schema
-      - path: controlled/redress/redress-and-remediation.md
-        role: guidance
-    closure_evidence:
-      - instantiated_redress_workflow
-      - accountable_redress_authority
-      - published_response_timeline
-      - tested_adverse_decision_appeal
-
+      - {path: templates/redress/redress-workflow.md, role: template}
+      - {path: schemas/redress/redress-workflow.schema.json, role: schema}
+      - {path: controlled/redress/redress-and-remediation.md, role: guidance}
+    closure_evidence: [instantiated_redress_workflow, accountable_redress_authority, published_response_timeline, tested_adverse_decision_appeal]
   - capability_id: CAP-AUTHORITY-BOUNDED-DELEGATION
     title: Bounded authority and delegation for consequential automation
-    gap_classes:
-      - undefined_decision_authority
-      - unbounded_machine_delegation
-      - missing_revocation_semantics
+    gap_classes: [undefined_decision_authority, unbounded_machine_delegation, missing_revocation_semantics]
     coverage: standardized
-    controls:
-      - TRACE-TRUST-01
+    controls: [TRACE-TRUST-01]
     implementation_requirements:
       - Identify an accountable authority for each consequential action.
       - Bound delegation by actor, action, resource, purpose, time, and revocation state.
       - Fail closed for revoked, suspended, expired, not-yet-valid, or out-of-scope requests.
       - Preserve runtime authorization evidence before effect and correlate the effect to that authorization.
     artifacts:
-      - path: templates/governance/decision-rights.md
-        role: template
-      - path: templates/governance/raci.md
-        role: template
-      - path: schemas/governance/bounded-delegation.schema.json
-        role: schema
-      - path: schemas/governance/runtime-authorization-record.schema.json
-        role: schema
-      - path: controlled/governance/bounded-delegation.md
-        role: guidance
-      - path: test-vectors/governance/bounded-delegation.yaml
-        role: tests
-    closure_evidence:
-      - authority_map
-      - delegation_record
-      - runtime_authorization_record
-      - effect_authorization_correlation
-      - scope_negative_tests
-      - revocation_test
-
+      - {path: templates/governance/decision-rights.md, role: template}
+      - {path: templates/governance/raci.md, role: template}
+      - {path: schemas/governance/bounded-delegation.schema.json, role: schema}
+      - {path: schemas/governance/runtime-authorization-record.schema.json, role: schema}
+      - {path: controlled/governance/bounded-delegation.md, role: guidance}
+      - {path: test-vectors/governance/bounded-delegation.yaml, role: tests}
+    closure_evidence: [authority_map, delegation_record, runtime_authorization_record, effect_authorization_correlation, scope_negative_tests, revocation_test]
   - capability_id: CAP-EVIDENCE-CLOSURE
     title: Evidence-backed governance closure
-    gap_classes:
-      - missing_control_evidence
-      - unverifiable_assurance_claim
-      - undefined_closure_criteria
+    gap_classes: [missing_control_evidence, unverifiable_assurance_claim, undefined_closure_criteria]
     coverage: standardized
-    controls:
-      - TRACE-CONF-01
+    controls: [TRACE-CONF-01]
     implementation_requirements:
       - Bind control claims to versioned evidence artifacts.
       - Preserve provenance and integrity for the evidence set.
       - Define pass, partial, fail, and not-evaluable assurance outcomes.
     artifacts:
-      - path: controlled/assurance/evidence-bundles.md
-        role: guidance
-      - path: schemas/minimum-audit-trail.schema.json
-        role: schema
-      - path: schemas/trace-conformance-declaration.schema.json
-        role: schema
-    closure_evidence:
-      - evidence_bundle_manifest
-      - artifact_hashes
-      - control_to_evidence_mapping
-      - verification_result
-
+      - {path: controlled/assurance/evidence-bundles.md, role: guidance}
+      - {path: schemas/minimum-audit-trail.schema.json, role: schema}
+      - {path: schemas/trace-conformance-declaration.schema.json, role: schema}
+    closure_evidence: [evidence_bundle_manifest, artifact_hashes, control_to_evidence_mapping, verification_result]
   - capability_id: CAP-INFERENCE-TRACEABILITY
     title: Consequential inference traceability
-    gap_classes:
-      - unbound_automated_inference
-      - unversioned_model_decision
-      - rule_inference_conflation
+    gap_classes: [unbound_automated_inference, unversioned_model_decision, rule_inference_conflation]
     coverage: standardized
     implementation_requirements:
       - Bind each material automated inference to the consequential decision it informed.
@@ -109,27 +65,35 @@ capabilities:
       - Bind decision-time inputs, thresholds or parameters, output and execution time.
       - Preserve the normative rule as a distinct authority source from the inference output.
     artifacts:
-      - path: schemas/governance/inference-trace.schema.json
-        role: schema
-      - path: test-vectors/governance/inference-trace.yaml
-        role: tests
-      - path: controlled/governance/inference-traceability.md
-        role: guidance
-      - path: schemas/decision-receipt.schema.json
-        role: integration
-    closure_evidence:
-      - inference_trace
-      - model_version_binding
-      - input_snapshot_binding
-      - threshold_or_parameter_binding
-      - decision_receipt_correlation
-      - rule_inference_separation_test
+      - {path: schemas/governance/inference-trace.schema.json, role: schema}
+      - {path: test-vectors/governance/inference-trace.yaml, role: tests}
+      - {path: controlled/governance/inference-traceability.md, role: guidance}
+      - {path: schemas/decision-receipt.schema.json, role: integration}
+    closure_evidence: [inference_trace, model_version_binding, input_snapshot_binding, threshold_or_parameter_binding, decision_receipt_correlation, rule_inference_separation_test]
     provenance:
       source_corpus: digital-statecraft-dpi-2026-wave1
-      contributing_reviews:
-        - DS-TRACE-002
-        - DS-TRACE-003
-        - DS-TRACE-004
-        - DS-TRACE-005
+      contributing_reviews: [DS-TRACE-002, DS-TRACE-003, DS-TRACE-004, DS-TRACE-005]
       recurring_gap_class: unbound_automated_inference
+      previous_coverage: none
+  - capability_id: CAP-CORRECTION-PROPAGATION
+    title: Executable correction propagation and recomputation
+    gap_classes: [non_executable_correction_propagation, incomplete_downstream_recomputation]
+    coverage: standardized
+    implementation_requirements:
+      - Bind each downstream correction action to an authorized correction order.
+      - Discover and enumerate dependent decisions or effects that require invalidation, recomputation, replacement or compensation.
+      - Preserve supersession provenance for changed decisions and outputs.
+      - Expose mandatory-target failures and prohibit false completion.
+    artifacts:
+      - {path: schemas/registry-correction-request.schema.json, role: source_request}
+      - {path: schemas/registry-correction-response.schema.json, role: source_response}
+      - {path: schemas/redress/correction-order.schema.json, role: schema}
+      - {path: schemas/redress/correction-execution-receipt.schema.json, role: schema}
+      - {path: test-vectors/redress/correction-propagation.yaml, role: tests}
+      - {path: controlled/redress/correction-propagation.md, role: guidance}
+    closure_evidence: [correction_order, dependency_set, correction_execution_receipt, downstream_recomputation_test, partial_failure_test]
+    provenance:
+      source_corpus: digital-statecraft-dpi-2026-wave1
+      contributing_reviews: [DS-TRACE-002, DS-TRACE-005, DS-TRACE-006]
+      recurring_gap_class: non_executable_correction_propagation
       previous_coverage: none
