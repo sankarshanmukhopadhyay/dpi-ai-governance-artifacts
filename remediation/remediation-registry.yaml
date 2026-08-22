@@ -1,4 +1,4 @@
-registry_version: 0.4.0
+registry_version: 0.5.0
 status: experimental
 source_contract:
   repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
@@ -96,4 +96,24 @@ capabilities:
       source_corpus: digital-statecraft-dpi-2026-wave1
       contributing_reviews: [DS-TRACE-002, DS-TRACE-005, DS-TRACE-006]
       recurring_gap_class: non_executable_correction_propagation
+      previous_coverage: none
+  - capability_id: CAP-INTERINSTITUTIONAL-ADMISSIBILITY
+    title: Inter-institutional admissibility and reliance
+    gap_classes: [undefined_downstream_admissibility, authentic_but_inadmissible_evidence]
+    coverage: standardized
+    implementation_requirements:
+      - Bind upstream authority and evidence type to a specific relying institution and downstream decision.
+      - Restrict reliance by purpose, jurisdiction, validity period, status and required assurance conditions.
+      - Record the relying institution's admit, reject or defer decision with reason codes.
+      - Preserve recourse or dispute path for the reliance decision.
+    artifacts:
+      - {path: schemas/trust/admissibility-profile.schema.json, role: schema}
+      - {path: schemas/trust/reliance-decision.schema.json, role: schema}
+      - {path: test-vectors/trust/interinstitutional-admissibility.yaml, role: tests}
+      - {path: controlled/trust/interinstitutional-admissibility.md, role: guidance}
+    closure_evidence: [admissibility_profile, reliance_decision, authentic_but_inadmissible_test, expiry_or_revocation_test, recourse_binding]
+    provenance:
+      source_corpus: digital-statecraft-dpi-2026-wave1
+      contributing_reviews: [DS-TRACE-001, DS-TRACE-006]
+      recurring_gap_class: undefined_downstream_admissibility
       previous_coverage: none
