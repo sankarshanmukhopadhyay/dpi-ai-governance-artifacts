@@ -1,50 +1,63 @@
 ---
 layout: default
 title: DPI–AI Governance Artifacts
+nav_order: 0
 ---
 
 # DPI–AI Governance Artifacts
 
-**Operational packs** for DPI + AI systems: portable schemas, templates, playbooks, and conformance materials that turn governance from a slide deck into interfaces you can procure, implement, test, and audit.
+**Resolve a governance gap into something an operator can implement, test, and evidence.**
 
----
+This repository is the remediation side of the TRACE improvement loop. It supplies reusable controls, schemas, templates, playbooks, test materials, and evidence contracts for DPI/AI governance weaknesses identified through structured evaluation.
 
-## Start here
+{: .note }
+The companion **DPI AI Governance Lab** owns evaluation, governance-gap normalization, and re-evaluation. This repository owns reusable remediation mappings and artifacts.
 
-- [Repository overview](docs/overview.md) — what this repo is and how to navigate it
-- [Pack catalog](packs/README.md) — all five operational packs
-- [How to use this repo](docs/guides/how-to-use-this-repo.md) — implementation guide
-- [Adoption pathways](docs/guides/adoption-pathways.md) — startup, enterprise, state guidance
-- [FAQ](docs/faq.md) — practitioner questions
+## Choose your path
 
-## Operational packs
+### I have a governance gap
+
+Start with [Start here](docs/start-here.md), resolve its `CAP-*` identifier in the remediation registry, and check whether the capability has standardized, partial, or no coverage.
+
+### I need to implement the remediation
+
+Use the [Operator playbook](docs/operator-playbook.md). Instantiate the mapped assets against your actual authorities, actors, lifecycle, controls, failure paths, and evidence production.
+
+### I need to know what remediation exists
+
+Use the [Remediation catalog](docs/remediation-catalog.md). It presents the machine-readable `remediation/remediation-registry.yaml` as an operator-oriented capability catalog.
+
+### I want to know what we should build next
+
+Use the [first remediation coverage baseline](remediation/baselines/2026-08-22-coverage.md) and `remediation/coverage-priorities.yaml`. The first real-review TRACE baseline makes bounded authority/delegation the highest-priority coverage gap because it recurs in 3/3 reviews and remains partial.
+
+## Current evidence-derived signal
+
+| Capability | Recurrence | Coverage | Next action |
+| --- | ---: | --- | --- |
+| Bounded authority and delegation | 3/3 | Partial | strengthen delegation, revocation, runtime authorization and negative-test artifacts |
+| Operational appeal and remedy | 3/3 | Standardized | instantiate and test in a realistic deployment |
+| Evidence-backed governance closure | 3/3 | Standardized | instantiate and verify an evidence bundle |
+
+This is the distinction the programme now optimizes for: **artifact availability is not closure**. A deployment still has to instantiate, test, evidence, and survive re-evaluation.
+
+## Broader operational packs
 
 | Pack | Purpose |
-|---|---|
+| --- | --- |
 | [Minimum Digital Kernel](packs/minimum-digital-kernel/README.md) | Decision receipts, authority directories, rulebook discipline |
 | [Delegated Agent Governance](packs/delegated-agent-governance/README.md) | Agent registry, mandates, capability manifests, containment |
-| [Meta-Governance](packs/meta-governance/README.md) | Governance-of-governance: oversight review, change control, triggers |
+| [Meta-Governance](packs/meta-governance/README.md) | Oversight review, change control, triggers |
 | [AI Redress & Accountability](packs/ai-redress-accountability/README.md) | Appeals, audit findings, remediation plans |
-| [Public Sector AI Procurement](packs/public-sector-procurement/README.md) | Evaluation scorecards, supplier attestations, red-flag checklist |
+| [Public Sector AI Procurement](packs/public-sector-procurement/README.md) | Evaluation scorecards, supplier attestations, red flags |
 
-## Controls and schemas
+## Reference surfaces
 
-- [Control library](controls/README.md) — stable control IDs (`DPI-AI-CTRL-XXX`) with JSON/YAML registries
-- [Schema index](schemas/) — machine-readable interfaces for all pack artifacts
-- [Standards crosswalk](crosswalks/README.md) — NIST AI RMF, OECD AI Principles, ISO/IEC 42001, EU AI Act
+- [Control library](controls/README.md)
+- [Governance spine](governance/primary.md)
+- [Evidence bundles](controlled/assurance/evidence-bundles.md)
+- [Standards crosswalk](crosswalks/README.md)
+- [Documentation architecture](docs/information-architecture.md)
 
-## Governance spine
-
-- [Primary governance document](governance/primary.md)
-- [Schedule of controlled documents](governance/schedule-of-controlled-docs.md)
-- [Normative language conventions](governance/normative-language.md)
-
-## Companion repository
-
-This repo ships the operational artifacts. The methodology and TRACE reviews live in the companion workbench:
-
-- [DPI AI Governance Lab](https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-lab)
-
----
-
-*Release: v1.0.0 · License: [CC BY-SA 4.0](LICENSE.md)*
+{: .warning }
+Repository artifacts do not inherit the authority of an adopting organization. Legal, institutional, programme, procurement, and deployment authority remains external to this repository.
