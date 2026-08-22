@@ -1,0 +1,11 @@
+version: 1
+pages:
+  - index.md
+  - docs/start-here.md
+  - docs/operator-playbook.md
+  - docs/remediation-catalog.md
+  - docs/information-architecture.md
+  - docs/pages-theme.md
+  - docs/README.md
+  - remediation/baselines/2026-08-22-coverage.md
+  - controlled/governance/bounded-delegation.md
