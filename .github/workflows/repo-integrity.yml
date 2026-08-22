@@ -30,6 +30,14 @@ jobs:
         run: |
           python tools/validate_coverage_priorities.py
 
+      - name: Validate bounded delegation semantics
+        run: |
+          python tools/validate_bounded_delegation.py
+
+      - name: Validate Pages front matter
+        run: |
+          python tools/validate_pages_front_matter.py
+
       - name: JSON sanity (schemas and registries)
         run: |
           python - <<'PY'
