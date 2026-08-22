@@ -26,6 +26,10 @@ jobs:
         run: |
           python tools/validate_remediation_registry.py
 
+      - name: Validate evidence-derived coverage priorities
+        run: |
+          python tools/validate_coverage_priorities.py
+
       - name: JSON sanity (schemas and registries)
         run: |
           python - <<'PY'
