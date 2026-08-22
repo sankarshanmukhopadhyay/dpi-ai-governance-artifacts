@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-artifacts/schemas/redress/correction-order.schema.json",
+  "title":"Correction Order",
+  "type":"object","additionalProperties":false,
+  "required":["order_id","issued_at","authority_ref","source_ref","targets","required_completion"],
+  "properties":{
+    "order_id":{"type":"string"},"issued_at":{"type":"string","format":"date-time"},"authority_ref":{"type":"string"},
+    "source_ref":{"type":"string"},"source_correction_ref":{"type":"string"},
+    "targets":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["target_id","target_ref","action","mandatory"],"properties":{"target_id":{"type":"string"},"target_ref":{"type":"string"},"action":{"enum":["invalidate","recompute","replace","compensate"]},"mandatory":{"type":"boolean"}}}},
+    "required_completion":{"enum":["all_mandatory","all_targets"]},"expires_at":{"type":"string","format":"date-time"}
+  }
+}
