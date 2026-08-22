@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it as below."
 title: "DPI–AI Governance Artifacts"
-version: 1.0.0
+version: 1.1.0
 authors:
   - family-names: "Mukhopadhyay"
     given-names: "Sankarshan"
@@ -9,7 +9,8 @@ authors:
 license: "CC-BY-SA-4.0"
 abstract: >
   A reusable and evolving library of governance-ready artifacts for DPI and AI systems,
-  including risk matrices, tier bindings, control-surface mappings, and Minimum Digital Kernel
-  operational contracts (schemas, templates, and conformance profiles).
+  including risk matrices, tier bindings, control-surface mappings, Minimum Digital Kernel
+  operational contracts, bounded delegation, inference traceability, correction propagation,
+  inter-institutional admissibility, and evidence-backed remediation profiles.
 repository-code: "https://github.com/sankarshanmukhopadhyay/dpi-ai-governance-artifacts"
-date-released: "2026-03-16"
+date-released: "2026-08-22"
