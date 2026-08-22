@@ -1,0 +1,61 @@
+version: 1
+cases:
+  - id: complete-propagation
+    expected: pass
+    order:
+      order_id: COR-001
+      authority_ref: appeals-office
+      source_ref: registry:person:123
+      targets:
+        - {target_id: D1, target_ref: decision:eligibility:1, action: recompute, mandatory: true}
+        - {target_id: E1, target_ref: payment:1, action: compensate, mandatory: true}
+      required_completion: all_mandatory
+    receipt:
+      order_ref: COR-001
+      status: complete
+      target_results:
+        - {target_id: D1, status: completed, result_ref: decision:eligibility:2, supersedes_ref: decision:eligibility:1}
+        - {target_id: E1, status: completed, result_ref: payment:compensation:1}
+  - id: partial-mandatory-failure
+    expected: fail
+    reason: unresolved_mandatory_target
+    order:
+      order_id: COR-002
+      authority_ref: appeals-office
+      source_ref: registry:person:123
+      targets:
+        - {target_id: D1, target_ref: decision:eligibility:1, action: recompute, mandatory: true}
+        - {target_id: E1, target_ref: payment:1, action: compensate, mandatory: true}
+      required_completion: all_mandatory
+    receipt:
+      order_ref: COR-002
+      status: complete
+      target_results:
+        - {target_id: D1, status: completed, result_ref: decision:eligibility:2, supersedes_ref: decision:eligibility:1}
+        - {target_id: E1, status: failed, reason: downstream_unavailable}
+  - id: missing-target
+    expected: fail
+    reason: target_missing_from_receipt
+    order:
+      order_id: COR-003
+      authority_ref: appeals-office
+      source_ref: registry:person:123
+      targets:
+        - {target_id: D1, target_ref: decision:1, action: invalidate, mandatory: true}
+      required_completion: all_mandatory
+    receipt: {order_ref: COR-003, status: partial, target_results: []}
+  - id: wrong-order-binding
+    expected: fail
+    reason: order_reference_mismatch
+    order:
+      order_id: COR-004
+      authority_ref: appeals-office
+      source_ref: registry:person:123
+      targets:
+        - {target_id: D1, target_ref: decision:1, action: recompute, mandatory: true}
+      required_completion: all_mandatory
+    receipt:
+      order_ref: COR-X
+      status: complete
+      target_results:
+        - {target_id: D1, status: completed, result_ref: decision:2, supersedes_ref: decision:1}

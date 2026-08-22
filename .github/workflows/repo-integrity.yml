@@ -25,6 +25,8 @@ jobs:
         run: python tools/validate_bounded_delegation.py
       - name: Validate inference traceability semantics
         run: python tools/validate_inference_trace.py
+      - name: Validate correction propagation semantics
+        run: python tools/validate_correction_propagation.py
       - name: Validate Pages front matter
         run: python tools/validate_pages_front_matter.py
       - name: JSON sanity (schemas and registries)
@@ -32,15 +34,13 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          root = Path('.')
+          root=Path('.')
           bad=[]
           for p in root.rglob('*.json'):
             try: json.loads(p.read_text(encoding='utf-8'))
             except Exception as e: bad.append((str(p),str(e)))
           if bad:
-            print('Invalid JSON files:')
-            [print('-',f,':',e) for f,e in bad]
-            raise SystemExit(2)
+            [print('INVALID',f,e) for f,e in bad]; raise SystemExit(2)
           print('JSON sanity OK:',len(list(root.rglob('*.json'))),'files')
           PY
       - name: Hygiene check (no OS cruft)
