@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-artifacts/schemas/redress/correction-execution-receipt.schema.json",
+  "title":"Correction Execution Receipt","type":"object","additionalProperties":false,
+  "required":["receipt_id","order_ref","executed_at","status","target_results"],
+  "properties":{
+    "receipt_id":{"type":"string"},"order_ref":{"type":"string"},"executed_at":{"type":"string","format":"date-time"},
+    "status":{"enum":["complete","partial","failed"]},
+    "target_results":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["target_id","status"],"properties":{"target_id":{"type":"string"},"status":{"enum":["completed","failed","pending"]},"result_ref":{"type":"string"},"supersedes_ref":{"type":"string"},"reason":{"type":"string"}}}},
+    "unresolved_targets":{"type":"array","items":{"type":"string"}},"retry_or_escalation_ref":{"type":"string"},"integrity_ref":{"type":"string"}
+  }
+}
