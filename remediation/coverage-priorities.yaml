@@ -1,4 +1,4 @@
-priority_version: 0.1.0
+priority_version: 0.2.0
 status: experimental
 source:
   repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
@@ -16,15 +16,13 @@ priorities:
     recurrence:
       reviews_with_gap: 3
       reviews_total: 3
-    current_coverage: partial
-    rationale: All three rebaselined reviews identify missing or incomplete runtime authority, bounded delegation, escalation, revocation, or rollback semantics.
-    missing_or_weak_assets:
-      - machine-readable bounded delegation record
-      - explicit revocation and expiry semantics
-      - runtime authorization record schema
-      - deterministic negative test vectors for scope and revocation
+    current_coverage: standardized
+    rationale: All three rebaselined reviews identify missing or incomplete runtime authority, bounded delegation, escalation, revocation, or rollback semantics; the reusable package now includes machine-readable delegation and authorization contracts plus deterministic negative vectors.
+    missing_or_weak_assets: []
     next_evidence_gate:
-      - registry coverage can move toward standardized only after new artifacts are validated and exercised in a realistic deployment fixture
+      - instantiate the standardized package in a realistic consequential-decision fixture
+      - prove revoked, expired, delegate-mismatch, action/resource/purpose out-of-scope requests fail closed
+      - correlate each executed effect to the runtime authorization that permitted it
 
   - rank: 2
     capability_id: CAP-REDRESS-APPEAL
@@ -35,7 +33,7 @@ priorities:
     rationale: All three reviews identify non-operational redress, but reusable assets already exist.
     missing_or_weak_assets: []
     next_evidence_gate:
-      - instantiate the existing redress package in a realistic consequential-decision fixture
+      - instantiate the existing redress package in the same realistic consequential-decision fixture
       - execute an adverse-decision appeal and preserve timing, disposition, authority, and remedy evidence
 
   - rank: 3
@@ -47,5 +45,5 @@ priorities:
     rationale: All three reviews identify weak evidence hooks; reusable evidence contracts already exist.
     missing_or_weak_assets: []
     next_evidence_gate:
-      - instantiate an evidence bundle against a realistic deployment
+      - instantiate an evidence bundle against the same realistic deployment fixture
       - verify hashes, control-to-evidence mappings, and assurance outcomes

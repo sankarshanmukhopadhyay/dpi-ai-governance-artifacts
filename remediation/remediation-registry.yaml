@@ -1,4 +1,4 @@
-registry_version: 0.1.0
+registry_version: 0.2.0
 status: experimental
 source_contract:
   repository: sankarshanmukhopadhyay/dpi-ai-governance-lab
@@ -41,22 +41,33 @@ capabilities:
       - undefined_decision_authority
       - unbounded_machine_delegation
       - missing_revocation_semantics
-    coverage: partial
+    coverage: standardized
     controls:
       - TRACE-TRUST-01
     implementation_requirements:
       - Identify an accountable authority for each consequential action.
-      - Bound delegation by action, resource, purpose, time, and revocation state.
-      - Preserve runtime authorization evidence before effect.
+      - Bound delegation by actor, action, resource, purpose, time, and revocation state.
+      - Fail closed for revoked, suspended, expired, not-yet-valid, or out-of-scope requests.
+      - Preserve runtime authorization evidence before effect and correlate the effect to that authorization.
     artifacts:
       - path: templates/governance/decision-rights.md
         role: template
       - path: templates/governance/raci.md
         role: template
+      - path: schemas/governance/bounded-delegation.schema.json
+        role: schema
+      - path: schemas/governance/runtime-authorization-record.schema.json
+        role: schema
+      - path: controlled/governance/bounded-delegation.md
+        role: guidance
+      - path: test-vectors/governance/bounded-delegation.yaml
+        role: tests
     closure_evidence:
       - authority_map
       - delegation_record
       - runtime_authorization_record
+      - effect_authorization_correlation
+      - scope_negative_tests
       - revocation_test
 
   - capability_id: CAP-EVIDENCE-CLOSURE

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-artifacts/schemas/governance/runtime-authorization-record.schema.json",
+  "title": "Runtime Authorization Record",
+  "type": "object",
+  "required": ["authorization_id", "delegation_id", "actor", "action", "resource", "purpose", "decision", "reason_codes", "decided_at"],
+  "properties": {
+    "authorization_id": {"type": "string", "pattern": "^AUTHZ-[A-Z0-9._-]+$"},
+    "delegation_id": {"type": "string", "pattern": "^DEL-[A-Z0-9._-]+$"},
+    "actor": {"type": "string", "minLength": 1},
+    "action": {"type": "string", "minLength": 1},
+    "resource": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "decision": {"type": "string", "enum": ["allow", "deny"]},
+    "reason_codes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "decided_at": {"type": "string", "format": "date-time"},
+    "effect_id": {"type": ["string", "null"]},
+    "policy_version": {"type": "string"},
+    "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  },
+  "additionalProperties": false
+}
