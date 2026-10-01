@@ -32,3 +32,26 @@ negative_cases:
   - out_of_purpose_scope
   - revoked_delegation
   - expired_delegation
+continuity:
+  rules:
+    - event_type: authority_revoked
+      effect: invalidates
+      proposition: Revocation of the accountable authority invalidates present reliance on the assessment.
+    - event_type: delegation_revoked
+      effect: invalidates
+      proposition: Revocation of the assessed delegation invalidates present reliance on the assessment.
+    - event_type: delegation_scope_changed
+      effect: reassessment_required
+      proposition: A change to actor, action, resource, purpose, time, or delegation scope requires reassessment.
+    - event_type: policy_rule_changed
+      effect: reassessment_required
+      proposition: A material change to the governing authorization policy or rule requires reassessment.
+    - event_type: implementation_changed
+      effect: reassessment_required
+      proposition: A material change to the enforcement implementation requires reassessment.
+    - event_type: required_evidence_contradicted
+      effect: invalidates
+      proposition: Evidence that contradicts a mandatory requirement invalidates present reliance on the assessment.
+    - event_type: profile_contract_changed
+      effect: reassessment_required
+      proposition: A material change to the conformance profile requires reassessment against the new contract.
