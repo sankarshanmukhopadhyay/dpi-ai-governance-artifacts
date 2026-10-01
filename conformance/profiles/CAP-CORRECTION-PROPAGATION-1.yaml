@@ -1,0 +1,34 @@
+profile_id: CAP-CORRECTION-PROPAGATION-1
+profile_version: 1.0.0
+capability_id: CAP-CORRECTION-PROPAGATION
+status: experimental
+authority:
+  normative: false
+  statement: >-
+    This profile defines reusable technical assurance requirements for correction
+    propagation. It does not determine who is legally or institutionally authorized
+    to order a correction.
+requirements:
+  - id: CORR-001
+    mandatory: true
+    proposition: Every downstream correction action is bound to an authorized correction order.
+  - id: CORR-002
+    mandatory: true
+    proposition: Mandatory dependent decisions or effects are enumerated before completion is asserted.
+  - id: CORR-003
+    mandatory: true
+    proposition: Unresolved mandatory targets prevent a completed outcome.
+  - id: CORR-004
+    mandatory: true
+    proposition: Superseded decisions and replacement or compensating effects retain provenance.
+required_evidence:
+  - correction_order
+  - dependency_set
+  - correction_execution_receipt
+  - downstream_recomputation_result
+  - partial_failure_test
+negative_cases:
+  - stale_correction_order
+  - unauthorized_correction_issuer
+  - partial_propagation_failure
+  - unresolved_mandatory_target
