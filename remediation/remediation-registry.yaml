@@ -55,6 +55,7 @@ capabilities:
       - {path: controlled/assurance/evidence-bundles.md, role: guidance}
       - {path: schemas/minimum-audit-trail.schema.json, role: schema}
       - {path: schemas/trace-conformance-declaration.schema.json, role: schema}
+    conformance_profile: conformance/profiles/CAP-EVIDENCE-CLOSURE-1.yaml
     closure_evidence: [evidence_bundle_manifest, artifact_hashes, control_to_evidence_mapping, verification_result]
   - capability_id: CAP-INFERENCE-TRACEABILITY
     title: Consequential inference traceability
