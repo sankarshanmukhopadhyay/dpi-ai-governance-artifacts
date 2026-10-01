@@ -1,0 +1,11 @@
+profile_id: CAP-CORRECTION-PROPAGATION-1
+profile_version: 1.0.0
+capability_id: CAP-CORRECTION-PROPAGATION
+status: experimental
+authority:
+  normative: false
+  statement: Deliberately invalid fixture for validator falsification.
+required_evidence:
+  - correction_order
+negative_cases:
+  - partial_propagation_failure

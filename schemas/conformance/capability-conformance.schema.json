@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sankarshanmukhopadhyay.github.io/dpi-ai-governance-artifacts/schemas/conformance/capability-conformance.schema.json",
+  "title": "Capability Conformance Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_id", "profile_version", "capability_id", "status", "authority", "requirements", "required_evidence", "negative_cases"],
+  "properties": {
+    "profile_id": {"type": "string", "pattern": "^CAP-[A-Z0-9-]+-[0-9]+$"},
+    "profile_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "capability_id": {"type": "string", "pattern": "^CAP-[A-Z0-9-]+$"},
+    "status": {"enum": ["experimental", "candidate", "stable"]},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["normative", "statement"],
+      "properties": {
+        "normative": {"const": false},
+        "statement": {"type": "string", "minLength": 1}
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "mandatory", "proposition"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]+-[0-9]{3}$"},
+          "mandatory": {"type": "boolean"},
+          "proposition": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "required_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "negative_cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  }
+}

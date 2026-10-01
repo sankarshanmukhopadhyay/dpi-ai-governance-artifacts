@@ -5,6 +5,7 @@ pages:
   - docs/operator-playbook.md
   - docs/implementation-recipes.md
   - docs/remediation-catalog.md
+  - docs/capability-conformance.md
   - docs/information-architecture.md
   - docs/pages-theme.md
   - docs/README.md
