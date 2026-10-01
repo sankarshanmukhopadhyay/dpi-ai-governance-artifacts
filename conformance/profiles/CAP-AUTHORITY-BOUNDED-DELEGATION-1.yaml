@@ -1,0 +1,34 @@
+profile_id: CAP-AUTHORITY-BOUNDED-DELEGATION-1
+profile_version: 1.0.0
+capability_id: CAP-AUTHORITY-BOUNDED-DELEGATION
+status: experimental
+authority:
+  normative: false
+  statement: >-
+    This profile defines reusable technical assurance requirements only.
+    Deployment and institutional authorities retain authority to authorize,
+    delegate, revoke, approve, or reject real-world actions.
+requirements:
+  - id: ABD-001
+    mandatory: true
+    proposition: Every consequential action identifies an accountable authority and bounded delegation.
+  - id: ABD-002
+    mandatory: true
+    proposition: Delegation is checked for actor, action, resource, purpose, time, and revocation state before effect.
+  - id: ABD-003
+    mandatory: true
+    proposition: Revoked, suspended, expired, not-yet-valid, and out-of-scope requests fail closed.
+  - id: ABD-004
+    mandatory: true
+    proposition: Runtime authorization evidence is recorded before effect and correlated to the resulting effect.
+required_evidence:
+  - authority_map
+  - delegation_record
+  - runtime_authorization_record
+  - effect_authorization_correlation
+  - negative_test_results
+negative_cases:
+  - out_of_action_scope
+  - out_of_purpose_scope
+  - revoked_delegation
+  - expired_delegation
