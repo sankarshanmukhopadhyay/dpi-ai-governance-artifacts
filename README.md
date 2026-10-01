@@ -7,7 +7,7 @@
 - Freshness + audit guardrails: `docs/documentation-freshness.md`
 
 ![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue)
-![Release](https://img.shields.io/badge/release-v1.1.0-green)
+![Release](https://img.shields.io/badge/release-v1.2.0-green)
 ![Focus](https://img.shields.io/badge/focus-DPI%20%2B%20AI%20governance-orange)
 ![Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)
 
@@ -33,27 +33,17 @@ For an implementer or operator, start with:
 - `docs/operator-playbook.md` — practical operator path
 - `tools/validate_remediation_registry.py` — CI-safe validation that mapped artifacts exist
 
-## New in v1.1.0
+## New in v1.2.0
 
-The Digital Statecraft DPI first-wave programme supplied evidence for three recurring capability gaps that are now standardized as reusable, publication-independent remediation contracts:
+This release adds an executable conformance and assurance-continuity layer over the remediation registry:
 
-- **Consequential inference traceability** — `CAP-INFERENCE-TRACEABILITY`
-  - immutable model/algorithm identity and version
-  - decision-time input/threshold/output binding
-  - rule-vs-inference separation
-  - decision-receipt correlation
-- **Correction propagation and recomputation** — `CAP-CORRECTION-PROPAGATION`
-  - correction orders
-  - downstream dependency targets
-  - invalidation/recompute/replace/compensate actions
-  - execution receipts and partial-failure semantics
-- **Inter-institutional admissibility** — `CAP-INTERINSTITUTIONAL-ADMISSIBILITY`
-  - relying-party admissibility profiles
-  - purpose/jurisdiction/validity/assurance conditions
-  - revocation and expiry
-  - authentic-but-inadmissible negative tests
+- versioned conformance profiles for bounded delegation, correction propagation, and evidence closure;
+- stable requirement IDs and required evidence classes;
+- deterministic falsification and profile validation;
+- explicit continuity triggers for material change;
+- a shared technical vocabulary for `valid`, `superseded`, `reassessment_required`, `invalidated`, and `indeterminate` present-reliance states consumed by the companion Lab.
 
-The same programme also standardized bounded delegation and proved a six-capability worked fixture in the companion Lab. The historical corpus baseline remains unchanged; v1.1.0 records the current reusable remediation state.
+The release pair is **Artifacts v1.2.0 + Lab v0.10.0**. The continuity model has been pressure-tested in the Lab against public-benefit, ARA, and TRQP evidence surfaces without introducing domain-specific controller states.
 
 > **Authority boundary:** these artifacts encode and test adopted governance rules. They do not create legal authority, jurisdictional admissibility, certification, or deployment approval by themselves.
 
