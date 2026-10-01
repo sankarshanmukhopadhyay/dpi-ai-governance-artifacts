@@ -1,0 +1,49 @@
+profile_id: CAP-EVIDENCE-CLOSURE-1
+profile_version: 1.0.0
+capability_id: CAP-EVIDENCE-CLOSURE
+status: experimental
+authority:
+  normative: false
+  statement: >-
+    This profile defines reusable technical assurance requirements for evidence-backed
+    governance closure. It does not create legal, institutional, or certification authority.
+requirements:
+  - id: EVC-001
+    mandatory: true
+    proposition: Control claims are bound to versioned evidence artifacts.
+  - id: EVC-002
+    mandatory: true
+    proposition: Evidence provenance and integrity are preserved sufficiently for later verification.
+  - id: EVC-003
+    mandatory: true
+    proposition: Control-to-evidence mappings identify which evidence supports each claim.
+  - id: EVC-004
+    mandatory: true
+    proposition: Verification produces an explicit result that distinguishes pass, partial, fail, and not-evaluable outcomes.
+required_evidence:
+  - evidence_bundle_manifest
+  - artifact_hashes
+  - control_to_evidence_mapping
+  - verification_result
+negative_cases:
+  - missing_version_binding
+  - stale_evidence_reused_as_current
+  - contradictory_evidence_ignored
+  - historical_reconstruction_unavailable
+continuity:
+  rules:
+    - event_type: evidence_set_changed
+      effect: reassessment_required
+      proposition: A material change to the evidence set requires reassessment.
+    - event_type: governing_rule_changed
+      effect: reassessment_required
+      proposition: A material change to the governing rule or policy requires reassessment.
+    - event_type: verification_method_changed
+      effect: reassessment_required
+      proposition: A material change to the verification method requires reassessment.
+    - event_type: required_evidence_contradicted
+      effect: invalidates
+      proposition: Evidence contradicting a mandatory closure proposition invalidates present reliance.
+    - event_type: profile_contract_changed
+      effect: reassessment_required
+      proposition: A material change to the conformance profile requires reassessment.

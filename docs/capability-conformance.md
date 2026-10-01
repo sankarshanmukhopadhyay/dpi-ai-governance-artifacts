@@ -46,7 +46,7 @@ Each published profile can therefore declare `continuity.rules`. A rule maps an 
 
 The Artifacts repository declares the reusable effect of a **classified** change. It does not observe production systems and does not decide whether such a change actually occurred. Change observation and evidence belong to the evaluating or operating environment.
 
-The current bounded-delegation and correction-propagation profiles include continuity triggers for authority/revocation, scope or policy change, implementation change, contradictory evidence, and conformance-contract change where applicable.
+The current bounded-delegation, correction-propagation, and evidence-closure profiles include continuity triggers for authority/revocation, scope or policy change, implementation change, contradictory evidence, and conformance-contract change where applicable.
 
 ## Machine-verifiable surfaces
 
