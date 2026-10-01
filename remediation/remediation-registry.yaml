@@ -40,6 +40,7 @@ capabilities:
       - {path: schemas/governance/runtime-authorization-record.schema.json, role: schema}
       - {path: controlled/governance/bounded-delegation.md, role: guidance}
       - {path: test-vectors/governance/bounded-delegation.yaml, role: tests}
+    conformance_profile: conformance/profiles/CAP-AUTHORITY-BOUNDED-DELEGATION-1.yaml
     closure_evidence: [authority_map, delegation_record, runtime_authorization_record, effect_authorization_correlation, scope_negative_tests, revocation_test]
   - capability_id: CAP-EVIDENCE-CLOSURE
     title: Evidence-backed governance closure
@@ -91,6 +92,7 @@ capabilities:
       - {path: schemas/redress/correction-execution-receipt.schema.json, role: schema}
       - {path: test-vectors/redress/correction-propagation.yaml, role: tests}
       - {path: controlled/redress/correction-propagation.md, role: guidance}
+    conformance_profile: conformance/profiles/CAP-CORRECTION-PROPAGATION-1.yaml
     closure_evidence: [correction_order, dependency_set, correction_execution_receipt, downstream_recomputation_test, partial_failure_test]
     provenance:
       source_corpus: digital-statecraft-dpi-2026-wave1
