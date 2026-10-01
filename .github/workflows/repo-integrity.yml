@@ -14,13 +14,15 @@ jobs:
       - name: Install validation deps
         run: |
           python -m pip install --upgrade pip
-          pip install pyyaml
+          pip install pyyaml jsonschema
       - name: Validate pack manifests and referenced artifacts
         run: python tools/validate_packs.py
       - name: Validate remediation registry and artifact references
         run: python tools/validate_remediation_registry.py
       - name: Validate evidence-derived coverage priorities
         run: python tools/validate_coverage_priorities.py
+      - name: Validate capability conformance profiles
+        run: python tools/validate_capability_conformance.py
       - name: Validate bounded delegation semantics
         run: python tools/validate_bounded_delegation.py
       - name: Validate inference traceability semantics
