@@ -1,0 +1,16 @@
+profile_id: CAP-AUTHORITY-BOUNDED-DELEGATION-1
+profile_version: 1.0.0
+capability_id: CAP-AUTHORITY-BOUNDED-DELEGATION
+status: experimental
+authority:
+  normative: false
+  statement: Invalid continuity fixture.
+requirements:
+  - {id: ABD-001, mandatory: true, proposition: Test proposition}
+required_evidence: [authority_map]
+negative_cases: [revoked_delegation]
+continuity:
+  rules:
+    - event_type: authority_revoked
+      effect: still_probably_valid
+      proposition: This invalid effect must be rejected.

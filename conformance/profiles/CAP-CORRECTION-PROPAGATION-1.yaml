@@ -32,3 +32,23 @@ negative_cases:
   - unauthorized_correction_issuer
   - partial_propagation_failure
   - unresolved_mandatory_target
+continuity:
+  rules:
+    - event_type: correction_authority_revoked
+      effect: invalidates
+      proposition: Revocation of the assessed correction authority invalidates present reliance on the assessment.
+    - event_type: dependency_model_changed
+      effect: reassessment_required
+      proposition: A material change to the dependent decision or effect graph requires reassessment.
+    - event_type: correction_policy_changed
+      effect: reassessment_required
+      proposition: A material change to correction, recomputation, replacement, or compensation policy requires reassessment.
+    - event_type: implementation_changed
+      effect: reassessment_required
+      proposition: A material change to propagation or recomputation implementation requires reassessment.
+    - event_type: required_evidence_contradicted
+      effect: invalidates
+      proposition: Evidence that contradicts a mandatory correction requirement invalidates present reliance on the assessment.
+    - event_type: profile_contract_changed
+      effect: reassessment_required
+      proposition: A material change to the conformance profile requires reassessment against the new contract.

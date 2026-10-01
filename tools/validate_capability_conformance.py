@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = ROOT / "schemas" / "conformance" / "capability-conformance.schema.json"
 PROFILES = ROOT / "conformance" / "profiles"
 INVALID_FIXTURE = ROOT / "conformance" / "fixtures" / "invalid-missing-requirements.yaml"
+INVALID_CONTINUITY_FIXTURE = ROOT / "conformance" / "fixtures" / "invalid-continuity-effect.yaml"
 REGISTRY = ROOT / "remediation" / "remediation-registry.yaml"
 
 
@@ -40,11 +41,22 @@ def main() -> int:
         requirement_ids = [item["id"] for item in data["requirements"]]
         if len(requirement_ids) != len(set(requirement_ids)):
             errors.append(f"{profile_id}: duplicate requirement id")
+        continuity = data.get("continuity") or {}
+        rules = continuity.get("rules") or []
+        if not rules:
+            errors.append(f"{profile_id}: continuity.rules must not be empty")
+        event_types = [item.get("event_type") for item in rules]
+        if len(event_types) != len(set(event_types)):
+            errors.append(f"{profile_id}: duplicate continuity event_type")
         profiles[profile_id] = data
 
     invalid = load_yaml(INVALID_FIXTURE)
     if not list(validator.iter_errors(invalid)):
         errors.append("falsification fixture unexpectedly validated")
+
+    invalid_continuity = load_yaml(INVALID_CONTINUITY_FIXTURE)
+    if not list(validator.iter_errors(invalid_continuity)):
+        errors.append("invalid continuity effect fixture unexpectedly validated")
 
     registry = load_yaml(REGISTRY)
     for capability in registry.get("capabilities", []):
@@ -66,7 +78,7 @@ def main() -> int:
         return 1
 
     print(f"Capability conformance profiles OK: {len(profiles)}")
-    print("Falsification fixture correctly rejected")
+    print("Falsification fixtures correctly rejected")
     return 0
 
 

@@ -34,6 +34,20 @@ They were selected because both are already standardized and have strong failure
 
 Missing required evidence is missing evidence. A consumer must not infer PASS from absence of a known failure. Positive conformance requires the mandatory propositions to be affirmatively established.
 
+## Continuing reliance after change
+
+A successful assessment establishes conformance for a particular implementation, profile baseline, evidence set, and evaluation time. It does not remain implicitly current forever.
+
+Each published profile can therefore declare `continuity.rules`. A rule maps an observed change class to one of three technical effects:
+
+- `preserves`: the declared change does not, by itself, require a new assessment;
+- `reassessment_required`: the previous result remains historical evidence, but present reliance requires a fresh assessment;
+- `invalidates`: the change contradicts or revokes a basis on which present reliance depended.
+
+The Artifacts repository declares the reusable effect of a **classified** change. It does not observe production systems and does not decide whether such a change actually occurred. Change observation and evidence belong to the evaluating or operating environment.
+
+The current bounded-delegation and correction-propagation profiles include continuity triggers for authority/revocation, scope or policy change, implementation change, contradictory evidence, and conformance-contract change where applicable.
+
 ## Machine-verifiable surfaces
 
 - `schemas/conformance/capability-conformance.schema.json`
