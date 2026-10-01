@@ -2,6 +2,53 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-01
+
+### Summary
+
+Assurance-continuity and executable conformance release. This version turns reusable remediation capabilities into versioned technical conformance contracts and adds explicit rules for how later material change affects present reliance on earlier assessment results.
+
+### Added
+
+- Generic JSON Schema contract for versioned capability-conformance profiles.
+- Conformance profiles for:
+  - `CAP-AUTHORITY-BOUNDED-DELEGATION`;
+  - `CAP-CORRECTION-PROPAGATION`;
+  - `CAP-EVIDENCE-CLOSURE`.
+- Stable requirement identifiers, required evidence classes, negative cases, and falsification fixtures.
+- Machine-readable continuity triggers with three technical effects:
+  - `preserves`;
+  - `reassessment_required`;
+  - `invalidates`.
+- Evidence-centric continuity triggers covering evidence-set change, governing-rule change, verification-method change, contradictory required evidence, and profile-contract change.
+- Deterministic profile validation for schema conformance, profile/registry linkage, trigger uniqueness, and invalid-effect rejection.
+
+### Changed
+
+- Remediation registry entries for bounded delegation, correction propagation, and evidence closure now bind to explicit conformance profiles.
+- `TRACE_COMPATIBILITY.json` now declares the supported Lab `0.10.0` / Artifacts `1.2.0` release pair.
+- Interface versions are published as:
+  - `capability_conformance: 1.1`;
+  - `capability_assessment: 1.0`;
+  - `assessment_continuity: 1.0`.
+- Documentation now distinguishes conformance at an evaluation time from continuing reliance after material change.
+
+### Assurance evidence
+
+The conformance and continuity contracts were exercised through the companion Lab across three materially different domains:
+
+- public-benefit decision governance;
+- agent relationship and authority lifecycle evidence;
+- TRQP temporal and historical-state evidence.
+
+The same five-state continuity vocabulary remained usable without domain-specific changes to the continuity controller.
+
+### Authority boundary
+
+- These profiles define reusable technical assurance propositions and evidence expectations.
+- They do not create legal authority, institutional approval, certification, jurisdictional admissibility, or deployment permission.
+- Artifacts declares the technical effect of an already-classified change; observing that a real-world change occurred remains an operator/evaluator responsibility.
+
 ## [1.1.0] - 2026-08-22
 
 ### Summary
